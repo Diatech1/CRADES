@@ -10,7 +10,7 @@ export async function actualiteDetailPage(db: D1Database, lang: string, slug: st
       <section class="py-20 text-center">
         <i class="fas fa-newspaper text-5xl text-crades-gray-300 mb-4"></i>
         <h1 class="text-2xl font-bold text-crades-gray-700">${t('Article non trouvé', 'Article not found', lang)}</h1>
-        <a href="/actualites" class="text-crades-green hover:underline mt-4 inline-block">${t('Retour aux actualités', 'Back to news', lang)}</a>
+        <a href="/actualites" class="text-crades-blue hover:underline mt-4 inline-block">${t('Retour aux actualités', 'Back to news', lang)}</a>
       </section>
     `, { title: '404', lang })
   }
@@ -45,7 +45,7 @@ export async function actualiteDetailPage(db: D1Database, lang: string, slug: st
       </div>
       
       <div class="mt-8 pt-6 border-t border-crades-gray-200 flex items-center justify-between">
-        <a href="/${lang === 'en' ? 'news?lang=en' : 'actualites'}" class="text-crades-green font-medium hover:underline">
+        <a href="/${lang === 'en' ? 'news?lang=en' : 'actualites'}" class="text-crades-blue font-medium hover:underline">
           <i class="fas fa-arrow-left mr-1"></i> ${t('Retour aux actualités', 'Back to news', lang)}
         </a>
         <div class="flex gap-2">

@@ -132,8 +132,8 @@ api.get('/seed', async (c) => {
     // Settings
     const setStmt = db.prepare('INSERT OR REPLACE INTO site_settings (id, key, value) VALUES (?, ?, ?)')
     await db.batch([
-      setStmt.bind(1, 'site_name_fr', 'CRADES - Centre de Recherche, d\'Analyse et des Statistiques'),
-      setStmt.bind(2, 'site_name_en', 'CRADES - Research, Analysis and Statistics Center'),
+      setStmt.bind(1, 'site_name_fr', 'CRADES - Centre de Recherche, d\'Analyse des Echanges et Statistiques'),
+      setStmt.bind(2, 'site_name_en', 'CRADES - Research, Analysis of Trade and Statistics Center'),
       setStmt.bind(3, 'address', 'Immeuble CRADES, Rue Aimé Césaire, Plateau, Dakar, Sénégal'),
       setStmt.bind(4, 'phone', '+221 33 889 12 34'),
       setStmt.bind(5, 'email', 'contact@crades.gouv.sn'),

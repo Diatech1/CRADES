@@ -17,7 +17,7 @@ export async function publicationDetailPage(db: D1Database, lang: string, slug: 
       <section class="py-20 text-center">
         <i class="fas fa-file-excel text-5xl text-crades-gray-300 mb-4"></i>
         <h1 class="text-2xl font-bold text-crades-gray-700">${t('Publication non trouvée', 'Publication not found', lang)}</h1>
-        <a href="/publications" class="text-crades-green hover:underline mt-4 inline-block">${t('Retour aux publications', 'Back to publications', lang)}</a>
+        <a href="/publications" class="text-crades-blue hover:underline mt-4 inline-block">${t('Retour aux publications', 'Back to publications', lang)}</a>
       </section>
     `, { title: '404', lang })
   }
@@ -74,7 +74,7 @@ export async function publicationDetailPage(db: D1Database, lang: string, slug: 
           <div class="mt-8 p-6 bg-crades-gray-50 rounded-xl border border-crades-gray-200">
             <h3 class="font-semibold text-crades-gray-800 mb-3">${t('Télécharger', 'Download', lang)}</h3>
             <div class="flex flex-wrap gap-3">
-              <button class="inline-flex items-center gap-2 bg-crades-green text-white px-5 py-2.5 rounded-lg font-medium hover:bg-crades-green-dark transition-colors">
+              <button class="inline-flex items-center gap-2 bg-crades-blue text-white px-5 py-2.5 rounded-lg font-medium hover:bg-crades-blue-dark transition-colors">
                 <i class="fas fa-file-pdf"></i>
                 ${t('Télécharger PDF', 'Download PDF', lang)}
               </button>

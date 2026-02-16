@@ -1,4 +1,4 @@
-# CRADES - Centre de Recherche, d'Analyse et des Statistiques
+# CRADES - Centre de Recherche, d'Analyse des Echanges et Statistiques
 
 **Site institutionnel du CRADES** — Institution rattachée au Ministère de l'Industrie et du Commerce du Sénégal.
 
@@ -27,14 +27,16 @@ Le CRADES est le centre de référence national en matière de données industri
 
 ## Fonctionnalités Réalisées
 
-### Pages publiques
-- **Accueil** — Hero section, indicateurs clés dynamiques, dernières publications, tableaux de bord, actualités
-- **À propos** — Mission, vision, mandat institutionnel, organisation, équipe dirigeante, partenaires
-- **Publications** — Filtres dynamiques (type, secteur, année), 12 publications pré-chargées avec détail individuel
-- **Tableaux de bord** — 4 dashboards interactifs avec Chart.js, tableau synthétique des indicateurs
-- **Données & Statistiques** — 6 jeux de données téléchargeables, documentation API REST intégrée
-- **Actualités** — 5 articles avec catégorisation (communiqué, événement, partenariat, formation)
-- **Contact** — Formulaire fonctionnel, coordonnées, carte OpenStreetMap, horaires
+### Pages publiques (16 routes, FR & EN)
+- **Accueil** `/` — Hero section bleu/vert avec logo officiel, indicateurs clés dynamiques, dernières publications, tableaux de bord, actualités
+- **À propos** `/a-propos` (`/about`) — Mission, vision, mandat institutionnel, organisation, équipe dirigeante, partenaires
+- **Publications** `/publications` — Filtres dynamiques (type, secteur, année), 12 publications avec détail individuel et PDF
+- **Tableaux de bord** `/tableaux-de-bord` (`/dashboards`) — 4 dashboards interactifs avec Chart.js, tableau synthétique
+- **Données & Statistiques** `/donnees` (`/data`) — 6 jeux de données, documentation API REST intégrée
+- **Actualités** `/actualites` (`/news`) — 5 articles avec catégorisation (communiqué, événement, partenariat, formation)
+- **Contact** `/contact` — Formulaire fonctionnel, coordonnées, carte OpenStreetMap, horaires
+- **Admin** `/admin` — Dashboard statistiques, CRUD publications/actualités/indicateurs, messagerie
+- **Sitemap** `/sitemap.xml` — Plan de site automatique avec hreflang
 
 ### API REST Publique
 | Endpoint | Description |
@@ -68,6 +70,7 @@ Le CRADES est le centre de référence national en matière de données industri
 - **Rate Limiting** — Protection API (100 req/min par IP)
 - **Responsive** — Design mobile-first avec menu hamburger
 - **Panel Admin** — Dashboard statistiques, CRUD publications/actualités/indicateurs, messagerie
+- **Logo officiel** — Logo CRADES intégré dans header, footer, favicon
 
 ## Modèles de Données
 
@@ -89,12 +92,16 @@ Le CRADES est le centre de référence national en matière de données industri
 
 | Élément | Valeur |
 |---------|--------|
-| Vert institutionnel | `#1B5E3B` |
-| Vert foncé | `#0F3D26` |
-| Vert clair | `#2D8F5E` |
-| Or (accent) | `#C5A54E` |
-| Gris-800 | `#212529` |
-| Typographie | Inter (corps) + Source Serif 4 (titres) |
+| **Bleu institutionnel** (primaire) | `#2656A8` |
+| **Bleu foncé** | `#1A3F7A` |
+| **Bleu clair** | `#3A6FBF` |
+| **Vert** (secondaire) | `#1B5E3B` |
+| **Or** (accent) | `#C5A54E` |
+| **Gris-800** | `#212529` |
+| **Typographie** | Inter (corps) + Source Serif 4 (titres) |
+| **Hero gradient** | `#1A3F7A → #2656A8 → #1B5E3B` |
+
+> Les couleurs sont alignées avec le logo officiel CRADES (bleu dominant `#2656A8`).
 
 ## Guide d'utilisation
 

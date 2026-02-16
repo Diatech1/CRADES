@@ -32,21 +32,21 @@ export async function contactPage(db: D1Database, lang: string): Promise<string>
             <div class="grid sm:grid-cols-2 gap-5">
               <div>
                 <label class="block text-sm font-medium text-crades-gray-700 mb-1.5">${t('Nom complet', 'Full name', lang)} *</label>
-                <input type="text" name="name" required class="w-full px-4 py-2.5 border border-crades-gray-200 rounded-lg focus:outline-none focus:border-crades-green focus:ring-1 focus:ring-crades-green text-sm" placeholder="${t('Votre nom', 'Your name', lang)}">
+                <input type="text" name="name" required class="w-full px-4 py-2.5 border border-crades-gray-200 rounded-lg focus:outline-none focus:border-crades-blue focus:ring-1 focus:ring-crades-blue text-sm" placeholder="${t('Votre nom', 'Your name', lang)}">
               </div>
               <div>
                 <label class="block text-sm font-medium text-crades-gray-700 mb-1.5">Email *</label>
-                <input type="email" name="email" required class="w-full px-4 py-2.5 border border-crades-gray-200 rounded-lg focus:outline-none focus:border-crades-green focus:ring-1 focus:ring-crades-green text-sm" placeholder="${t('votre@email.com', 'your@email.com', lang)}">
+                <input type="email" name="email" required class="w-full px-4 py-2.5 border border-crades-gray-200 rounded-lg focus:outline-none focus:border-crades-blue focus:ring-1 focus:ring-crades-blue text-sm" placeholder="${t('votre@email.com', 'your@email.com', lang)}">
               </div>
             </div>
             <div class="grid sm:grid-cols-2 gap-5">
               <div>
                 <label class="block text-sm font-medium text-crades-gray-700 mb-1.5">${t('Organisation', 'Organization', lang)}</label>
-                <input type="text" name="organization" class="w-full px-4 py-2.5 border border-crades-gray-200 rounded-lg focus:outline-none focus:border-crades-green focus:ring-1 focus:ring-crades-green text-sm" placeholder="${t('Nom de votre organisation', 'Your organization', lang)}">
+                <input type="text" name="organization" class="w-full px-4 py-2.5 border border-crades-gray-200 rounded-lg focus:outline-none focus:border-crades-blue focus:ring-1 focus:ring-crades-blue text-sm" placeholder="${t('Nom de votre organisation', 'Your organization', lang)}">
               </div>
               <div>
                 <label class="block text-sm font-medium text-crades-gray-700 mb-1.5">${t('Sujet', 'Subject', lang)}</label>
-                <select name="subject" class="w-full px-4 py-2.5 border border-crades-gray-200 rounded-lg focus:outline-none focus:border-crades-green focus:ring-1 focus:ring-crades-green text-sm bg-white">
+                <select name="subject" class="w-full px-4 py-2.5 border border-crades-gray-200 rounded-lg focus:outline-none focus:border-crades-blue focus:ring-1 focus:ring-crades-blue text-sm bg-white">
                   <option value="">${t('Sélectionnez un sujet', 'Select a subject', lang)}</option>
                   <option value="data">${t('Demande de données', 'Data request', lang)}</option>
                   <option value="partnership">${t('Partenariat', 'Partnership', lang)}</option>
@@ -58,11 +58,11 @@ export async function contactPage(db: D1Database, lang: string): Promise<string>
             </div>
             <div>
               <label class="block text-sm font-medium text-crades-gray-700 mb-1.5">${t('Message', 'Message', lang)} *</label>
-              <textarea name="message" rows="5" required class="w-full px-4 py-2.5 border border-crades-gray-200 rounded-lg focus:outline-none focus:border-crades-green focus:ring-1 focus:ring-crades-green text-sm resize-none" placeholder="${t('Votre message...', 'Your message...', lang)}"></textarea>
+              <textarea name="message" rows="5" required class="w-full px-4 py-2.5 border border-crades-gray-200 rounded-lg focus:outline-none focus:border-crades-blue focus:ring-1 focus:ring-crades-blue text-sm resize-none" placeholder="${t('Votre message...', 'Your message...', lang)}"></textarea>
             </div>
             <div class="flex items-center justify-between">
               <p class="text-xs text-crades-gray-400">${t('* Champs obligatoires', '* Required fields', lang)}</p>
-              <button type="submit" class="inline-flex items-center gap-2 bg-crades-green text-white px-6 py-2.5 rounded-lg font-medium hover:bg-crades-green-dark transition-colors">
+              <button type="submit" class="inline-flex items-center gap-2 bg-crades-blue text-white px-6 py-2.5 rounded-lg font-medium hover:bg-crades-blue-dark transition-colors">
                 <i class="fas fa-paper-plane"></i>
                 ${t('Envoyer', 'Send', lang)}
               </button>
@@ -78,8 +78,8 @@ export async function contactPage(db: D1Database, lang: string): Promise<string>
           <h3 class="font-semibold text-crades-gray-800 mb-4">${t('Coordonnées', 'Contact Information', lang)}</h3>
           <div class="space-y-4">
             <div class="flex items-start gap-3">
-              <div class="w-9 h-9 bg-crades-green/10 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
-                <i class="fas fa-map-marker-alt text-crades-green text-sm"></i>
+              <div class="w-9 h-9 bg-crades-blue/10 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
+                <i class="fas fa-map-marker-alt text-crades-blue text-sm"></i>
               </div>
               <div>
                 <div class="text-sm font-medium text-crades-gray-700">${t('Adresse', 'Address', lang)}</div>
@@ -87,8 +87,8 @@ export async function contactPage(db: D1Database, lang: string): Promise<string>
               </div>
             </div>
             <div class="flex items-start gap-3">
-              <div class="w-9 h-9 bg-crades-green/10 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
-                <i class="fas fa-phone-alt text-crades-green text-sm"></i>
+              <div class="w-9 h-9 bg-crades-blue/10 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
+                <i class="fas fa-phone-alt text-crades-blue text-sm"></i>
               </div>
               <div>
                 <div class="text-sm font-medium text-crades-gray-700">${t('Téléphone', 'Phone', lang)}</div>
@@ -97,8 +97,8 @@ export async function contactPage(db: D1Database, lang: string): Promise<string>
               </div>
             </div>
             <div class="flex items-start gap-3">
-              <div class="w-9 h-9 bg-crades-green/10 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
-                <i class="fas fa-envelope text-crades-green text-sm"></i>
+              <div class="w-9 h-9 bg-crades-blue/10 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
+                <i class="fas fa-envelope text-crades-blue text-sm"></i>
               </div>
               <div>
                 <div class="text-sm font-medium text-crades-gray-700">Email</div>
@@ -137,7 +137,7 @@ export async function contactPage(db: D1Database, lang: string): Promise<string>
             </iframe>
           </div>
           <div class="p-3 text-center">
-            <a href="https://www.openstreetmap.org/?mlat=14.6940&mlon=-17.4470#map=17/14.6940/-17.4470" target="_blank" class="text-xs text-crades-green hover:underline">
+            <a href="https://www.openstreetmap.org/?mlat=14.6940&mlon=-17.4470#map=17/14.6940/-17.4470" target="_blank" class="text-xs text-crades-blue hover:underline">
               <i class="fas fa-external-link-alt mr-1"></i>${t('Voir sur la carte', 'View on map', lang)}
             </a>
           </div>

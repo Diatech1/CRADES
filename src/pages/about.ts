@@ -15,8 +15,8 @@ export async function aboutPage(db: D1Database, lang: string): Promise<string> {
     </nav>
     <h1 class="text-3xl lg:text-4xl font-bold text-white">${t('À propos du CRADES', 'About CRADES', lang)}</h1>
     <p class="text-white/80 mt-3 max-w-2xl text-lg">${t(
-      'Centre de Recherche, d\'Analyse et des Statistiques - Institution rattachée au Ministère de l\'Industrie et du Commerce',
-      'Research, Analysis and Statistics Center - Institution affiliated with the Ministry of Industry and Trade',
+      'Centre de Recherche, d\'Analyse des Echanges et Statistiques - Institution rattachée au Ministère de l\'Industrie et du Commerce',
+      'Research, Analysis of Trade and Statistics Center - Institution affiliated with the Ministry of Industry and Trade',
       lang
     )}</p>
   </div>
@@ -27,7 +27,7 @@ export async function aboutPage(db: D1Database, lang: string): Promise<string> {
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="grid lg:grid-cols-2 gap-12">
       <div>
-        <div class="inline-flex items-center gap-2 bg-crades-green/10 text-crades-green px-3 py-1 rounded-full text-sm font-medium mb-4">
+        <div class="inline-flex items-center gap-2 bg-crades-blue/10 text-crades-blue px-3 py-1 rounded-full text-sm font-medium mb-4">
           <i class="fas fa-bullseye"></i> ${t('Notre Mission', 'Our Mission', lang)}
         </div>
         <h2 class="text-2xl lg:text-3xl font-bold text-crades-gray-800 mb-6">${t(
@@ -37,8 +37,8 @@ export async function aboutPage(db: D1Database, lang: string): Promise<string> {
         )}</h2>
         <div class="prose prose-gray max-w-none">
           <p class="text-crades-gray-600 leading-relaxed mb-4">${t(
-            'Le Centre de Recherche, d\'Analyse et des Statistiques (CRADES) est une institution publique rattachée au Ministère de l\'Industrie et du Commerce du Sénégal. Créé pour renforcer la capacité analytique de l\'État en matière de politique industrielle et commerciale, le CRADES constitue le pilier statistique du développement économique national.',
-            'The Research, Analysis and Statistics Center (CRADES) is a public institution affiliated with the Ministry of Industry and Trade of Senegal. Created to strengthen the State\'s analytical capacity in industrial and trade policy, CRADES is the statistical pillar of national economic development.',
+            'Le Centre de Recherche, d\'Analyse des Echanges et Statistiques (CRADES) est une institution publique rattachée au Ministère de l\'Industrie et du Commerce du Sénégal. Créé pour renforcer la capacité analytique de l\'État en matière de politique industrielle et commerciale, le CRADES constitue le pilier statistique du développement économique national.',
+            'The Research, Analysis of Trade and Statistics Center (CRADES) is a public institution affiliated with the Ministry of Industry and Trade of Senegal. Created to strengthen the State\'s analytical capacity in industrial and trade policy, CRADES is the statistical pillar of national economic development.',
             lang
           )}</p>
           <p class="text-crades-gray-600 leading-relaxed">${t(
@@ -51,8 +51,8 @@ export async function aboutPage(db: D1Database, lang: string): Promise<string> {
       <div class="space-y-4">
         <div class="bg-crades-gray-50 rounded-xl p-6 border border-crades-gray-200">
           <div class="flex items-center gap-3 mb-3">
-            <div class="w-10 h-10 bg-crades-green/10 rounded-lg flex items-center justify-center">
-              <i class="fas fa-chart-bar text-crades-green"></i>
+            <div class="w-10 h-10 bg-crades-blue/10 rounded-lg flex items-center justify-center">
+              <i class="fas fa-chart-bar text-crades-blue"></i>
             </div>
             <h3 class="font-semibold text-crades-gray-800">${t('Production statistique', 'Statistical Production', lang)}</h3>
           </div>
@@ -64,8 +64,8 @@ export async function aboutPage(db: D1Database, lang: string): Promise<string> {
         </div>
         <div class="bg-crades-gray-50 rounded-xl p-6 border border-crades-gray-200">
           <div class="flex items-center gap-3 mb-3">
-            <div class="w-10 h-10 bg-crades-green/10 rounded-lg flex items-center justify-center">
-              <i class="fas fa-search text-crades-green"></i>
+            <div class="w-10 h-10 bg-crades-blue/10 rounded-lg flex items-center justify-center">
+              <i class="fas fa-search text-crades-blue"></i>
             </div>
             <h3 class="font-semibold text-crades-gray-800">${t('Recherche & Analyse', 'Research & Analysis', lang)}</h3>
           </div>
@@ -77,8 +77,8 @@ export async function aboutPage(db: D1Database, lang: string): Promise<string> {
         </div>
         <div class="bg-crades-gray-50 rounded-xl p-6 border border-crades-gray-200">
           <div class="flex items-center gap-3 mb-3">
-            <div class="w-10 h-10 bg-crades-green/10 rounded-lg flex items-center justify-center">
-              <i class="fas fa-globe text-crades-green"></i>
+            <div class="w-10 h-10 bg-crades-blue/10 rounded-lg flex items-center justify-center">
+              <i class="fas fa-globe text-crades-blue"></i>
             </div>
             <h3 class="font-semibold text-crades-gray-800">${t('Diffusion & Open Data', 'Dissemination & Open Data', lang)}</h3>
           </div>
@@ -112,8 +112,8 @@ export async function aboutPage(db: D1Database, lang: string): Promise<string> {
         )}</p>
       </div>
       <div class="bg-white rounded-xl p-8 border border-crades-gray-200">
-        <div class="w-12 h-12 bg-crades-green/10 rounded-xl flex items-center justify-center mb-4">
-          <i class="fas fa-scroll text-crades-green text-xl"></i>
+        <div class="w-12 h-12 bg-crades-blue/10 rounded-xl flex items-center justify-center mb-4">
+          <i class="fas fa-scroll text-crades-blue text-xl"></i>
         </div>
         <h3 class="text-xl font-bold text-crades-gray-800 mb-3">${t('Mandat Institutionnel', 'Institutional Mandate', lang)}</h3>
         <p class="text-crades-gray-600 leading-relaxed">${t(
@@ -132,8 +132,8 @@ export async function aboutPage(db: D1Database, lang: string): Promise<string> {
         { icon: 'fa-users', titleFr: 'Service public', titleEn: 'Public Service', descFr: 'Au service des citoyens et institutions', descEn: 'Serving citizens and institutions' },
       ].map(v => `
         <div class="text-center">
-          <div class="w-14 h-14 bg-crades-green/10 rounded-xl flex items-center justify-center mx-auto mb-3">
-            <i class="fas ${v.icon} text-crades-green text-xl"></i>
+          <div class="w-14 h-14 bg-crades-blue/10 rounded-xl flex items-center justify-center mx-auto mb-3">
+            <i class="fas ${v.icon} text-crades-blue text-xl"></i>
           </div>
           <h4 class="font-semibold text-crades-gray-800 mb-1">${lang === 'en' ? v.titleEn : v.titleFr}</h4>
           <p class="text-sm text-crades-gray-500">${lang === 'en' ? v.descEn : v.descFr}</p>
@@ -154,11 +154,11 @@ export async function aboutPage(db: D1Database, lang: string): Promise<string> {
     <!-- Org Structure -->
     <div class="bg-crades-gray-50 rounded-2xl p-8 border border-crades-gray-200 mb-12">
       <div class="text-center mb-8">
-        <div class="inline-block bg-crades-green text-white px-6 py-3 rounded-xl font-semibold">
+        <div class="inline-block bg-crades-blue text-white px-6 py-3 rounded-xl font-semibold">
           ${t('Ministère de l\'Industrie et du Commerce', 'Ministry of Industry and Trade', lang)}
         </div>
         <div class="w-0.5 h-8 bg-crades-gray-300 mx-auto"></div>
-        <div class="inline-block bg-crades-gold text-crades-green-dark px-6 py-3 rounded-xl font-bold text-lg">
+        <div class="inline-block bg-crades-gold text-crades-blue-dark px-6 py-3 rounded-xl font-bold text-lg">
           CRADES
         </div>
         <div class="w-0.5 h-8 bg-crades-gray-300 mx-auto"></div>
@@ -171,7 +171,7 @@ export async function aboutPage(db: D1Database, lang: string): Promise<string> {
           { fr: 'Division Données et Systèmes', en: 'Data and Systems Division', icon: 'fa-server' },
         ].map(d => `
           <div class="bg-white rounded-lg p-4 border border-crades-gray-200 text-center">
-            <i class="fas ${d.icon} text-crades-green text-lg mb-2"></i>
+            <i class="fas ${d.icon} text-crades-blue text-lg mb-2"></i>
             <div class="text-sm font-medium text-crades-gray-700">${lang === 'en' ? d.en : d.fr}</div>
           </div>
         `).join('')}
@@ -183,12 +183,12 @@ export async function aboutPage(db: D1Database, lang: string): Promise<string> {
       ${(team.results || []).map((member: any) => `
         <div class="bg-white rounded-xl border border-crades-gray-200 p-6 hover:shadow-lg transition-shadow">
           <div class="flex items-center gap-4 mb-4">
-            <div class="w-14 h-14 bg-crades-green/10 rounded-full flex items-center justify-center flex-shrink-0">
-              <span class="text-crades-green font-bold text-lg">${member.name.split(' ').map((n: string) => n[0]).join('').slice(0, 2)}</span>
+            <div class="w-14 h-14 bg-crades-blue/10 rounded-full flex items-center justify-center flex-shrink-0">
+              <span class="text-crades-blue font-bold text-lg">${member.name.split(' ').map((n: string) => n[0]).join('').slice(0, 2)}</span>
             </div>
             <div>
               <h3 class="font-semibold text-crades-gray-800">${member.name}</h3>
-              <p class="text-sm text-crades-green font-medium">${lang === 'en' ? member.title_en : member.title_fr}</p>
+              <p class="text-sm text-crades-blue font-medium">${lang === 'en' ? member.title_en : member.title_fr}</p>
             </div>
           </div>
           <p class="text-sm text-crades-gray-500 mb-2">

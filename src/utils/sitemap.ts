@@ -64,7 +64,7 @@ export function schemaOrg() {
     "@context": "https://schema.org",
     "@type": "GovernmentOrganization",
     "name": "CRADES",
-    "alternateName": "Centre de Recherche, d'Analyse et des Statistiques",
+    "alternateName": "Centre de Recherche, d'Analyse des Echanges et Statistiques",
     "url": "https://crades.gouv.sn",
     "logo": "https://crades.gouv.sn/static/logo.png",
     "description": "Institution rattachée au Ministère de l'Industrie et du Commerce du Sénégal, spécialisée dans la recherche, l'analyse économique et les statistiques industrielles.",

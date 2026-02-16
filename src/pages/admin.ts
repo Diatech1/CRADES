@@ -13,7 +13,7 @@ export async function adminPage(db: D1Database): Promise<string> {
       theme: {
         extend: {
           colors: {
-            crades: { green: '#1B5E3B', 'green-dark': '#0F3D26', gold: '#C5A54E' }
+            crades: { blue: '#2656A8', 'blue-dark': '#1A3F7A', 'blue-light': '#3A6FBF', green: '#1B5E3B', 'green-dark': '#0F3D26', gold: '#C5A54E' }
           },
           fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] }
         }
@@ -24,7 +24,7 @@ export async function adminPage(db: D1Database): Promise<string> {
 <body class="bg-gray-50 font-sans">
   <div id="app">
     <!-- Sidebar -->
-    <aside class="fixed left-0 top-0 h-full w-64 bg-crades-green-dark text-white z-40 flex flex-col">
+    <aside class="fixed left-0 top-0 h-full w-64 bg-gray-900 text-white z-40 flex flex-col">
       <div class="p-4 border-b border-white/10">
         <a href="/" class="flex items-center gap-2">
           <div class="w-8 h-8 bg-white/10 rounded-lg flex items-center justify-center">
@@ -67,7 +67,7 @@ export async function adminPage(db: D1Database): Promise<string> {
         <h1 id="page-title" class="text-lg font-bold text-gray-800">Tableau de bord</h1>
         <div class="flex items-center gap-3">
           <span class="text-sm text-gray-500">Administrateur</span>
-          <div class="w-8 h-8 bg-crades-green rounded-full flex items-center justify-center text-white text-xs font-bold">A</div>
+          <div class="w-8 h-8 bg-crades-blue rounded-full flex items-center justify-center text-white text-xs font-bold">A</div>
         </div>
       </header>
 
@@ -107,16 +107,16 @@ export async function adminPage(db: D1Database): Promise<string> {
           <div class="bg-white rounded-xl border border-gray-200 p-6">
             <h3 class="font-semibold text-gray-800 mb-4">Actions rapides</h3>
             <div class="grid sm:grid-cols-3 gap-3">
-              <button onclick="showSection('publications'); openAddForm('publications')" class="p-4 bg-gray-50 rounded-lg hover:bg-crades-green/5 transition-colors text-left">
-                <i class="fas fa-plus-circle text-crades-green mb-2"></i>
+              <button onclick="showSection('publications'); openAddForm('publications')" class="p-4 bg-gray-50 rounded-lg hover:bg-crades-blue/5 transition-colors text-left">
+                <i class="fas fa-plus-circle text-crades-blue mb-2"></i>
                 <div class="text-sm font-medium text-gray-700">Nouvelle publication</div>
               </button>
-              <button onclick="showSection('actualites'); openAddForm('actualites')" class="p-4 bg-gray-50 rounded-lg hover:bg-crades-green/5 transition-colors text-left">
-                <i class="fas fa-plus-circle text-crades-green mb-2"></i>
+              <button onclick="showSection('actualites'); openAddForm('actualites')" class="p-4 bg-gray-50 rounded-lg hover:bg-crades-blue/5 transition-colors text-left">
+                <i class="fas fa-plus-circle text-crades-blue mb-2"></i>
                 <div class="text-sm font-medium text-gray-700">Nouvelle actualité</div>
               </button>
-              <button onclick="showSection('indicators'); openAddForm('indicators')" class="p-4 bg-gray-50 rounded-lg hover:bg-crades-green/5 transition-colors text-left">
-                <i class="fas fa-plus-circle text-crades-green mb-2"></i>
+              <button onclick="showSection('indicators'); openAddForm('indicators')" class="p-4 bg-gray-50 rounded-lg hover:bg-crades-blue/5 transition-colors text-left">
+                <i class="fas fa-plus-circle text-crades-blue mb-2"></i>
                 <div class="text-sm font-medium text-gray-700">Nouvel indicateur</div>
               </button>
             </div>
@@ -127,7 +127,7 @@ export async function adminPage(db: D1Database): Promise<string> {
         <div id="section-publications" class="section-content hidden">
           <div class="flex items-center justify-between mb-6">
             <h2 class="text-lg font-bold text-gray-800">Gestion des Publications</h2>
-            <button onclick="openAddForm('publications')" class="bg-crades-green text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-crades-green-dark transition-colors">
+            <button onclick="openAddForm('publications')" class="bg-crades-blue text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-crades-blue-dark transition-colors">
               <i class="fas fa-plus mr-1"></i> Ajouter
             </button>
           </div>
@@ -140,7 +140,7 @@ export async function adminPage(db: D1Database): Promise<string> {
         <div id="section-actualites" class="section-content hidden">
           <div class="flex items-center justify-between mb-6">
             <h2 class="text-lg font-bold text-gray-800">Gestion des Actualités</h2>
-            <button onclick="openAddForm('actualites')" class="bg-crades-green text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-crades-green-dark transition-colors">
+            <button onclick="openAddForm('actualites')" class="bg-crades-blue text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-crades-blue-dark transition-colors">
               <i class="fas fa-plus mr-1"></i> Ajouter
             </button>
           </div>
@@ -153,7 +153,7 @@ export async function adminPage(db: D1Database): Promise<string> {
         <div id="section-indicators" class="section-content hidden">
           <div class="flex items-center justify-between mb-6">
             <h2 class="text-lg font-bold text-gray-800">Indicateurs Économiques</h2>
-            <button onclick="openAddForm('indicators')" class="bg-crades-green text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-crades-green-dark transition-colors">
+            <button onclick="openAddForm('indicators')" class="bg-crades-blue text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-crades-blue-dark transition-colors">
               <i class="fas fa-plus mr-1"></i> Ajouter
             </button>
           </div>
@@ -307,7 +307,7 @@ export async function adminPage(db: D1Database): Promise<string> {
           '<div><label class="block text-sm font-medium text-gray-700 mb-1">Auteur</label><input name="author" class="w-full px-3 py-2 border rounded-lg text-sm"></div></div>' +
           '<div><label class="block text-sm font-medium text-gray-700 mb-1">Résumé (FR)</label><textarea name="summary_fr" rows="3" class="w-full px-3 py-2 border rounded-lg text-sm"></textarea></div>' +
           '<div class="flex items-center gap-3"><label class="flex items-center gap-2"><input type="checkbox" name="is_featured" class="rounded"> <span class="text-sm">À la une</span></label></div>' +
-          '<button type="submit" class="w-full bg-crades-green text-white py-2.5 rounded-lg font-medium hover:bg-crades-green-dark transition-colors">Publier</button>' +
+          '<button type="submit" class="w-full bg-crades-blue text-white py-2.5 rounded-lg font-medium hover:bg-crades-blue-dark transition-colors">Publier</button>' +
           '</form>';
       } else if (type === 'actualites') {
         title.textContent = 'Nouvelle Actualité';
@@ -317,7 +317,7 @@ export async function adminPage(db: D1Database): Promise<string> {
           '<div><label class="block text-sm font-medium text-gray-700 mb-1">Catégorie</label><select name="category" class="w-full px-3 py-2 border rounded-lg text-sm"><option value="communique">Communiqué</option><option value="evenement">Événement</option><option value="partenariat">Partenariat</option><option value="formation">Formation</option><option value="general">Général</option></select></div>' +
           '<div><label class="block text-sm font-medium text-gray-700 mb-1">Extrait (FR)</label><textarea name="excerpt_fr" rows="2" class="w-full px-3 py-2 border rounded-lg text-sm"></textarea></div>' +
           '<div><label class="block text-sm font-medium text-gray-700 mb-1">Contenu (FR)</label><textarea name="content_fr" rows="5" class="w-full px-3 py-2 border rounded-lg text-sm"></textarea></div>' +
-          '<button type="submit" class="w-full bg-crades-green text-white py-2.5 rounded-lg font-medium hover:bg-crades-green-dark transition-colors">Publier</button>' +
+          '<button type="submit" class="w-full bg-crades-blue text-white py-2.5 rounded-lg font-medium hover:bg-crades-blue-dark transition-colors">Publier</button>' +
           '</form>';
       } else if (type === 'indicators') {
         title.textContent = 'Nouvel Indicateur';
@@ -332,7 +332,7 @@ export async function adminPage(db: D1Database): Promise<string> {
           '<div class="grid grid-cols-2 gap-4">' +
           '<div><label class="block text-sm font-medium text-gray-700 mb-1">Secteur</label><select name="sector" class="w-full px-3 py-2 border rounded-lg text-sm"><option value="general">Général</option><option value="industrie">Industrie</option><option value="commerce">Commerce</option><option value="pme">PME</option></select></div>' +
           '<div><label class="block text-sm font-medium text-gray-700 mb-1">Période</label><input name="period" class="w-full px-3 py-2 border rounded-lg text-sm" placeholder="T3 2025"></div></div>' +
-          '<button type="submit" class="w-full bg-crades-green text-white py-2.5 rounded-lg font-medium hover:bg-crades-green-dark transition-colors">Ajouter</button>' +
+          '<button type="submit" class="w-full bg-crades-blue text-white py-2.5 rounded-lg font-medium hover:bg-crades-blue-dark transition-colors">Ajouter</button>' +
           '</form>';
       }
       modal.classList.remove('hidden');

@@ -28,8 +28,8 @@ export async function dashboardsPage(db: D1Database, lang: string): Promise<stri
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="grid lg:grid-cols-2 gap-6 mb-12">
       ${(dashboards.results || []).map((db: any, i: number) => {
-        const colors = ['border-l-crades-green', 'border-l-blue-600', 'border-l-amber-500', 'border-l-purple-600']
-        const bgColors = ['bg-crades-green/5', 'bg-blue-50', 'bg-amber-50', 'bg-purple-50']
+        const colors = ['border-l-crades-blue', 'border-l-blue-600', 'border-l-amber-500', 'border-l-purple-600']
+        const bgColors = ['bg-crades-blue/5', 'bg-blue-50', 'bg-amber-50', 'bg-purple-50']
         return `
         <div id="${db.slug}" class="bg-white rounded-xl border border-crades-gray-200 border-l-4 ${colors[i % 4]} overflow-hidden">
           <div class="p-6">
@@ -46,7 +46,7 @@ export async function dashboardsPage(db: D1Database, lang: string): Promise<stri
             
             <div class="flex items-center justify-between text-sm">
               <span class="text-crades-gray-400"><i class="far fa-clock mr-1"></i>${t('Mis à jour', 'Updated', lang)}: ${t('Novembre 2025', 'November 2025', lang)}</span>
-              <button class="text-crades-green font-medium hover:underline">
+              <button class="text-crades-blue font-medium hover:underline">
                 <i class="fas fa-expand mr-1"></i>${t('Plein écran', 'Full screen', lang)}
               </button>
             </div>

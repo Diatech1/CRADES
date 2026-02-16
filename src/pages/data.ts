@@ -83,7 +83,7 @@ export async function dataPage(db: D1Database, lang: string): Promise<string> {
               </div>
             </div>
             <div class="flex gap-2 flex-shrink-0">
-              <button class="inline-flex items-center gap-2 bg-crades-green text-white px-4 py-2.5 rounded-lg text-sm font-medium hover:bg-crades-green-dark transition-colors">
+              <button class="inline-flex items-center gap-2 bg-crades-blue text-white px-4 py-2.5 rounded-lg text-sm font-medium hover:bg-crades-blue-dark transition-colors">
                 <i class="fas fa-download"></i>
                 ${t('Télécharger', 'Download', lang)}
               </button>

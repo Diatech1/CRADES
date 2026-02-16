@@ -64,7 +64,7 @@ export async function homePage(db: D1Database, lang: string): Promise<string> {
           )}
         </p>
         <div class="flex flex-wrap gap-3">
-          <a href="/publications${lang === 'en' ? '?lang=en' : ''}" class="inline-flex items-center gap-2 bg-crades-gold text-crades-green-dark px-6 py-3 rounded-lg font-semibold hover:bg-crades-gold-light transition-colors">
+          <a href="/publications${lang === 'en' ? '?lang=en' : ''}" class="inline-flex items-center gap-2 bg-crades-gold text-crades-blue-dark px-6 py-3 rounded-lg font-semibold hover:bg-crades-gold-light transition-colors">
             <i class="fas fa-book-open"></i>
             ${t('Voir les publications', 'View Publications', lang)}
           </a>
@@ -104,7 +104,7 @@ export async function homePage(db: D1Database, lang: string): Promise<string> {
         <h2 class="text-2xl font-bold text-crades-gray-800">${t('Indicateurs clés', 'Key Indicators', lang)}</h2>
         <p class="text-crades-gray-500 mt-1">${t('Dernières données disponibles', 'Latest available data', lang)}</p>
       </div>
-      <a href="/${lang === 'en' ? 'dashboards' : 'tableaux-de-bord'}" class="text-crades-green font-medium text-sm hover:underline">
+      <a href="/${lang === 'en' ? 'dashboards' : 'tableaux-de-bord'}" class="text-crades-blue font-medium text-sm hover:underline">
         ${t('Tous les tableaux de bord', 'All dashboards', lang)} <i class="fas fa-arrow-right ml-1"></i>
       </a>
     </div>
@@ -112,8 +112,8 @@ export async function homePage(db: D1Database, lang: string): Promise<string> {
       ${(indicators.results || []).map((ind: any) => `
         <div class="stat-card bg-white rounded-xl p-5 border border-crades-gray-200 transition-all duration-300 cursor-default">
           <div class="flex items-center justify-between mb-3">
-            <div class="w-10 h-10 rounded-lg bg-crades-green/10 flex items-center justify-center">
-              <i class="fas ${iconMap[ind.icon] || 'fa-chart-line'} text-crades-green"></i>
+            <div class="w-10 h-10 rounded-lg bg-crades-blue/10 flex items-center justify-center">
+              <i class="fas ${iconMap[ind.icon] || 'fa-chart-line'} text-crades-blue"></i>
             </div>
             <div class="flex items-center gap-1 text-xs font-medium px-2 py-1 rounded-full ${
               ind.change_direction === 'up' ? 'bg-green-50 text-green-700' : 
@@ -141,7 +141,7 @@ export async function homePage(db: D1Database, lang: string): Promise<string> {
         <h2 class="text-2xl font-bold text-crades-gray-800">${t('Dernières publications', 'Latest Publications', lang)}</h2>
         <p class="text-crades-gray-500 mt-1">${t('Études, rapports et analyses', 'Studies, reports and analyses', lang)}</p>
       </div>
-      <a href="/publications${lang === 'en' ? '?lang=en' : ''}" class="text-crades-green font-medium text-sm hover:underline">
+      <a href="/publications${lang === 'en' ? '?lang=en' : ''}" class="text-crades-blue font-medium text-sm hover:underline">
         ${t('Toutes les publications', 'All publications', lang)} <i class="fas fa-arrow-right ml-1"></i>
       </a>
     </div>
@@ -160,7 +160,7 @@ export async function homePage(db: D1Database, lang: string): Promise<string> {
               </span>
               <span class="text-xs text-crades-gray-400">${pub.year}</span>
             </div>
-            <h3 class="font-semibold text-crades-gray-800 group-hover:text-crades-green transition-colors line-clamp-2 mb-2">
+            <h3 class="font-semibold text-crades-gray-800 group-hover:text-crades-blue transition-colors line-clamp-2 mb-2">
               ${lang === 'en' ? pub.title_en : pub.title_fr}
             </h3>
             <p class="text-sm text-crades-gray-500 line-clamp-2 mb-4">
@@ -168,7 +168,7 @@ export async function homePage(db: D1Database, lang: string): Promise<string> {
             </p>
             <div class="flex items-center justify-between text-xs text-crades-gray-400">
               <span class="capitalize"><i class="fas fa-folder mr-1"></i>${pub.sector}</span>
-              <span class="text-crades-green font-medium group-hover:underline">${t('Lire', 'Read', lang)} <i class="fas fa-arrow-right ml-1"></i></span>
+              <span class="text-crades-blue font-medium group-hover:underline">${t('Lire', 'Read', lang)} <i class="fas fa-arrow-right ml-1"></i></span>
             </div>
           </div>
         </a>`
@@ -185,13 +185,13 @@ export async function homePage(db: D1Database, lang: string): Promise<string> {
         <h2 class="text-2xl font-bold text-crades-gray-800">${t('Tableaux de bord', 'Dashboards', lang)}</h2>
         <p class="text-crades-gray-500 mt-1">${t('Visualisations interactives des données', 'Interactive data visualizations', lang)}</p>
       </div>
-      <a href="/${lang === 'en' ? 'dashboards' : 'tableaux-de-bord'}" class="text-crades-green font-medium text-sm hover:underline">
+      <a href="/${lang === 'en' ? 'dashboards' : 'tableaux-de-bord'}" class="text-crades-blue font-medium text-sm hover:underline">
         ${t('Voir tous', 'View all', lang)} <i class="fas fa-arrow-right ml-1"></i>
       </a>
     </div>
     <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
       ${(dashboards.results || []).map((db: any, i: number) => {
-        const colors = ['from-crades-green to-emerald-600', 'from-blue-600 to-blue-800', 'from-amber-500 to-amber-700', 'from-purple-600 to-purple-800']
+        const colors = ['from-crades-blue to-blue-700', 'from-blue-600 to-blue-800', 'from-amber-500 to-amber-700', 'from-purple-600 to-purple-800']
         const icons = ['fa-industry', 'fa-ship', 'fa-building', 'fa-chart-line']
         return `
         <a href="/${lang === 'en' ? 'dashboards' : 'tableaux-de-bord'}#${db.slug}" class="group relative overflow-hidden rounded-xl bg-gradient-to-br ${colors[i % 4]} p-6 text-white hover:shadow-xl transition-all duration-300">
@@ -216,7 +216,7 @@ export async function homePage(db: D1Database, lang: string): Promise<string> {
         <h2 class="text-2xl font-bold text-crades-gray-800">${t('Actualités', 'News', lang)}</h2>
         <p class="text-crades-gray-500 mt-1">${t('Dernières informations du CRADES', 'Latest CRADES news', lang)}</p>
       </div>
-      <a href="/${lang === 'en' ? 'news?lang=en' : 'actualites'}" class="text-crades-green font-medium text-sm hover:underline">
+      <a href="/${lang === 'en' ? 'news?lang=en' : 'actualites'}" class="text-crades-blue font-medium text-sm hover:underline">
         ${t('Toutes les actualités', 'All news', lang)} <i class="fas fa-arrow-right ml-1"></i>
       </a>
     </div>
@@ -233,7 +233,7 @@ export async function homePage(db: D1Database, lang: string): Promise<string> {
             </span>
             <span class="text-xs text-crades-gray-400">${new Date(actu.published_at).toLocaleDateString(lang === 'en' ? 'en-GB' : 'fr-FR', { day: 'numeric', month: 'short', year: 'numeric' })}</span>
           </div>
-          <h3 class="font-semibold text-crades-gray-800 group-hover:text-crades-green transition-colors mb-2">
+          <h3 class="font-semibold text-crades-gray-800 group-hover:text-crades-blue transition-colors mb-2">
             ${lang === 'en' ? actu.title_en : actu.title_fr}
           </h3>
           <p class="text-sm text-crades-gray-500 line-clamp-2">
@@ -246,7 +246,7 @@ export async function homePage(db: D1Database, lang: string): Promise<string> {
 </section>
 
 <!-- Mission CTA -->
-<section class="bg-crades-green-dark text-white py-16">
+<section class="bg-crades-blue-dark text-white py-16">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="grid lg:grid-cols-2 gap-12 items-center">
       <div>
@@ -272,7 +272,7 @@ export async function homePage(db: D1Database, lang: string): Promise<string> {
             <div class="text-sm text-white/60 mt-1">${t('Secteurs couverts', 'Sectors covered', lang)}</div>
           </div>
         </div>
-        <a href="/${lang === 'en' ? 'about' : 'a-propos'}" class="inline-flex items-center gap-2 bg-crades-gold text-crades-green-dark px-6 py-3 rounded-lg font-semibold hover:bg-crades-gold-light transition-colors">
+        <a href="/${lang === 'en' ? 'about' : 'a-propos'}" class="inline-flex items-center gap-2 bg-crades-gold text-crades-blue-dark px-6 py-3 rounded-lg font-semibold hover:bg-crades-gold-light transition-colors">
           ${t('Découvrir le CRADES', 'Discover CRADES', lang)} <i class="fas fa-arrow-right ml-1"></i>
         </a>
       </div>

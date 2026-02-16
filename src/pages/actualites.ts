@@ -52,13 +52,13 @@ export async function actualitesPage(db: D1Database, lang: string): Promise<stri
             <span class="text-sm text-crades-gray-400">${new Date(featured.published_at).toLocaleDateString(lang === 'en' ? 'en-GB' : 'fr-FR', { day: 'numeric', month: 'long', year: 'numeric' })}</span>
             <span class="text-xs font-medium text-crades-gold bg-crades-gold/10 px-2 py-0.5 rounded">${t('À la une', 'Featured', lang)}</span>
           </div>
-          <h2 class="text-2xl font-bold text-crades-gray-800 mb-3 hover:text-crades-green transition-colors">
+          <h2 class="text-2xl font-bold text-crades-gray-800 mb-3 hover:text-crades-blue transition-colors">
             ${lang === 'en' ? featured.title_en || featured.title_fr : featured.title_fr}
           </h2>
           <p class="text-crades-gray-500 leading-relaxed max-w-3xl">
             ${lang === 'en' ? featured.excerpt_en || featured.excerpt_fr : featured.excerpt_fr}
           </p>
-          <span class="inline-flex items-center gap-1 text-crades-green font-medium mt-4 text-sm">
+          <span class="inline-flex items-center gap-1 text-crades-blue font-medium mt-4 text-sm">
             ${t('Lire la suite', 'Read more', lang)} <i class="fas fa-arrow-right"></i>
           </span>
         </div>
@@ -78,7 +78,7 @@ export async function actualitesPage(db: D1Database, lang: string): Promise<stri
             </span>
             <span class="text-xs text-crades-gray-400">${new Date(actu.published_at).toLocaleDateString(lang === 'en' ? 'en-GB' : 'fr-FR', { day: 'numeric', month: 'short', year: 'numeric' })}</span>
           </div>
-          <h3 class="font-semibold text-crades-gray-800 group-hover:text-crades-green transition-colors mb-2 line-clamp-2">
+          <h3 class="font-semibold text-crades-gray-800 group-hover:text-crades-blue transition-colors mb-2 line-clamp-2">
             ${lang === 'en' ? actu.title_en || actu.title_fr : actu.title_fr}
           </h3>
           <p class="text-sm text-crades-gray-500 line-clamp-3">

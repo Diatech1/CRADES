@@ -65,7 +65,7 @@ export async function publicationsPage(db: D1Database, lang: string, query: Reco
       ${lang === 'en' ? '<input type="hidden" name="lang" value="en">' : ''}
       
       <!-- Type Filter -->
-      <select name="type" onchange="this.form.submit()" class="px-3 py-2 bg-crades-gray-50 border border-crades-gray-200 rounded-lg text-sm text-crades-gray-700 focus:outline-none focus:border-crades-green">
+      <select name="type" onchange="this.form.submit()" class="px-3 py-2 bg-crades-gray-50 border border-crades-gray-200 rounded-lg text-sm text-crades-gray-700 focus:outline-none focus:border-crades-blue">
         <option value="">${t('Tous les types', 'All types', lang)}</option>
         ${Object.entries(typeLabels).map(([key, val]) => 
           `<option value="${key}" ${type === key ? 'selected' : ''}>${lang === 'en' ? val.en : val.fr}</option>`
@@ -73,7 +73,7 @@ export async function publicationsPage(db: D1Database, lang: string, query: Reco
       </select>
       
       <!-- Sector Filter -->
-      <select name="sector" onchange="this.form.submit()" class="px-3 py-2 bg-crades-gray-50 border border-crades-gray-200 rounded-lg text-sm text-crades-gray-700 focus:outline-none focus:border-crades-green">
+      <select name="sector" onchange="this.form.submit()" class="px-3 py-2 bg-crades-gray-50 border border-crades-gray-200 rounded-lg text-sm text-crades-gray-700 focus:outline-none focus:border-crades-blue">
         <option value="">${t('Tous les secteurs', 'All sectors', lang)}</option>
         ${Object.entries(sectorLabels).map(([key, val]) => 
           `<option value="${key}" ${sector === key ? 'selected' : ''}>${lang === 'en' ? val.en : val.fr}</option>`
@@ -81,13 +81,13 @@ export async function publicationsPage(db: D1Database, lang: string, query: Reco
       </select>
       
       <!-- Year Filter -->
-      <select name="year" onchange="this.form.submit()" class="px-3 py-2 bg-crades-gray-50 border border-crades-gray-200 rounded-lg text-sm text-crades-gray-700 focus:outline-none focus:border-crades-green">
+      <select name="year" onchange="this.form.submit()" class="px-3 py-2 bg-crades-gray-50 border border-crades-gray-200 rounded-lg text-sm text-crades-gray-700 focus:outline-none focus:border-crades-blue">
         <option value="">${t('Toutes les années', 'All years', lang)}</option>
         ${years.map((y: number) => `<option value="${y}" ${year === String(y) ? 'selected' : ''}>${y}</option>`).join('')}
       </select>
       
       ${(type || sector || year) ? `
-        <a href="/publications${lang === 'en' ? '?lang=en' : ''}" class="text-sm text-crades-green hover:underline">
+        <a href="/publications${lang === 'en' ? '?lang=en' : ''}" class="text-sm text-crades-blue hover:underline">
           <i class="fas fa-times mr-1"></i>${t('Réinitialiser', 'Reset', lang)}
         </a>
       ` : ''}
@@ -119,7 +119,7 @@ export async function publicationsPage(db: D1Database, lang: string, query: Reco
               </span>
               <span class="text-xs text-crades-gray-400">${pub.year}</span>
             </div>
-            <h3 class="font-semibold text-crades-gray-800 group-hover:text-crades-green transition-colors line-clamp-2 mb-2">
+            <h3 class="font-semibold text-crades-gray-800 group-hover:text-crades-blue transition-colors line-clamp-2 mb-2">
               ${lang === 'en' ? pub.title_en || pub.title_fr : pub.title_fr}
             </h3>
             <p class="text-sm text-crades-gray-500 line-clamp-3 mb-4">
@@ -127,7 +127,7 @@ export async function publicationsPage(db: D1Database, lang: string, query: Reco
             </p>
             <div class="flex items-center justify-between">
               <span class="text-xs text-crades-gray-400"><i class="fas fa-user mr-1"></i>${pub.author}</span>
-              <span class="text-sm text-crades-green font-medium group-hover:underline">
+              <span class="text-sm text-crades-blue font-medium group-hover:underline">
                 ${t('Lire', 'Read', lang)} <i class="fas fa-arrow-right ml-1"></i>
               </span>
             </div>

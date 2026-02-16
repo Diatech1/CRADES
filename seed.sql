@@ -96,8 +96,8 @@ INSERT OR IGNORE INTO team (name, title_fr, title_en, department_fr, department_
 -- SITE SETTINGS
 -- =====================================================
 INSERT OR IGNORE INTO site_settings (key, value) VALUES
-  ('site_name_fr', 'CRADES - Centre de Recherche, d''Analyse et des Statistiques'),
-  ('site_name_en', 'CRADES - Research, Analysis and Statistics Center'),
+  ('site_name_fr', 'CRADES - Centre de Recherche, d''Analyse des Echanges et Statistiques'),
+  ('site_name_en', 'CRADES - Research, Analysis of Trade and Statistics Center'),
   ('site_description_fr', 'Institution rattachée au Ministère de l''Industrie et du Commerce du Sénégal'),
   ('site_description_en', 'Institution affiliated to the Ministry of Industry and Trade of Senegal'),
   ('address', 'Immeuble CRADES, Rue Aimé Césaire, Plateau, Dakar, Sénégal'),
