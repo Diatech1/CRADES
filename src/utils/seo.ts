@@ -1,0 +1,1 @@
+export { schemaOrg } from './sitemap'
