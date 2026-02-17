@@ -25,9 +25,9 @@ export async function homePage(db: D1Database, lang: string): Promise<string> {
   
   <div class="max-w-6xl mx-auto px-4 sm:px-6 relative z-10 flex items-center min-h-[520px] lg:min-h-[560px]">
     <div class="pt-16 pb-28 lg:pt-20 lg:pb-32 max-w-xl">
-      <p class="text-brand-blue text-xs font-semibold uppercase tracking-widest mb-4">${t('Centre de Recherche, d\'Analyse et Statistiques', 'Research, Analysis and Statistics Centre', lang)}</p>
+      <p class="text-brand-blue text-xs font-semibold uppercase tracking-widest mb-4">CRADES</p>
       <h1 class="font-display text-3xl sm:text-4xl lg:text-5xl text-brand-navy leading-tight">
-        ${t('La reference nationale en donnees industrielles et commerciales', 'The national reference for industrial and trade data', lang)}
+        ${t('Centre de Recherche, d\'Analyse et Statistiques', 'Research, Analysis and Statistics Centre', lang)}
       </h1>
       <p class="text-gray-600 mt-5 text-sm leading-relaxed">
         ${t(
