@@ -84,10 +84,6 @@ export function layout(content: string, options: { title?: string; description?:
       <!-- Logo -->
       <a href="/${lang === 'en' ? '?lang=en' : ''}" class="flex items-center gap-3">
         <img src="/static/img/logo-crades.png" alt="CRADES" class="h-10 w-auto">
-        <div class="hidden sm:block leading-tight">
-          <span class="text-brand-blue font-bold text-sm tracking-tight">CRADES</span>
-          <span class="block text-[10px] text-gray-400 leading-tight">${t('Ministère de l\'Industrie et du Commerce', 'Ministry of Industry and Trade', lang)}</span>
-        </div>
       </a>
 
       <!-- Desktop Nav -->
@@ -124,7 +120,6 @@ export function layout(content: string, options: { title?: string; description?:
   <div class="flex items-center justify-between p-4 border-b border-gray-100">
     <a href="/" class="flex items-center gap-2">
       <img src="/static/img/logo-crades.png" alt="CRADES" class="h-8 w-auto">
-      <span class="font-bold text-brand-blue text-sm">CRADES</span>
     </a>
     <button onclick="document.getElementById('mobileMenu').classList.add('hidden')" class="w-8 h-8 flex items-center justify-center text-gray-400">
       <i class="fas fa-times"></i>
@@ -200,7 +195,6 @@ ${content}
       <div class="col-span-2 md:col-span-1">
         <div class="flex items-center gap-2 mb-3">
           <img src="/static/img/logo-crades.png" alt="CRADES" class="h-8 w-auto">
-          <span class="font-bold text-brand-blue text-sm">CRADES</span>
         </div>
         <p class="text-xs text-gray-400 leading-relaxed">${t('Centre de Recherche, d\'Analyse et Statistiques', 'Research, Analysis and Statistics Centre', lang)}</p>
       </div>
