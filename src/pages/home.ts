@@ -25,6 +25,7 @@ export async function homePage(db: D1Database, lang: string): Promise<string> {
   
   <div class="max-w-6xl mx-auto px-4 sm:px-6 relative z-10 flex items-center min-h-[520px] lg:min-h-[560px]">
     <div class="pt-16 pb-28 lg:pt-20 lg:pb-32 max-w-xl">
+      <img src="/static/img/logo-mincom.png" alt="MINCOM" class="h-16 sm:h-20 w-auto mb-5">
       <p class="text-brand-blue text-xs font-semibold uppercase tracking-widest mb-4">CRADES</p>
       <h1 class="font-display text-3xl sm:text-4xl lg:text-5xl text-brand-navy leading-tight">
         ${t('Centre de Recherche, d\'Analyse et Statistiques', 'Research, Analysis and Statistics Centre', lang)}
