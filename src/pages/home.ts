@@ -63,7 +63,7 @@ export async function homePage(db: D1Database, lang: string): Promise<string> {
 </section>
 
 <!-- All indicators — Expanded grid with trends -->
-<section class="border-b border-gray-100">
+<section class="bg-brand-frost border-b border-brand-ice/50">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 py-10">
     <div class="flex items-center justify-between mb-6">
       <h2 class="text-xs font-semibold text-gray-800 uppercase tracking-wider">${t('Indicateurs economiques', 'Economic indicators', lang)}</h2>
@@ -71,7 +71,7 @@ export async function homePage(db: D1Database, lang: string): Promise<string> {
     </div>
     <div class="grid grid-cols-2 sm:grid-cols-4 gap-5">
       ${(indicators.results || []).map((ind: any) => `
-        <div class="border border-gray-100 rounded-lg p-4 hover:border-gray-200 transition-colors">
+        <div class="bg-white border border-brand-ice/60 rounded-lg p-4 hover:border-brand-sky/40 hover:shadow-sm transition-all">
           <div class="flex items-center justify-between mb-2">
             <span class="text-[11px] text-gray-400 capitalize">${ind.sector}</span>
             <span class="inline-flex items-center gap-0.5 text-[11px] font-medium ${ind.change_direction === 'up' ? 'text-emerald-600' : ind.change_direction === 'down' ? 'text-red-500' : 'text-gray-400'}">
@@ -119,7 +119,7 @@ export async function homePage(db: D1Database, lang: string): Promise<string> {
 </section>
 
 <!-- Actualités — Minimal cards -->
-<section class="bg-gray-50/60 border-y border-gray-100 py-16">
+<section class="bg-brand-frost border-y border-brand-ice/50 py-16">
   <div class="max-w-6xl mx-auto px-4 sm:px-6">
     <div class="flex items-center justify-between mb-8">
       <h2 class="font-display text-xl text-gray-800">${t('Actualités', 'News', lang)}</h2>
@@ -127,7 +127,7 @@ export async function homePage(db: D1Database, lang: string): Promise<string> {
     </div>
     <div class="grid md:grid-cols-3 gap-6">
       ${(actualites.results || []).map((actu: any) => `
-        <a href="/actualites/${actu.slug}${lang === 'en' ? '?lang=en' : ''}" class="bg-white rounded-lg border border-gray-100 p-5 hover:border-gray-200 hover:shadow-sm transition-all group">
+        <a href="/actualites/${actu.slug}${lang === 'en' ? '?lang=en' : ''}" class="bg-white rounded-lg border border-brand-ice/60 p-5 hover:border-brand-sky/40 hover:shadow-sm transition-all group">
           <span class="text-[11px] text-gray-400">${new Date(actu.published_at).toLocaleDateString(lang === 'en' ? 'en-GB' : 'fr-FR', { day: 'numeric', month: 'short', year: 'numeric' })}</span>
           <h3 class="text-sm font-medium text-gray-800 mt-2 group-hover:text-brand-blue transition-colors line-clamp-2">${lang === 'en' ? actu.title_en || actu.title_fr : actu.title_fr}</h3>
           <p class="text-xs text-gray-400 mt-2 line-clamp-2">${lang === 'en' ? actu.excerpt_en || actu.excerpt_fr : actu.excerpt_fr}</p>

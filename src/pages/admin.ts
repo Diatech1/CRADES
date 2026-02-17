@@ -13,7 +13,7 @@ export async function adminPage(db: D1Database): Promise<string> {
       theme: {
         extend: {
           colors: {
-            crades: { blue: '#2656A8', 'blue-dark': '#1A3F7A', 'blue-light': '#3A6FBF', green: '#1B5E3B', 'green-dark': '#0F3D26', gold: '#C5A54E' }
+            crades: { blue: '#2272B9', 'blue-dark': '#0D2F3F', 'blue-light': '#6BC1F0', green: '#1B5E3B', 'green-dark': '#0F3D26', gold: '#C5A54E' }
           },
           fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] }
         }

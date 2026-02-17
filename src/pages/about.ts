@@ -42,7 +42,7 @@ export async function aboutPage(db: D1Database, lang: string): Promise<string> {
 </section>
 
 <!-- Values -->
-<section class="bg-gray-50/60 border-y border-gray-100 py-16">
+<section class="bg-brand-frost border-y border-brand-ice/50 py-16">
   <div class="max-w-6xl mx-auto px-4 sm:px-6">
     <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
       ${[
@@ -69,7 +69,7 @@ export async function aboutPage(db: D1Database, lang: string): Promise<string> {
       ${(team.results || []).map((member: any) => `
         <div class="border border-gray-100 rounded-lg p-5">
           <div class="flex items-center gap-3 mb-2">
-            <div class="w-9 h-9 bg-brand-navy/5 rounded-full flex items-center justify-center text-xs font-semibold text-brand-blue">
+            <div class="w-9 h-9 bg-brand-ice rounded-full flex items-center justify-center text-xs font-semibold text-brand-blue">
               ${member.name.split(' ').map((n: string) => n[0]).join('').slice(0, 2)}
             </div>
             <div>

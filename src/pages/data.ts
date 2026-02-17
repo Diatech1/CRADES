@@ -46,7 +46,7 @@ export async function dataPage(db: D1Database, lang: string): Promise<string> {
 </section>
 
 <!-- API -->
-<section class="bg-gray-50/60 border-t border-gray-100 py-12">
+<section class="bg-brand-frost border-t border-brand-ice/50 py-12">
   <div class="max-w-6xl mx-auto px-4 sm:px-6">
     <h2 class="text-xs font-semibold text-gray-800 uppercase tracking-wider mb-5">${t('API publique', 'Public API', lang)}</h2>
     <div class="space-y-2">
