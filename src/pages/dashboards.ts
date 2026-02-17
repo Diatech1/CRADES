@@ -78,10 +78,10 @@ export async function dashboardsPage(db: D1Database, lang: string): Promise<stri
 <script>
 document.addEventListener('DOMContentLoaded', () => {
   const cfgs = [
-    { id: 'chart-dashboard-industriel', label: '${t("Production industrielle", "Industrial production", lang)}', data: [98,102,105,108,112,115,118,121,119,123,125,127], color: '#1e3a5f' },
+    { id: 'chart-dashboard-industriel', label: '${t("Production industrielle", "Industrial production", lang)}', data: [98,102,105,108,112,115,118,121,119,123,125,127], color: '#2656A8' },
     { id: 'chart-dashboard-commerce-exterieur', label: '${t("Balance commerciale", "Trade balance", lang)}', data: [-85,-78,-92,-88,-95,-80,-75,-89,-82,-90,-88,-89], color: '#b8943e' },
     { id: 'chart-dashboard-pme', label: '${t("Créations PME", "SME creations", lang)}', data: [320,380,410,350,420,460,480,510,490,530,550,580], color: '#64748b' },
-    { id: 'chart-dashboard-ipp', label: '${t("Indice des prix", "Price index", lang)}', data: [100,101.2,102.5,103.1,103.8,104.2,105.1,105.8,106.2,106.9,107.5,108.1], color: '#162d4a' },
+    { id: 'chart-dashboard-ipp', label: '${t("Indice des prix", "Price index", lang)}', data: [100,101.2,102.5,103.1,103.8,104.2,105.1,105.8,106.2,106.9,107.5,108.1], color: '#1e3a5f' },
   ];
   cfgs.forEach(c => {
     const el = document.getElementById(c.id);

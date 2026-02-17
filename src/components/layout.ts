@@ -36,8 +36,8 @@ export function layout(content: string, options: { title?: string; description?:
         extend: {
           colors: {
             brand: {
-              blue: '#1e3a5f',
-              navy: '#162d4a',
+              blue: '#2656A8',
+              navy: '#1e3a5f',
               gold: '#b8943e',
               'gold-light': '#d4b262',
               slate: '#64748b',
@@ -54,7 +54,7 @@ export function layout(content: string, options: { title?: string; description?:
   <style>
     .fade-up { animation: fadeUp .5s ease-out both; }
     @keyframes fadeUp { from { opacity:0; transform:translateY(12px) } to { opacity:1; transform:translateY(0) } }
-    ::selection { background: #1e3a5f; color: #fff; }
+    ::selection { background: #2656A8; color: #fff; }
   </style>
   <script type="application/ld+json">
   {
