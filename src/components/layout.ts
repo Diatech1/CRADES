@@ -5,7 +5,7 @@ export function layout(content: string, options: { title?: string; description?:
   const lang = options.lang || 'fr'
   const title = options.title 
     ? `${options.title} | CRADES` 
-    : 'CRADES - Centre de Recherche, d\'Analyse des Echanges et Statistiques'
+    : 'CRADES - Centre de Recherche, d\'Analyse et Statistiques'
   const description = options.description || 
     'Institution rattachée au Ministère de l\'Industrie et du Commerce du Sénégal.'
   const path = options.path || '/'
@@ -63,7 +63,7 @@ export function layout(content: string, options: { title?: string; description?:
     "@context": "https://schema.org",
     "@type": "GovernmentOrganization",
     "name": "CRADES",
-    "alternateName": "Centre de Recherche, d'Analyse des Echanges et Statistiques",
+    "alternateName": "Centre de Recherche, d'Analyse et Statistiques",
     "url": "https://crades.gouv.sn",
     "logo": "https://crades.gouv.sn/static/img/logo-crades.png",
     "address": {
@@ -202,7 +202,7 @@ ${content}
           <img src="/static/img/logo-crades.png" alt="CRADES" class="h-8 w-auto">
           <span class="font-bold text-brand-blue text-sm">CRADES</span>
         </div>
-        <p class="text-xs text-gray-400 leading-relaxed">${t('Centre de Recherche, d\'Analyse des Echanges et Statistiques', 'Research, Analysis of Trade and Statistics Center', lang)}</p>
+        <p class="text-xs text-gray-400 leading-relaxed">${t('Centre de Recherche, d\'Analyse et Statistiques', 'Research, Analysis and Statistics Centre', lang)}</p>
       </div>
       <div>
         <h4 class="text-xs font-semibold text-gray-800 uppercase tracking-wider mb-3">${t('Navigation', 'Navigation', lang)}</h4>
