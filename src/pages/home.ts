@@ -17,14 +17,14 @@ export async function homePage(db: D1Database, lang: string): Promise<string> {
 
   const content = `
 <!-- Hero — Light blue image with statistics -->
-<section class="relative overflow-hidden min-h-[420px] lg:min-h-[480px]">
+<section class="relative overflow-hidden min-h-[520px] lg:min-h-[560px]">
   <!-- Background image -->
   <img src="/static/img/hero-stats.png" alt="" class="absolute inset-0 w-full h-full object-cover" loading="eager">
   <!-- Subtle overlay for text readability on left -->
   <div class="absolute inset-0 bg-gradient-to-r from-white/80 via-white/50 to-transparent"></div>
   
-  <div class="max-w-6xl mx-auto px-4 sm:px-6 relative z-10 flex items-center min-h-[420px] lg:min-h-[480px]">
-    <div class="py-16 lg:py-20 max-w-xl">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 relative z-10 flex items-center min-h-[520px] lg:min-h-[560px]">
+    <div class="pt-16 pb-28 lg:pt-20 lg:pb-32 max-w-xl">
       <p class="text-brand-blue text-xs font-semibold uppercase tracking-widest mb-4">${t('Republique du Senegal — Ministere de l\'Industrie et du Commerce', 'Republic of Senegal — Ministry of Industry and Trade', lang)}</p>
       <h1 class="font-display text-3xl sm:text-4xl lg:text-5xl text-brand-navy leading-tight">
         ${t('La reference nationale en donnees industrielles et commerciales', 'The national reference for industrial and trade data', lang)}
@@ -36,7 +36,7 @@ export async function homePage(db: D1Database, lang: string): Promise<string> {
           lang
         )}
       </p>
-      <div class="flex flex-wrap gap-3 mt-8">
+      <div class="flex flex-wrap gap-4 mt-10">
         <a href="/publications${lang === 'en' ? '?lang=en' : ''}" class="text-sm font-medium bg-brand-blue text-white px-5 py-2.5 rounded-lg hover:bg-brand-navy transition-colors shadow-sm">
           ${t('Publications', 'Publications', lang)}
         </a>
