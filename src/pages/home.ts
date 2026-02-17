@@ -16,20 +16,20 @@ export async function homePage(db: D1Database, lang: string): Promise<string> {
   const actualites = await db.prepare('SELECT * FROM actualites WHERE is_published = 1 ORDER BY published_at DESC LIMIT 3').all()
 
   const content = `
-<!-- Hero — Image with statistics -->
+<!-- Hero — Light blue image with statistics -->
 <section class="relative overflow-hidden min-h-[420px] lg:min-h-[480px]">
   <!-- Background image -->
   <img src="/static/img/hero-stats.png" alt="" class="absolute inset-0 w-full h-full object-cover" loading="eager">
-  <!-- Overlay for text readability -->
-  <div class="absolute inset-0 bg-gradient-to-r from-brand-navy/95 via-brand-navy/80 to-brand-navy/40"></div>
+  <!-- Subtle overlay for text readability on left -->
+  <div class="absolute inset-0 bg-gradient-to-r from-white/80 via-white/50 to-transparent"></div>
   
   <div class="max-w-6xl mx-auto px-4 sm:px-6 relative z-10 flex items-center min-h-[420px] lg:min-h-[480px]">
     <div class="py-16 lg:py-20 max-w-xl">
-      <p class="text-brand-gold text-xs font-semibold uppercase tracking-widest mb-4">${t('Republique du Senegal — Ministere de l\'Industrie et du Commerce', 'Republic of Senegal — Ministry of Industry and Trade', lang)}</p>
-      <h1 class="font-display text-3xl sm:text-4xl lg:text-5xl text-white leading-tight">
+      <p class="text-brand-blue text-xs font-semibold uppercase tracking-widest mb-4">${t('Republique du Senegal — Ministere de l\'Industrie et du Commerce', 'Republic of Senegal — Ministry of Industry and Trade', lang)}</p>
+      <h1 class="font-display text-3xl sm:text-4xl lg:text-5xl text-brand-navy leading-tight">
         ${t('La reference nationale en donnees industrielles et commerciales', 'The national reference for industrial and trade data', lang)}
       </h1>
-      <p class="text-gray-300 mt-5 text-sm leading-relaxed">
+      <p class="text-gray-600 mt-5 text-sm leading-relaxed">
         ${t(
           'Le CRADES produit et diffuse les statistiques, etudes et analyses strategiques sur l\'industrie et le commerce du Senegal.',
           'CRADES produces and disseminates statistics, studies and strategic analyses on Senegal\'s industry and trade.',
@@ -37,24 +37,24 @@ export async function homePage(db: D1Database, lang: string): Promise<string> {
         )}
       </p>
       <div class="flex flex-wrap gap-3 mt-8">
-        <a href="/publications${lang === 'en' ? '?lang=en' : ''}" class="text-sm font-medium bg-brand-gold text-brand-navy px-5 py-2.5 rounded-lg hover:bg-brand-gold-light transition-colors">
+        <a href="/publications${lang === 'en' ? '?lang=en' : ''}" class="text-sm font-medium bg-brand-blue text-white px-5 py-2.5 rounded-lg hover:bg-brand-navy transition-colors shadow-sm">
           ${t('Publications', 'Publications', lang)}
         </a>
-        <a href="/${lang === 'en' ? 'data' : 'donnees'}" class="text-sm font-medium bg-white/10 text-white px-5 py-2.5 rounded-lg hover:bg-white/20 transition-colors backdrop-blur-sm border border-white/10">
+        <a href="/${lang === 'en' ? 'data' : 'donnees'}" class="text-sm font-medium bg-white text-brand-navy px-5 py-2.5 rounded-lg hover:bg-brand-frost transition-colors border border-brand-ice shadow-sm">
           ${t('Donnees ouvertes', 'Open data', lang)}
         </a>
       </div>
     </div>
   </div>
 
-  <!-- Key stats overlay strip at bottom -->
-  <div class="absolute bottom-0 inset-x-0 z-10 bg-black/30 backdrop-blur-md border-t border-white/10">
+  <!-- Key stats strip at bottom -->
+  <div class="absolute bottom-0 inset-x-0 z-10 bg-brand-navy/90 backdrop-blur-md">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 py-4">
       <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 text-center">
         ${(indicators.results || []).slice(0, 4).map((ind: any) => `
           <div>
-            <div class="text-lg sm:text-xl font-bold text-white">${ind.value}<span class="text-xs font-normal text-white/60 ml-1">${ind.unit}</span></div>
-            <div class="text-[11px] text-white/50 mt-0.5">${lang === 'en' ? ind.name_en : ind.name_fr}</div>
+            <div class="text-lg sm:text-xl font-bold text-white">${ind.value}<span class="text-xs font-normal text-brand-sky ml-1">${ind.unit}</span></div>
+            <div class="text-[11px] text-brand-sky/70 mt-0.5">${lang === 'en' ? ind.name_en : ind.name_fr}</div>
           </div>
         `).join('')}
       </div>
