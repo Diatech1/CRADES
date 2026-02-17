@@ -16,48 +16,72 @@ export async function homePage(db: D1Database, lang: string): Promise<string> {
   const actualites = await db.prepare('SELECT * FROM actualites WHERE is_published = 1 ORDER BY published_at DESC LIMIT 3').all()
 
   const content = `
-<!-- Hero — Clean, minimal -->
-<section class="bg-brand-navy relative overflow-hidden">
-  <div class="max-w-6xl mx-auto px-4 sm:px-6 py-20 lg:py-28 relative z-10">
-    <p class="text-brand-gold text-xs font-semibold uppercase tracking-widest mb-4">${t('République du Sénégal — Ministère de l\'Industrie et du Commerce', 'Republic of Senegal — Ministry of Industry and Trade', lang)}</p>
-    <h1 class="font-display text-3xl sm:text-4xl lg:text-5xl text-white leading-tight max-w-2xl">
-      ${t('La référence nationale en données industrielles et commerciales', 'The national reference for industrial and trade data', lang)}
-    </h1>
-    <p class="text-gray-400 mt-5 max-w-xl text-sm leading-relaxed">
-      ${t(
-        'Le CRADES produit et diffuse les statistiques, études et analyses stratégiques sur l\'industrie et le commerce du Sénégal.',
-        'CRADES produces and disseminates statistics, studies and strategic analyses on Senegal\'s industry and trade.',
-        lang
-      )}
-    </p>
-    <div class="flex gap-3 mt-8">
-      <a href="/publications${lang === 'en' ? '?lang=en' : ''}" class="text-sm font-medium bg-brand-gold text-brand-navy px-5 py-2.5 rounded-lg hover:bg-brand-gold-light transition-colors">
-        ${t('Publications', 'Publications', lang)}
-      </a>
-      <a href="/${lang === 'en' ? 'data' : 'donnees'}" class="text-sm font-medium bg-white/10 text-white px-5 py-2.5 rounded-lg hover:bg-white/15 transition-colors">
-        ${t('Données ouvertes', 'Open data', lang)}
-      </a>
+<!-- Hero — Image with statistics -->
+<section class="relative overflow-hidden min-h-[420px] lg:min-h-[480px]">
+  <!-- Background image -->
+  <img src="/static/img/hero-stats.png" alt="" class="absolute inset-0 w-full h-full object-cover" loading="eager">
+  <!-- Overlay for text readability -->
+  <div class="absolute inset-0 bg-gradient-to-r from-brand-navy/95 via-brand-navy/80 to-brand-navy/40"></div>
+  
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 relative z-10 flex items-center min-h-[420px] lg:min-h-[480px]">
+    <div class="py-16 lg:py-20 max-w-xl">
+      <p class="text-brand-gold text-xs font-semibold uppercase tracking-widest mb-4">${t('Republique du Senegal — Ministere de l\'Industrie et du Commerce', 'Republic of Senegal — Ministry of Industry and Trade', lang)}</p>
+      <h1 class="font-display text-3xl sm:text-4xl lg:text-5xl text-white leading-tight">
+        ${t('La reference nationale en donnees industrielles et commerciales', 'The national reference for industrial and trade data', lang)}
+      </h1>
+      <p class="text-gray-300 mt-5 text-sm leading-relaxed">
+        ${t(
+          'Le CRADES produit et diffuse les statistiques, etudes et analyses strategiques sur l\'industrie et le commerce du Senegal.',
+          'CRADES produces and disseminates statistics, studies and strategic analyses on Senegal\'s industry and trade.',
+          lang
+        )}
+      </p>
+      <div class="flex flex-wrap gap-3 mt-8">
+        <a href="/publications${lang === 'en' ? '?lang=en' : ''}" class="text-sm font-medium bg-brand-gold text-brand-navy px-5 py-2.5 rounded-lg hover:bg-brand-gold-light transition-colors">
+          ${t('Publications', 'Publications', lang)}
+        </a>
+        <a href="/${lang === 'en' ? 'data' : 'donnees'}" class="text-sm font-medium bg-white/10 text-white px-5 py-2.5 rounded-lg hover:bg-white/20 transition-colors backdrop-blur-sm border border-white/10">
+          ${t('Donnees ouvertes', 'Open data', lang)}
+        </a>
+      </div>
     </div>
   </div>
-  <div class="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-brand-gold/5 to-transparent"></div>
+
+  <!-- Key stats overlay strip at bottom -->
+  <div class="absolute bottom-0 inset-x-0 z-10 bg-black/30 backdrop-blur-md border-t border-white/10">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-4">
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 text-center">
+        ${(indicators.results || []).slice(0, 4).map((ind: any) => `
+          <div>
+            <div class="text-lg sm:text-xl font-bold text-white">${ind.value}<span class="text-xs font-normal text-white/60 ml-1">${ind.unit}</span></div>
+            <div class="text-[11px] text-white/50 mt-0.5">${lang === 'en' ? ind.name_en : ind.name_fr}</div>
+          </div>
+        `).join('')}
+      </div>
+    </div>
+  </div>
 </section>
 
-<!-- Key indicators — Compact horizontal strip -->
+<!-- All indicators — Expanded grid with trends -->
 <section class="border-b border-gray-100">
-  <div class="max-w-6xl mx-auto px-4 sm:px-6 py-8">
-    <div class="flex items-center justify-between mb-5">
-      <h2 class="text-xs font-semibold text-gray-800 uppercase tracking-wider">${t('Indicateurs clés', 'Key indicators', lang)}</h2>
-      <a href="/${lang === 'en' ? 'dashboards' : 'tableaux-de-bord'}" class="text-xs text-brand-gold hover:underline">${t('Voir tout', 'See all', lang)} &rarr;</a>
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 py-10">
+    <div class="flex items-center justify-between mb-6">
+      <h2 class="text-xs font-semibold text-gray-800 uppercase tracking-wider">${t('Indicateurs economiques', 'Economic indicators', lang)}</h2>
+      <a href="/${lang === 'en' ? 'dashboards' : 'tableaux-de-bord'}" class="text-xs text-brand-gold hover:underline">${t('Tableaux de bord', 'Dashboards', lang)} &rarr;</a>
     </div>
-    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
-      ${(indicators.results || []).slice(0, 4).map((ind: any) => `
-        <div class="group">
-          <div class="text-2xl font-bold text-gray-800">${ind.value}<span class="text-xs font-normal text-gray-400 ml-1">${ind.unit}</span></div>
-          <div class="text-xs text-gray-500 mt-1">${lang === 'en' ? ind.name_en : ind.name_fr}</div>
-          <div class="flex items-center gap-1 mt-1.5 text-[11px] ${ind.change_direction === 'up' ? 'text-emerald-600' : ind.change_direction === 'down' ? 'text-red-500' : 'text-gray-400'}">
-            <i class="fas fa-arrow-${ind.change_direction === 'up' ? 'up' : ind.change_direction === 'down' ? 'down' : 'right'} text-[8px]"></i>
-            ${Math.abs(ind.change_percent)}% &middot; ${ind.period}
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-5">
+      ${(indicators.results || []).map((ind: any) => `
+        <div class="border border-gray-100 rounded-lg p-4 hover:border-gray-200 transition-colors">
+          <div class="flex items-center justify-between mb-2">
+            <span class="text-[11px] text-gray-400 capitalize">${ind.sector}</span>
+            <span class="inline-flex items-center gap-0.5 text-[11px] font-medium ${ind.change_direction === 'up' ? 'text-emerald-600' : ind.change_direction === 'down' ? 'text-red-500' : 'text-gray-400'}">
+              <i class="fas fa-arrow-${ind.change_direction === 'up' ? 'up' : ind.change_direction === 'down' ? 'down' : 'right'} text-[8px]"></i>
+              ${Math.abs(ind.change_percent)}%
+            </span>
           </div>
+          <div class="text-xl font-bold text-gray-800">${ind.value}<span class="text-xs font-normal text-gray-400 ml-1">${ind.unit}</span></div>
+          <div class="text-xs text-gray-500 mt-1">${lang === 'en' ? ind.name_en : ind.name_fr}</div>
+          <div class="text-[10px] text-gray-300 mt-1">${ind.period}</div>
         </div>
       `).join('')}
     </div>
