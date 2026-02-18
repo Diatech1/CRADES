@@ -37,7 +37,7 @@ export function layout(content: string, options: { title?: string; description?:
           colors: {
             brand: {
               navy: '#0D2F3F',
-              blue: '#2845D6',
+              blue: '#044bad',
               sky: '#6BC1F0',
               ice: '#D9F0FC',
               frost: '#F0F7FB',
