@@ -78,13 +78,9 @@ export function layout(content: string, options: { title?: string; description?:
 <body class="bg-white font-sans text-gray-700 antialiased">
 
 <!-- Ministry top bar -->
-<div class="bg-brand-navy text-white">
-  <div class="max-w-6xl mx-auto px-4 sm:px-6 py-2 flex items-center gap-3">
+<div class="bg-brand-frost border-b border-brand-ice">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 py-2 flex justify-center">
     <img src="/static/img/logo-mincom.png" alt="MINCOM" class="h-10 w-auto">
-    <div class="hidden sm:block leading-tight">
-      <span class="text-[11px] font-semibold tracking-wide">Minist&egrave;re de l&rsquo;Industrie et du Commerce</span>
-      <span class="block text-[9px] text-white/60">R&eacute;publique du S&eacute;n&eacute;gal</span>
-    </div>
   </div>
 </div>
 
