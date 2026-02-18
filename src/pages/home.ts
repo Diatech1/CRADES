@@ -61,6 +61,35 @@ export async function homePage(db: D1Database, lang: string): Promise<string> {
   </div>
 </section>
 
+<!-- Mission -->
+<section class="py-14 bg-brand-frost border-b border-brand-ice/50">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+    <div class="grid md:grid-cols-3 gap-8 text-center">
+      <div>
+        <div class="w-12 h-12 mx-auto mb-4 rounded-full bg-brand-blue/10 flex items-center justify-center">
+          <i class="fas fa-chart-line text-brand-blue text-lg"></i>
+        </div>
+        <h3 class="font-semibold text-sm text-gray-800 mb-2">${t('Produire des statistiques', 'Produce statistics', lang)}</h3>
+        <p class="text-xs text-gray-500 leading-relaxed">${t('Collecter, traiter et diffuser les donnees statistiques sur l\'industrie et le commerce du Senegal.', 'Collect, process and disseminate statistical data on Senegal\'s industry and trade.', lang)}</p>
+      </div>
+      <div>
+        <div class="w-12 h-12 mx-auto mb-4 rounded-full bg-brand-blue/10 flex items-center justify-center">
+          <i class="fas fa-microscope text-brand-blue text-lg"></i>
+        </div>
+        <h3 class="font-semibold text-sm text-gray-800 mb-2">${t('Analyser et rechercher', 'Analyze and research', lang)}</h3>
+        <p class="text-xs text-gray-500 leading-relaxed">${t('Mener des etudes et analyses strategiques pour eclairer les politiques publiques et les acteurs economiques.', 'Conduct strategic studies and analyses to inform public policies and economic stakeholders.', lang)}</p>
+      </div>
+      <div>
+        <div class="w-12 h-12 mx-auto mb-4 rounded-full bg-brand-blue/10 flex items-center justify-center">
+          <i class="fas fa-globe-africa text-brand-blue text-lg"></i>
+        </div>
+        <h3 class="font-semibold text-sm text-gray-800 mb-2">${t('Accompagner les echanges', 'Support trade', lang)}</h3>
+        <p class="text-xs text-gray-500 leading-relaxed">${t('Fournir aux operateurs economiques et aux institutions les outils necessaires au developpement des echanges commerciaux.', 'Provide economic operators and institutions with the tools needed to develop trade.', lang)}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- Latest publications — Simple list -->
 <section class="py-16">
   <div class="max-w-6xl mx-auto px-4 sm:px-6">
