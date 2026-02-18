@@ -80,10 +80,10 @@ export function layout(content: string, options: { title?: string; description?:
 <!-- Header -->
 <header class="bg-white border-b border-gray-100 sticky top-0 z-50">
   <div class="max-w-6xl mx-auto px-4 sm:px-6">
-    <div class="flex items-center justify-between h-36">
+    <div class="flex items-center justify-between h-28">
       <!-- Logo -->
       <a href="/${lang === 'en' ? '?lang=en' : ''}" class="flex items-center gap-3">
-        <img src="/static/img/logo-crades.png" alt="CRADES" class="h-32 w-auto">
+        <img src="/static/img/logo-crades.png" alt="CRADES" class="h-24 w-auto">
       </a>
 
       <!-- Desktop Nav -->
@@ -119,7 +119,7 @@ export function layout(content: string, options: { title?: string; description?:
 <div id="mobileMenu" class="hidden fixed inset-0 z-[60] bg-white lg:hidden">
   <div class="flex items-center justify-between p-4 border-b border-gray-100">
     <a href="/" class="flex items-center gap-2">
-      <img src="/static/img/logo-crades.png" alt="CRADES" class="h-24 w-auto">
+      <img src="/static/img/logo-crades.png" alt="CRADES" class="h-20 w-auto">
     </a>
     <button onclick="document.getElementById('mobileMenu').classList.add('hidden')" class="w-8 h-8 flex items-center justify-center text-gray-400">
       <i class="fas fa-times"></i>
@@ -194,7 +194,7 @@ ${content}
     <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
       <div class="col-span-2 md:col-span-1">
         <div class="flex items-center gap-2 mb-3">
-          <img src="/static/img/logo-crades.png" alt="CRADES" class="h-24 w-auto">
+          <img src="/static/img/logo-crades.png" alt="CRADES" class="h-20 w-auto">
         </div>
         <p class="text-xs text-gray-400 leading-relaxed">${t('Centre de Recherche, d\'Analyse et Statistiques', 'Research, Analysis and Statistics Centre', lang)}</p>
       </div>
