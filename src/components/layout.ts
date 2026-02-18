@@ -78,7 +78,7 @@ export function layout(content: string, options: { title?: string; description?:
 <body class="bg-white font-sans text-gray-700 antialiased">
 
 <!-- Ministry top bar -->
-<div class="bg-brand-frost border-b border-brand-ice">
+<div class="bg-white border-b border-gray-100">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 py-1 flex justify-center">
     <img src="/static/img/logo-mincom.png" alt="MINCOM" class="h-10 w-auto">
   </div>
