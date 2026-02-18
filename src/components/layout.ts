@@ -87,10 +87,10 @@ export function layout(content: string, options: { title?: string; description?:
 <!-- Header -->
 <header class="bg-white border-b border-gray-100 sticky top-0 z-50">
   <div class="max-w-6xl mx-auto px-4 sm:px-6">
-    <div class="flex items-center justify-between h-28">
+    <div class="flex items-center justify-between h-20">
       <!-- Logo -->
       <a href="/${lang === 'en' ? '?lang=en' : ''}" class="flex items-center gap-3">
-        <img src="/static/img/logo-crades.png" alt="CRADES" class="h-24 w-auto">
+        <img src="/static/img/logo-crades.png" alt="CRADES" class="h-16 w-auto">
       </a>
 
       <!-- Desktop Nav -->
