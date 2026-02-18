@@ -90,30 +90,28 @@ export async function homePage(db: D1Database, lang: string): Promise<string> {
   </div>
 </section>
 
-<!-- Latest publications — Simple list -->
+<!-- Latest publications — Cards -->
 <section class="py-16">
   <div class="max-w-6xl mx-auto px-4 sm:px-6">
     <div class="flex items-center justify-between mb-8">
       <h2 class="font-display text-xl text-gray-800">${t('Dernières publications', 'Latest publications', lang)}</h2>
       <a href="/publications${lang === 'en' ? '?lang=en' : ''}" class="text-xs text-brand-gold hover:underline">${t('Toutes les publications', 'All publications', lang)} &rarr;</a>
     </div>
-    <div class="divide-y divide-gray-100">
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
       ${(publications.results || []).map((pub: any) => {
         const typeInfo = typeLabels[pub.type] || typeLabels['rapport']
         return `
-        <a href="/publications/${pub.slug}${lang === 'en' ? '?lang=en' : ''}" class="flex items-start gap-4 py-5 group">
-          <div class="flex-1 min-w-0">
-            <div class="flex items-center gap-2 mb-1.5">
-              <span class="text-[11px] font-medium text-brand-gold uppercase tracking-wide">${lang === 'en' ? typeInfo.en : typeInfo.fr}</span>
-              <span class="text-gray-300">&middot;</span>
-              <span class="text-[11px] text-gray-400">${pub.year}</span>
-              <span class="text-gray-300">&middot;</span>
-              <span class="text-[11px] text-gray-400 capitalize">${pub.sector}</span>
-            </div>
-            <h3 class="text-sm font-medium text-gray-800 group-hover:text-brand-blue transition-colors">${lang === 'en' ? pub.title_en || pub.title_fr : pub.title_fr}</h3>
-            <p class="text-xs text-gray-400 mt-1 line-clamp-1">${lang === 'en' ? pub.summary_en || pub.summary_fr : pub.summary_fr}</p>
+        <a href="/publications/${pub.slug}${lang === 'en' ? '?lang=en' : ''}" class="bg-white border border-brand-ice/60 rounded-lg p-5 hover:border-brand-sky/40 hover:shadow-md transition-all group flex flex-col">
+          <div class="flex items-center gap-2 mb-3">
+            <span class="text-[10px] font-semibold text-white bg-brand-blue px-2 py-0.5 rounded">${lang === 'en' ? typeInfo.en : typeInfo.fr}</span>
+            <span class="text-[11px] text-gray-400">${pub.year}</span>
           </div>
-          <i class="fas fa-chevron-right text-[10px] text-gray-300 group-hover:text-brand-blue mt-2 transition-colors"></i>
+          <h3 class="text-sm font-semibold text-gray-800 group-hover:text-brand-blue transition-colors line-clamp-2 mb-2">${lang === 'en' ? pub.title_en || pub.title_fr : pub.title_fr}</h3>
+          <p class="text-xs text-gray-400 line-clamp-2 mb-3 flex-1">${lang === 'en' ? pub.summary_en || pub.summary_fr : pub.summary_fr}</p>
+          <div class="flex items-center justify-between mt-auto pt-3 border-t border-gray-100">
+            <span class="text-[11px] text-gray-400 capitalize">${pub.sector}</span>
+            <span class="text-xs text-brand-blue font-medium group-hover:translate-x-0.5 transition-transform">${t('Lire', 'Read', lang)} <i class="fas fa-arrow-right text-[9px] ml-0.5"></i></span>
+          </div>
         </a>`
       }).join('')}
     </div>
