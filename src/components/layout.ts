@@ -36,11 +36,11 @@ export function layout(content: string, options: { title?: string; description?:
         extend: {
           colors: {
             brand: {
-              navy: '#0D2F3F',
+              navy: '#032d6b',
               blue: '#044bad',
-              sky: '#6BC1F0',
-              ice: '#D9F0FC',
-              frost: '#F0F7FB',
+              sky: '#3a7fd4',
+              ice: '#c7ddf5',
+              frost: '#eef4fb',
               gold: '#b8943e',
               'gold-light': '#d4b262',
             }
@@ -56,7 +56,7 @@ export function layout(content: string, options: { title?: string; description?:
   <style>
     .fade-up { animation: fadeUp .5s ease-out both; }
     @keyframes fadeUp { from { opacity:0; transform:translateY(12px) } to { opacity:1; transform:translateY(0) } }
-    ::selection { background: #2272B9; color: #fff; }
+    ::selection { background: #044bad; color: #fff; }
   </style>
   <script type="application/ld+json">
   {
