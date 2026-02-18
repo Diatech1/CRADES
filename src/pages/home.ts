@@ -52,8 +52,8 @@ export async function homePage(db: D1Database, lang: string): Promise<string> {
       <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 text-center">
         ${(indicators.results || []).slice(0, 4).map((ind: any) => `
           <div>
-            <div class="text-lg sm:text-xl font-bold text-white">${ind.value}<span class="text-xs font-normal text-brand-sky ml-1">${ind.unit}</span></div>
-            <div class="text-[11px] text-brand-sky/70 mt-0.5">${lang === 'en' ? ind.name_en : ind.name_fr}</div>
+            <div class="text-lg sm:text-xl font-bold text-white">${ind.value}<span class="text-xs font-normal text-white/70 ml-1">${ind.unit}</span></div>
+            <div class="text-[11px] text-white/50 mt-0.5">${lang === 'en' ? ind.name_en : ind.name_fr}</div>
           </div>
         `).join('')}
       </div>
