@@ -61,32 +61,6 @@ export async function homePage(db: D1Database, lang: string): Promise<string> {
   </div>
 </section>
 
-<!-- All indicators — Expanded grid with trends -->
-<section class="bg-brand-frost border-b border-brand-ice/50">
-  <div class="max-w-6xl mx-auto px-4 sm:px-6 py-10">
-    <div class="flex items-center justify-between mb-6">
-      <h2 class="text-xs font-semibold text-gray-800 uppercase tracking-wider">${t('Indicateurs economiques', 'Economic indicators', lang)}</h2>
-      <a href="/${lang === 'en' ? 'dashboards' : 'tableaux-de-bord'}" class="text-xs text-brand-gold hover:underline">${t('Tableaux de bord', 'Dashboards', lang)} &rarr;</a>
-    </div>
-    <div class="grid grid-cols-2 sm:grid-cols-4 gap-5">
-      ${(indicators.results || []).map((ind: any) => `
-        <div class="bg-white border border-brand-ice/60 rounded-lg p-4 hover:border-brand-sky/40 hover:shadow-sm transition-all">
-          <div class="flex items-center justify-between mb-2">
-            <span class="text-[11px] text-gray-400 capitalize">${ind.sector}</span>
-            <span class="inline-flex items-center gap-0.5 text-[11px] font-medium ${ind.change_direction === 'up' ? 'text-emerald-600' : ind.change_direction === 'down' ? 'text-red-500' : 'text-gray-400'}">
-              <i class="fas fa-arrow-${ind.change_direction === 'up' ? 'up' : ind.change_direction === 'down' ? 'down' : 'right'} text-[8px]"></i>
-              ${Math.abs(ind.change_percent)}%
-            </span>
-          </div>
-          <div class="text-xl font-bold text-gray-800">${ind.value}<span class="text-xs font-normal text-gray-400 ml-1">${ind.unit}</span></div>
-          <div class="text-xs text-gray-500 mt-1">${lang === 'en' ? ind.name_en : ind.name_fr}</div>
-          <div class="text-[10px] text-gray-300 mt-1">${ind.period}</div>
-        </div>
-      `).join('')}
-    </div>
-  </div>
-</section>
-
 <!-- Latest publications — Simple list -->
 <section class="py-16">
   <div class="max-w-6xl mx-auto px-4 sm:px-6">
@@ -113,6 +87,32 @@ export async function homePage(db: D1Database, lang: string): Promise<string> {
           <i class="fas fa-chevron-right text-[10px] text-gray-300 group-hover:text-brand-blue mt-2 transition-colors"></i>
         </a>`
       }).join('')}
+    </div>
+  </div>
+</section>
+
+<!-- All indicators — Expanded grid with trends -->
+<section class="bg-brand-frost border-b border-brand-ice/50">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 py-10">
+    <div class="flex items-center justify-between mb-6">
+      <h2 class="text-xs font-semibold text-gray-800 uppercase tracking-wider">${t('Indicateurs economiques', 'Economic indicators', lang)}</h2>
+      <a href="/${lang === 'en' ? 'dashboards' : 'tableaux-de-bord'}" class="text-xs text-brand-gold hover:underline">${t('Tableaux de bord', 'Dashboards', lang)} &rarr;</a>
+    </div>
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-5">
+      ${(indicators.results || []).map((ind: any) => `
+        <div class="bg-white border border-brand-ice/60 rounded-lg p-4 hover:border-brand-sky/40 hover:shadow-sm transition-all">
+          <div class="flex items-center justify-between mb-2">
+            <span class="text-[11px] text-gray-400 capitalize">${ind.sector}</span>
+            <span class="inline-flex items-center gap-0.5 text-[11px] font-medium ${ind.change_direction === 'up' ? 'text-emerald-600' : ind.change_direction === 'down' ? 'text-red-500' : 'text-gray-400'}">
+              <i class="fas fa-arrow-${ind.change_direction === 'up' ? 'up' : ind.change_direction === 'down' ? 'down' : 'right'} text-[8px]"></i>
+              ${Math.abs(ind.change_percent)}%
+            </span>
+          </div>
+          <div class="text-xl font-bold text-gray-800">${ind.value}<span class="text-xs font-normal text-gray-400 ml-1">${ind.unit}</span></div>
+          <div class="text-xs text-gray-500 mt-1">${lang === 'en' ? ind.name_en : ind.name_fr}</div>
+          <div class="text-[10px] text-gray-300 mt-1">${ind.period}</div>
+        </div>
+      `).join('')}
     </div>
   </div>
 </section>
