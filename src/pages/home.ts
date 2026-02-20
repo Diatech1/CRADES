@@ -10,6 +10,31 @@ export async function homePage(): Promise<string> {
     getPosts(3),
   ])
 
+  // Build chart configs from WP dashboard meta
+  const defaultColors = ['#044bad', '#b8943e', '#3a7fd4', '#032d6b']
+  const chartConfigs = dashboards.length > 0 
+    ? dashboards.map((d: WPPost, i: number) => {
+        let chartData = null
+        try {
+          const raw = d.meta?.dashboard_chart_data
+          if (raw) chartData = typeof raw === 'string' ? JSON.parse(raw) : raw
+        } catch (e) { /* invalid JSON */ }
+        return {
+          id: `home-chart-${d.slug || d.id}`,
+          label: chartData?.label || d.title?.rendered || '',
+          data: chartData?.data || [],
+          labels: chartData?.labels || [],
+          type: chartData?.type || 'line',
+          color: d.meta?.dashboard_chart_color || defaultColors[i % 4],
+        }
+      })
+    : [
+        { id: 'home-chart-dashboard-industriel', label: 'Production industrielle', data: [98,102,105,108,112,115,118,121,119,123,125,127], labels: ['J','F','M','A','M','J','J','A','S','O','N','D'], type: 'line', color: '#044bad' },
+        { id: 'home-chart-dashboard-commerce-exterieur', label: 'Balance commerciale', data: [-85,-78,-92,-88,-95,-80,-75,-89,-82,-90,-88,-89], labels: ['J','F','M','A','M','J','J','A','S','O','N','D'], type: 'bar', color: '#b8943e' },
+        { id: 'home-chart-dashboard-pme', label: 'Créations PME', data: [320,380,410,350,420,460,480,510,490,530,550,580], labels: ['J','F','M','A','M','J','J','A','S','O','N','D'], type: 'line', color: '#3a7fd4' },
+        { id: 'home-chart-dashboard-ipp', label: 'Indice des prix', data: [100,101.2,102.5,103.1,103.8,104.2,105.1,105.8,106.2,106.9,107.5,108.1], labels: ['J','F','M','A','M','J','J','A','S','O','N','D'], type: 'line', color: '#032d6b' },
+      ]
+
   const content = `
 <!-- Hero -->
 <section class="relative overflow-hidden bg-brand-frost">
@@ -64,33 +89,16 @@ export async function homePage(): Promise<string> {
       <a href="/tableaux-de-bord" class="text-xs text-brand-gold hover:underline">Voir tout &rarr;</a>
     </div>
     <div class="grid lg:grid-cols-2 gap-6">
-      ${dashboards.length > 0 ? dashboards.map((d: WPPost) => `
+      ${(dashboards.length > 0 ? dashboards : [{slug:'dashboard-industriel',title:{rendered:'Production industrielle'}},{slug:'dashboard-commerce-exterieur',title:{rendered:'Balance commerciale'}},{slug:'dashboard-pme',title:{rendered:'Créations PME'}},{slug:'dashboard-ipp',title:{rendered:'Indice des prix'}}]).map((d: any) => `
         <div class="border border-gray-100 rounded-lg p-5">
           <div class="flex items-center justify-between mb-4">
             <h3 class="text-sm font-medium text-gray-800">${d.title?.rendered || ''}</h3>
           </div>
           <div class="bg-gray-50 rounded-md p-3">
-            <canvas id="home-chart-${d.slug}" height="160"></canvas>
+            <canvas id="home-chart-${d.slug || d.id}" height="160"></canvas>
           </div>
         </div>
-      `).join('') : `
-        <div class="border border-gray-100 rounded-lg p-5">
-          <h3 class="text-sm font-medium text-gray-800 mb-4">Production industrielle</h3>
-          <div class="bg-gray-50 rounded-md p-3"><canvas id="home-chart-dashboard-industriel" height="160"></canvas></div>
-        </div>
-        <div class="border border-gray-100 rounded-lg p-5">
-          <h3 class="text-sm font-medium text-gray-800 mb-4">Balance commerciale</h3>
-          <div class="bg-gray-50 rounded-md p-3"><canvas id="home-chart-dashboard-commerce-exterieur" height="160"></canvas></div>
-        </div>
-        <div class="border border-gray-100 rounded-lg p-5">
-          <h3 class="text-sm font-medium text-gray-800 mb-4">Créations PME</h3>
-          <div class="bg-gray-50 rounded-md p-3"><canvas id="home-chart-dashboard-pme" height="160"></canvas></div>
-        </div>
-        <div class="border border-gray-100 rounded-lg p-5">
-          <h3 class="text-sm font-medium text-gray-800 mb-4">Indice des prix</h3>
-          <div class="bg-gray-50 rounded-md p-3"><canvas id="home-chart-dashboard-ipp" height="160"></canvas></div>
-        </div>
-      `}
+      `).join('')}
     </div>
   </div>
 </section>
@@ -196,18 +204,13 @@ export async function homePage(): Promise<string> {
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-  const cfgs = [
-    { id: 'home-chart-dashboard-industriel', label: 'Production industrielle', data: [98,102,105,108,112,115,118,121,119,123,125,127], color: '#044bad' },
-    { id: 'home-chart-dashboard-commerce-exterieur', label: 'Balance commerciale', data: [-85,-78,-92,-88,-95,-80,-75,-89,-82,-90,-88,-89], color: '#b8943e' },
-    { id: 'home-chart-dashboard-pme', label: 'Créations PME', data: [320,380,410,350,420,460,480,510,490,530,550,580], color: '#3a7fd4' },
-    { id: 'home-chart-dashboard-ipp', label: 'Indice des prix', data: [100,101.2,102.5,103.1,103.8,104.2,105.1,105.8,106.2,106.9,107.5,108.1], color: '#032d6b' },
-  ];
+  const cfgs = ${JSON.stringify(chartConfigs)};
   cfgs.forEach(c => {
     const el = document.getElementById(c.id);
-    if (!el) return;
+    if (!el || !c.data || !c.data.length) return;
     new Chart(el, {
-      type: 'line',
-      data: { labels: ['J','F','M','A','M','J','J','A','S','O','N','D'], datasets: [{ label: c.label, data: c.data, borderColor: c.color, backgroundColor: c.color + '10', fill: true, tension: .4, pointRadius: 2, borderWidth: 1.5 }] },
+      type: c.type || 'line',
+      data: { labels: c.labels, datasets: [{ label: c.label, data: c.data, borderColor: c.color, backgroundColor: c.color + '10', fill: true, tension: .4, pointRadius: 2, borderWidth: 1.5 }] },
       options: { responsive: true, plugins: { legend: { display: false } }, scales: { y: { beginAtZero: false, grid: { color: '#f1f5f9' }, ticks: { font: { size: 10 } } }, x: { grid: { display: false }, ticks: { font: { size: 10 } } } } }
     });
   });
