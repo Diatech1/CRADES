@@ -1,6 +1,5 @@
 import { Hono } from 'hono'
 import { cors } from 'hono/cors'
-import { apiRoutes } from './api/routes'
 import { homePage } from './pages/home'
 import { aboutPage } from './pages/about'
 import { publicationsPage } from './pages/publications'
@@ -10,15 +9,13 @@ import { dataPage } from './pages/data'
 import { actualitesPage } from './pages/actualites'
 import { actualiteDetailPage } from './pages/actualite-detail'
 import { contactPage } from './pages/contact'
-import { adminPage } from './pages/admin'
-import { sitemapXml } from './utils/sitemap'
+import { adminRedirectPage } from './pages/admin'
+import { apiRoutes } from './api/routes'
 import { schemaOrg } from './utils/seo'
+import { sitemapXml } from './utils/sitemap'
+import { getWpAdminUrl } from './utils/wp-api'
 
-type Bindings = {
-  DB: D1Database
-}
-
-const app = new Hono<{ Bindings: Bindings }>()
+const app = new Hono()
 
 // CORS for API routes
 app.use('/api/*', cors({
@@ -27,105 +24,66 @@ app.use('/api/*', cors({
   allowHeaders: ['Content-Type', 'Authorization'],
 }))
 
-// Rate limiting simple
-const requestCounts = new Map<string, { count: number; resetAt: number }>()
-app.use('/api/*', async (c, next) => {
-  const ip = c.req.header('cf-connecting-ip') || 'unknown'
-  const now = Date.now()
-  const record = requestCounts.get(ip)
-  if (record && record.resetAt > now) {
-    if (record.count > 100) {
-      return c.json({ error: 'Rate limit exceeded' }, 429)
-    }
-    record.count++
-  } else {
-    requestCounts.set(ip, { count: 1, resetAt: now + 60000 })
-  }
-  await next()
-})
-
-// API routes
+// ---- API routes (WordPress proxy) ----
 app.route('/api', apiRoutes)
 
-// Sitemap
-app.get('/sitemap.xml', async (c) => {
-  const xml = await sitemapXml(c.env.DB)
-  return c.text(xml, 200, { 'Content-Type': 'application/xml' })
+// ---- Page routes (WordPress Headless SSR) ----
+
+app.get('/', async (c) => {
+  return c.html(await homePage())
 })
+
+app.get('/a-propos', async (c) => {
+  return c.html(await aboutPage())
+})
+
+app.get('/publications', async (c) => {
+  return c.html(await publicationsPage(c.req.query()))
+})
+
+app.get('/publications/:slug', async (c) => {
+  return c.html(await publicationDetailPage(c.req.param('slug')))
+})
+
+app.get('/tableaux-de-bord', async (c) => {
+  return c.html(await dashboardsPage())
+})
+
+app.get('/donnees', async (c) => {
+  return c.html(await dataPage())
+})
+
+app.get('/actualites', async (c) => {
+  return c.html(await actualitesPage())
+})
+
+app.get('/actualites/:slug', async (c) => {
+  return c.html(await actualiteDetailPage(c.req.param('slug')))
+})
+
+app.get('/contact', async (c) => {
+  return c.html(await contactPage())
+})
+
+// ---- Utility routes ----
 
 // Schema.org JSON-LD
 app.get('/schema.json', (c) => {
   return c.json(schemaOrg())
 })
 
-// Page routes
-app.get('/', async (c) => {
-  const lang = c.req.query('lang') || 'fr'
-  return c.html(await homePage(c.env.DB, lang))
+// Sitemap XML
+app.get('/sitemap.xml', async (c) => {
+  const xml = await sitemapXml()
+  return c.text(xml, 200, { 'Content-Type': 'application/xml' })
 })
 
-app.get('/a-propos', async (c) => {
-  const lang = c.req.query('lang') || 'fr'
-  return c.html(await aboutPage(c.env.DB, lang))
+// Admin — redirect page with WordPress shortcuts
+app.get('/admin', (c) => {
+  return c.html(adminRedirectPage())
 })
-
-app.get('/about', async (c) => {
-  return c.html(await aboutPage(c.env.DB, 'en'))
-})
-
-app.get('/publications', async (c) => {
-  const lang = c.req.query('lang') || 'fr'
-  return c.html(await publicationsPage(c.env.DB, lang, c.req.query()))
-})
-
-app.get('/publications/:slug', async (c) => {
-  const lang = c.req.query('lang') || 'fr'
-  return c.html(await publicationDetailPage(c.env.DB, lang, c.req.param('slug')))
-})
-
-app.get('/tableaux-de-bord', async (c) => {
-  const lang = c.req.query('lang') || 'fr'
-  return c.html(await dashboardsPage(c.env.DB, lang))
-})
-
-app.get('/dashboards', async (c) => {
-  return c.html(await dashboardsPage(c.env.DB, 'en'))
-})
-
-app.get('/donnees', async (c) => {
-  const lang = c.req.query('lang') || 'fr'
-  return c.html(await dataPage(c.env.DB, lang))
-})
-
-app.get('/data', async (c) => {
-  return c.html(await dataPage(c.env.DB, 'en'))
-})
-
-app.get('/actualites', async (c) => {
-  const lang = c.req.query('lang') || 'fr'
-  return c.html(await actualitesPage(c.env.DB, lang))
-})
-
-app.get('/actualites/:slug', async (c) => {
-  const lang = c.req.query('lang') || 'fr'
-  return c.html(await actualiteDetailPage(c.env.DB, lang, c.req.param('slug')))
-})
-
-app.get('/news', async (c) => {
-  return c.html(await actualitesPage(c.env.DB, 'en'))
-})
-
-app.get('/contact', async (c) => {
-  const lang = c.req.query('lang') || 'fr'
-  return c.html(await contactPage(c.env.DB, lang))
-})
-
-// Admin panel
-app.get('/admin', async (c) => {
-  return c.html(await adminPage(c.env.DB))
-})
-app.get('/admin/*', async (c) => {
-  return c.html(await adminPage(c.env.DB))
+app.get('/admin/*', (c) => {
+  return c.redirect(getWpAdminUrl())
 })
 
 export default app

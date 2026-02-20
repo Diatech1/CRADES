@@ -1,9 +1,19 @@
-export async function sitemapXml(db: D1Database): Promise<string> {
+import { getPosts, getPublications, WPPost } from './wp-api'
+
+export async function sitemapXml(): Promise<string> {
   const baseUrl = 'https://crades.gouv.sn'
   
-  // Get publications
-  const pubs = await db.prepare('SELECT slug, updated_at FROM publications WHERE is_published = 1').all()
-  const news = await db.prepare('SELECT slug, updated_at FROM actualites WHERE is_published = 1').all()
+  // Get content from WordPress
+  let pubs: WPPost[] = []
+  let news: WPPost[] = []
+  try {
+    ;[pubs, news] = await Promise.all([
+      getPublications(50),
+      getPosts(50),
+    ])
+  } catch (e) {
+    console.error('Sitemap: Error fetching WP data', e)
+  }
 
   const staticPages = [
     { url: '/', priority: '1.0', freq: 'daily' },
@@ -13,16 +23,10 @@ export async function sitemapXml(db: D1Database): Promise<string> {
     { url: '/donnees', priority: '0.9', freq: 'weekly' },
     { url: '/actualites', priority: '0.8', freq: 'daily' },
     { url: '/contact', priority: '0.6', freq: 'yearly' },
-    // English versions
-    { url: '/?lang=en', priority: '0.9', freq: 'daily' },
-    { url: '/about', priority: '0.7', freq: 'monthly' },
-    { url: '/dashboards', priority: '0.7', freq: 'weekly' },
-    { url: '/data', priority: '0.8', freq: 'weekly' },
-    { url: '/news', priority: '0.7', freq: 'daily' },
   ]
 
   let xml = `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">`
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">`
 
   for (const page of staticPages) {
     xml += `
@@ -33,23 +37,23 @@ export async function sitemapXml(db: D1Database): Promise<string> {
   </url>`
   }
 
-  for (const pub of (pubs.results || []) as any[]) {
+  for (const pub of pubs) {
+    const lastmod = pub.date ? new Date(pub.date).toISOString().split('T')[0] : new Date().toISOString().split('T')[0]
     xml += `
   <url>
     <loc>${baseUrl}/publications/${pub.slug}</loc>
-    <lastmod>${pub.updated_at ? new Date(pub.updated_at).toISOString().split('T')[0] : new Date().toISOString().split('T')[0]}</lastmod>
+    <lastmod>${lastmod}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="fr" href="${baseUrl}/publications/${pub.slug}"/>
-    <xhtml:link rel="alternate" hreflang="en" href="${baseUrl}/publications/${pub.slug}?lang=en"/>
   </url>`
   }
 
-  for (const actu of (news.results || []) as any[]) {
+  for (const actu of news) {
+    const lastmod = actu.date ? new Date(actu.date).toISOString().split('T')[0] : new Date().toISOString().split('T')[0]
     xml += `
   <url>
     <loc>${baseUrl}/actualites/${actu.slug}</loc>
-    <lastmod>${actu.updated_at ? new Date(actu.updated_at).toISOString().split('T')[0] : new Date().toISOString().split('T')[0]}</lastmod>
+    <lastmod>${lastmod}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>`
@@ -66,7 +70,7 @@ export function schemaOrg() {
     "name": "CRADES",
     "alternateName": "Centre de Recherche, d'Analyse des Echanges et Statistiques",
     "url": "https://crades.gouv.sn",
-    "logo": "https://crades.gouv.sn/static/logo.png",
+    "logo": "https://crades.gouv.sn/static/img/logo-crades.png",
     "description": "Institution rattachée au Ministère de l'Industrie et du Commerce du Sénégal, spécialisée dans la recherche, l'analyse économique et les statistiques industrielles.",
     "address": {
       "@type": "PostalAddress",
