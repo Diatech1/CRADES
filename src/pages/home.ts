@@ -2,43 +2,49 @@ import { layout } from '../components/layout'
 import { getPosts, getPublications, getIndicateurs, getDashboards, stripHtml, formatDate, WPPost } from '../utils/wp-api'
 
 export async function homePage(): Promise<string> {
-  // Fetch data from WordPress REST API in parallel
+  // Fetch ALL data from WordPress REST API in parallel
   const [indicateurs, dashboards, publications, actualites] = await Promise.all([
-    getIndicateurs(4),
+    getIndicateurs(8),
     getDashboards(4),
     getPublications(4),
     getPosts(3),
   ])
 
-  // Build chart configs from WP dashboard meta
+  // Filter indicators that have a value filled in
+  const validIndicateurs = indicateurs.filter((ind: WPPost) => {
+    const val = ind.meta?.indicateur_value
+    return val && val.toString().trim() !== ''
+  })
+
+  // Build chart configs ONLY from WP dashboard meta — no fallback
   const defaultColors = ['#044bad', '#b8943e', '#3a7fd4', '#032d6b']
-  const chartConfigs = dashboards.length > 0 
-    ? dashboards.map((d: WPPost, i: number) => {
-        let chartData = null
-        try {
-          const raw = d.meta?.dashboard_chart_data
-          if (raw) chartData = typeof raw === 'string' ? JSON.parse(raw) : raw
-        } catch (e) { /* invalid JSON */ }
-        return {
-          id: `home-chart-${d.slug || d.id}`,
-          label: chartData?.label || d.title?.rendered || '',
-          data: chartData?.data || [],
-          labels: chartData?.labels || [],
-          type: chartData?.type || 'line',
-          color: d.meta?.dashboard_chart_color || defaultColors[i % 4],
-        }
-      })
-    : [
-        { id: 'home-chart-dashboard-industriel', label: 'Production industrielle', data: [98,102,105,108,112,115,118,121,119,123,125,127], labels: ['J','F','M','A','M','J','J','A','S','O','N','D'], type: 'line', color: '#044bad' },
-        { id: 'home-chart-dashboard-commerce-exterieur', label: 'Balance commerciale', data: [-85,-78,-92,-88,-95,-80,-75,-89,-82,-90,-88,-89], labels: ['J','F','M','A','M','J','J','A','S','O','N','D'], type: 'bar', color: '#b8943e' },
-        { id: 'home-chart-dashboard-pme', label: 'Créations PME', data: [320,380,410,350,420,460,480,510,490,530,550,580], labels: ['J','F','M','A','M','J','J','A','S','O','N','D'], type: 'line', color: '#3a7fd4' },
-        { id: 'home-chart-dashboard-ipp', label: 'Indice des prix', data: [100,101.2,102.5,103.1,103.8,104.2,105.1,105.8,106.2,106.9,107.5,108.1], labels: ['J','F','M','A','M','J','J','A','S','O','N','D'], type: 'line', color: '#032d6b' },
-      ]
+  const chartConfigs = dashboards
+    .map((d: WPPost, i: number) => {
+      let chartData = null
+      try {
+        const raw = d.meta?.dashboard_chart_data
+        if (raw) chartData = typeof raw === 'string' ? JSON.parse(raw) : raw
+      } catch (e) { /* invalid JSON */ }
+
+      // Skip dashboards without chart data
+      if (!chartData || !chartData.data || !chartData.data.length) return null
+
+      return {
+        id: `home-chart-${d.slug || d.id}`,
+        title: d.title?.rendered || '',
+        label: chartData.label || d.title?.rendered || '',
+        data: chartData.data,
+        labels: chartData.labels || [],
+        type: chartData.type || 'line',
+        color: d.meta?.dashboard_chart_color || defaultColors[i % 4],
+      }
+    })
+    .filter(Boolean)
 
   const content = `
 <!-- Hero -->
 <section class="relative overflow-hidden bg-brand-frost">
-  <div class="max-w-6xl mx-auto px-4 sm:px-6 py-16 lg:py-20 pb-28 lg:pb-32">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 py-16 lg:py-20 ${validIndicateurs.length > 0 ? 'pb-28 lg:pb-32' : ''}">
     <div class="max-w-xl">
       <h1 class="font-display font-bold text-3xl sm:text-4xl lg:text-5xl text-brand-navy leading-tight">
         Centre de Recherche, d'Analyse et Statistiques
@@ -57,31 +63,32 @@ export async function homePage(): Promise<string> {
     </div>
   </div>
 
-  <!-- Key stats strip -->
+  ${validIndicateurs.length > 0 ? `
+  <!-- Key stats strip — dynamic from WordPress indicateurs -->
   <div class="absolute bottom-0 inset-x-0 bg-brand-navy/90">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 py-4">
-      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 text-center">
-        ${indicateurs.length > 0 ? indicateurs.map((ind: WPPost) => {
-          const val = ind.meta?.indicateur_value || ind.title?.rendered || ''
+      <div class="grid grid-cols-2 sm:grid-cols-${Math.min(validIndicateurs.length, 4)} gap-4 text-center">
+        ${validIndicateurs.slice(0, 4).map((ind: WPPost) => {
+          const val = ind.meta?.indicateur_value || ''
           const unit = ind.meta?.indicateur_unit || ''
           const name = ind.title?.rendered || ''
+          const dir = ind.meta?.indicateur_change_direction
+          const pct = ind.meta?.indicateur_change_percent
           return `
           <div>
             <div class="text-lg sm:text-xl font-bold text-white">${val}<span class="text-xs font-normal text-white/70 ml-1">${unit}</span></div>
             <div class="text-[11px] text-white/50 mt-0.5">${name}</div>
+            ${pct ? `<div class="text-[10px] mt-0.5 ${dir === 'up' ? 'text-emerald-400' : 'text-red-400'}">${dir === 'up' ? '↑' : '↓'} ${Math.abs(pct)}%</div>` : ''}
           </div>`
-        }).join('') : `
-          <div><div class="text-lg font-bold text-white">1 250 <span class="text-xs font-normal text-white/70 ml-1">Mds FCFA</span></div><div class="text-[11px] text-white/50 mt-0.5">PIB Industriel</div></div>
-          <div><div class="text-lg font-bold text-white">108 <span class="text-xs font-normal text-white/70 ml-1">pts</span></div><div class="text-[11px] text-white/50 mt-0.5">Indice Prix Production</div></div>
-          <div><div class="text-lg font-bold text-white">580 <span class="text-xs font-normal text-white/70 ml-1">/ mois</span></div><div class="text-[11px] text-white/50 mt-0.5">Créations PME</div></div>
-          <div><div class="text-lg font-bold text-white">-89 <span class="text-xs font-normal text-white/70 ml-1">Mds FCFA</span></div><div class="text-[11px] text-white/50 mt-0.5">Balance Commerciale</div></div>
-        `}
+        }).join('')}
       </div>
     </div>
   </div>
+  ` : ''}
 </section>
 
-<!-- Dashboard charts -->
+${chartConfigs.length > 0 ? `
+<!-- Dashboard charts — dynamic from WordPress dashboards -->
 <section class="py-12 border-b border-gray-100">
   <div class="max-w-6xl mx-auto px-4 sm:px-6">
     <div class="flex items-center justify-between mb-8">
@@ -89,19 +96,29 @@ export async function homePage(): Promise<string> {
       <a href="/tableaux-de-bord" class="text-xs text-brand-gold hover:underline">Voir tout &rarr;</a>
     </div>
     <div class="grid lg:grid-cols-2 gap-6">
-      ${(dashboards.length > 0 ? dashboards : [{slug:'dashboard-industriel',title:{rendered:'Production industrielle'}},{slug:'dashboard-commerce-exterieur',title:{rendered:'Balance commerciale'}},{slug:'dashboard-pme',title:{rendered:'Créations PME'}},{slug:'dashboard-ipp',title:{rendered:'Indice des prix'}}]).map((d: any) => `
+      ${chartConfigs.map((d: any) => `
         <div class="border border-gray-100 rounded-lg p-5">
           <div class="flex items-center justify-between mb-4">
-            <h3 class="text-sm font-medium text-gray-800">${d.title?.rendered || ''}</h3>
+            <h3 class="text-sm font-medium text-gray-800">${d.title}</h3>
           </div>
           <div class="bg-gray-50 rounded-md p-3">
-            <canvas id="home-chart-${d.slug || d.id}" height="160"></canvas>
+            <canvas id="${d.id}" height="160"></canvas>
           </div>
         </div>
       `).join('')}
     </div>
   </div>
 </section>
+` : `
+<!-- No dashboards yet -->
+<section class="py-12 border-b border-gray-100">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 text-center py-8">
+    <i class="fas fa-chart-area text-3xl mb-3 text-brand-ice"></i>
+    <p class="text-sm text-gray-400">Aucun tableau de bord disponible.</p>
+    <p class="text-xs text-gray-300 mt-1">Ajoutez des dashboards avec leurs données de graphique depuis <a href="/admin" class="text-brand-blue underline">l'administration</a>.</p>
+  </div>
+</section>
+`}
 
 <!-- Mission -->
 <section class="py-14 bg-brand-frost border-b border-brand-ice/50">
@@ -201,6 +218,7 @@ export async function homePage(): Promise<string> {
   </div>
 </section>
 
+${chartConfigs.length > 0 ? `
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
 document.addEventListener('DOMContentLoaded', () => {
@@ -216,6 +234,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 </script>
+` : ''}
 `
   return layout(content, { 
     title: 'Accueil',
