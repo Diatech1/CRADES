@@ -1,46 +1,43 @@
 <?php
 /**
- * Title: Dernières publications
+ * Title: Dernieres publications
  * Slug: crades/latest-publications
- * Categories: crades, crades-sections
- * Description: Grille de 4 cartes affichant les dernières publications
- * Keywords: publications, cards, grid, documents
+ * Categories: crades-sections
+ * Keywords: publications, recentes, grille
+ * Block Types: core/query
  */
 ?>
-<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"var:preset|spacing|60","bottom":"var:preset|spacing|60"}}},"backgroundColor":"white","layout":{"type":"constrained"}} -->
-<div class="wp-block-group alignfull has-white-background-color has-background" style="padding-top:var(--wp--preset--spacing--60);padding-bottom:var(--wp--preset--spacing--60)">
+<!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|70","bottom":"var:preset|spacing|70"}}},"backgroundColor":"white","layout":{"type":"constrained"}} -->
+<div class="wp-block-group has-white-background-color has-background" style="padding-top:var(--wp--preset--spacing--70);padding-bottom:var(--wp--preset--spacing--70)">
 
-    <!-- wp:group {"layout":{"type":"flex","justifyContent":"space-between","flexWrap":"wrap"}} -->
-    <div class="wp-block-group">
-        <!-- wp:heading {"level":2,"style":{"typography":{"fontSize":"20px","fontWeight":"700"}},"textColor":"navy"} -->
-        <h2 class="wp-block-heading has-navy-color has-text-color" style="font-size:20px;font-weight:700">Dernières publications</h2>
-        <!-- /wp:heading -->
-        <!-- wp:paragraph {"style":{"typography":{"fontSize":"13px"}},"textColor":"primary"} -->
-        <p class="has-primary-color has-text-color" style="font-size:13px"><a href="/publications/">Voir toutes →</a></p>
-        <!-- /wp:paragraph -->
-    </div>
-    <!-- /wp:group -->
+  <!-- wp:group {"style":{"spacing":{"margin":{"bottom":"var:preset|spacing|50"}}},"layout":{"type":"flex","justifyContent":"space-between","flexWrap":"wrap"}} -->
+  <div class="wp-block-group" style="margin-bottom:var(--wp--preset--spacing--50)">
+    <!-- wp:heading {"level":2,"textColor":"navy"} -->
+    <h2 class="has-navy-color has-text-color">Publications recentes</h2>
+    <!-- /wp:heading -->
+    <!-- wp:paragraph {"style":{"typography":{"fontSize":"13px","fontWeight":"500"}}} -->
+    <p style="font-size:13px;font-weight:500"><a href="/publications/">Voir toutes &rarr;</a></p>
+    <!-- /wp:paragraph -->
+  </div>
+  <!-- /wp:group -->
 
-    <!-- wp:query {"queryId":20,"query":{"perPage":4,"pages":0,"offset":0,"postType":"publication","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":false}} -->
-    <div class="wp-block-query">
-        <!-- wp:post-template {"layout":{"type":"grid","columnCount":4}} -->
-            <!-- wp:group {"style":{"border":{"radius":"8px","width":"1px","color":"#e5e7eb"},"spacing":{"padding":{"top":"var:preset|spacing|40","bottom":"var:preset|spacing|40","left":"var:preset|spacing|40","right":"var:preset|spacing|40"}}},"backgroundColor":"white","layout":{"type":"constrained"}} -->
-            <div class="wp-block-group has-border-color has-white-background-color has-background" style="border-color:#e5e7eb;border-width:1px;border-radius:8px;padding:var(--wp--preset--spacing--40)">
-                <!-- wp:post-terms {"term":"publication_type","style":{"typography":{"fontSize":"11px","fontWeight":"600","textTransform":"uppercase"}},"textColor":"primary"} /-->
-                <!-- wp:post-title {"isLink":true,"level":3,"style":{"typography":{"fontSize":"15px","fontWeight":"600"}},"textColor":"navy"} /-->
-                <!-- wp:post-excerpt {"moreText":"","excerptLength":18,"style":{"typography":{"fontSize":"12px"}},"textColor":"gray"} /-->
-                <!-- wp:post-terms {"term":"sector","style":{"typography":{"fontSize":"10px"}},"textColor":"sky"} /-->
-            </div>
-            <!-- /wp:group -->
-        <!-- /wp:post-template -->
-
-        <!-- wp:query-no-results -->
-            <!-- wp:paragraph {"align":"center","textColor":"gray","style":{"typography":{"fontSize":"13px"}}} -->
-            <p class="has-text-align-center has-gray-color has-text-color" style="font-size:13px">Aucune publication pour le moment.</p>
-            <!-- /wp:paragraph -->
-        <!-- /wp:query-no-results -->
-    </div>
-    <!-- /wp:query -->
+  <!-- wp:query {"queryId":10,"query":{"perPage":4,"postType":"publication","order":"desc","orderBy":"date"},"layout":{"type":"constrained"}} -->
+    <!-- wp:post-template {"style":{"spacing":{"blockGap":"var:preset|spacing|40"}},"layout":{"type":"grid","columnCount":4}} -->
+      <!-- wp:group {"className":"crades-card","style":{"spacing":{"padding":{"top":"var:preset|spacing|40","bottom":"var:preset|spacing|40","left":"var:preset|spacing|40","right":"var:preset|spacing|40"}},"border":{"radius":"8px","color":"#e5e7eb","width":"1px"}},"backgroundColor":"white","layout":{"type":"constrained"}} -->
+      <div class="wp-block-group crades-card has-white-background-color has-background" style="border-color:#e5e7eb;border-width:1px;border-radius:8px;padding:var(--wp--preset--spacing--40)">
+        <!-- wp:post-date {"format":"Y","style":{"typography":{"fontSize":"11px","fontWeight":"600"}},"textColor":"primary"} /-->
+        <!-- wp:post-title {"level":3,"isLink":true,"style":{"typography":{"fontSize":"14px","fontWeight":"600","lineHeight":"1.4"}}} /-->
+        <!-- wp:post-excerpt {"moreText":"","excerptLength":15,"style":{"typography":{"fontSize":"12px"}},"textColor":"gray"} /-->
+        <!-- wp:post-terms {"term":"sector","style":{"typography":{"fontSize":"10px"}},"textColor":"gold"} /-->
+      </div>
+      <!-- /wp:group -->
+    <!-- /wp:post-template -->
+    <!-- wp:query-no-results -->
+      <!-- wp:paragraph {"align":"center","textColor":"gray","style":{"typography":{"fontSize":"13px"}}} -->
+      <p class="has-text-align-center has-gray-color has-text-color" style="font-size:13px">Aucune publication disponible pour le moment.</p>
+      <!-- /wp:paragraph -->
+    <!-- /wp:query-no-results -->
+  <!-- /wp:query -->
 
 </div>
 <!-- /wp:group -->

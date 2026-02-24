@@ -1,393 +1,217 @@
 /**
- * CRADES Theme - Custom Styles
- * Matches the Hono site design: palette #044bad, Montserrat, clean institutional
- *
- * @package CRADES
- * @version 1.0.0
+ * CRADES Theme — Custom Styles
+ * Complementary CSS for FSE blocks
+ * @version 2.0.0
  */
 
-/* =====================================================
-   ROOT VARIABLES (supplement theme.json)
-   ===================================================== */
+/* ── Global ─────────────────────────────── */
 :root {
-    --crades-primary: #044bad;
-    --crades-navy: #032d6b;
-    --crades-sky: #3a7fd4;
-    --crades-ice: #c7ddf5;
-    --crades-frost: #eef4fb;
-    --crades-gold: #b8943e;
-    --crades-gold-light: #d4b262;
-    --crades-transition: 200ms ease;
-}
-
-/* =====================================================
-   GENERAL
-   ===================================================== */
-::selection {
-    background: var(--crades-primary);
-    color: #fff;
+  --crades-primary: #044bad;
+  --crades-navy: #032d6b;
+  --crades-sky: #3a7fd4;
+  --crades-ice: #c7ddf5;
+  --crades-frost: #eef4fb;
+  --crades-gold: #b8943e;
+  --crades-gold-light: #d4b262;
+  --crades-success: #059669;
+  --crades-danger: #dc2626;
+  --crades-transition: 0.25s ease;
 }
 
 body {
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-img {
-    max-width: 100%;
-    height: auto;
+/* Smooth scroll */
+html { scroll-behavior: smooth; }
+
+/* ── Selection ──────────────────────────── */
+::selection {
+  background: var(--crades-ice);
+  color: var(--crades-navy);
 }
 
-/* =====================================================
-   HEADER & NAVIGATION
-   ===================================================== */
-
-/* Ministry bar logo */
-.crades-mincom-logo img {
-    max-height: 48px;
-    width: auto;
+/* ── Animations ─────────────────────────── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
-/* Sticky header shadow on scroll */
-.wp-block-group[style*="sticky"] {
-    transition: box-shadow var(--crades-transition);
+.crades-fade-up {
+  animation: fadeUp 0.6s ease forwards;
 }
 
-/* Navigation links */
-.wp-block-navigation a {
-    transition: color var(--crades-transition);
-    position: relative;
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
 }
 
-.wp-block-navigation a:hover {
-    color: var(--crades-primary) !important;
+.crades-fade-in {
+  animation: fadeIn 0.5s ease forwards;
 }
 
-.wp-block-navigation a::after {
-    content: '';
-    position: absolute;
-    bottom: -4px;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: var(--crades-primary);
-    transition: width var(--crades-transition);
+/* ── Cards ──────────────────────────────── */
+.crades-card {
+  transition: box-shadow var(--crades-transition), transform var(--crades-transition);
+  border-radius: 8px;
+  overflow: hidden;
+}
+.crades-card:hover {
+  box-shadow: 0 10px 25px -5px rgba(4,75,173,0.12);
+  transform: translateY(-2px);
 }
 
-.wp-block-navigation a:hover::after {
-    width: 100%;
-}
-
-/* =====================================================
-   BUTTONS
-   ===================================================== */
-.wp-block-button__link {
-    transition: all var(--crades-transition);
-    font-weight: 600;
-    letter-spacing: 0.01em;
-}
-
-.wp-block-button__link:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(4, 75, 173, 0.25);
-}
-
-.wp-block-button.is-style-outline .wp-block-button__link:hover {
-    background: var(--crades-primary) !important;
-    color: #fff !important;
-}
-
-/* =====================================================
-   CARDS (publications, news, indicators)
-   ===================================================== */
-.wp-block-query .wp-block-group[style*="border-color"] {
-    transition: all var(--crades-transition);
-}
-
-.wp-block-query .wp-block-group[style*="border-color"]:hover {
-    border-color: var(--crades-ice) !important;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
-    transform: translateY(-2px);
-}
-
-/* Post title links inside cards */
-.wp-block-post-title a {
-    text-decoration: none;
-    transition: color var(--crades-transition);
-}
-
-.wp-block-post-title a:hover {
-    color: var(--crades-primary) !important;
-}
-
-/* =====================================================
-   SHORTCODE: Indicators Grid
-   ===================================================== */
-.crades-indicators-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 1.5rem;
-}
-
+/* ── Indicator card ─────────────────────── */
 .crades-indicator-card {
-    background: #fff;
-    border: 1px solid #e5e7eb;
-    border-radius: 8px;
-    padding: 1.25rem;
-    transition: all var(--crades-transition);
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 1.5rem;
+  text-align: center;
+  transition: box-shadow var(--crades-transition), border-color var(--crades-transition);
 }
-
 .crades-indicator-card:hover {
-    border-color: var(--crades-ice);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
-    transform: translateY(-2px);
+  border-color: var(--crades-ice);
+  box-shadow: 0 8px 20px -4px rgba(4,75,173,0.1);
 }
-
 .crades-indicator-value {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--crades-navy);
-    line-height: 1.2;
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--crades-navy);
+  line-height: 1.1;
 }
-
 .crades-indicator-unit {
-    font-size: 0.75rem;
-    font-weight: 400;
-    color: var(--crades-sky);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--crades-gold);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
-
 .crades-indicator-name {
-    font-size: 0.8125rem;
-    color: #374151;
-    font-weight: 600;
-    margin-top: 0.25rem;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: #374151;
+  margin-top: 0.5rem;
 }
-
 .crades-indicator-change {
-    font-size: 0.75rem;
-    margin-top: 0.5rem;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  margin-top: 0.25rem;
+}
+.crades-indicator-change.up   { color: var(--crades-success); }
+.crades-indicator-change.down { color: var(--crades-danger); }
+
+/* ── Chart container ────────────────────── */
+.crades-chart-wrap {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 1.5rem;
+  transition: box-shadow var(--crades-transition);
+}
+.crades-chart-wrap:hover {
+  box-shadow: 0 8px 20px -4px rgba(4,75,173,0.08);
+}
+.crades-chart-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--crades-navy);
+  margin-bottom: 1rem;
 }
 
-.crades-indicator-change .crades-up {
-    color: #16a34a;
+/* ── Badges / Tags ──────────────────────── */
+.crades-badge {
+  display: inline-block;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+.crades-badge-primary {
+  background: var(--crades-frost);
+  color: var(--crades-primary);
+}
+.crades-badge-gold {
+  background: #fef3c7;
+  color: var(--crades-gold);
 }
 
-.crades-indicator-change .crades-down {
-    color: #dc2626;
+/* ── Stats strip ────────────────────────── */
+.crades-stats-strip {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
 }
 
-.crades-indicator-change .crades-stable {
-    color: var(--crades-gold);
+/* ── Navigation tweaks ──────────────────── */
+.wp-block-navigation a:hover {
+  color: var(--crades-primary) !important;
 }
 
-.crades-indicator-period {
-    font-size: 0.6875rem;
-    color: #9ca3af;
-    margin-top: 0.25rem;
+/* ── Ministry bar ───────────────────────── */
+.crades-ministry-bar {
+  background: #fff;
+  border-bottom: 1px solid #e5e7eb;
 }
 
-/* =====================================================
-   SHORTCODE: Publications Grid
-   ===================================================== */
-.crades-publications-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 1.5rem;
+/* ── Hero section ───────────────────────── */
+.crades-hero-section {
+  position: relative;
+  overflow: hidden;
 }
 
-.crades-publication-card {
-    display: flex;
-    flex-direction: column;
-    background: #fff;
-    border: 1px solid #e5e7eb;
-    border-radius: 8px;
-    padding: 1.25rem;
-    text-decoration: none;
-    color: inherit;
-    transition: all var(--crades-transition);
+/* ── Buttons ────────────────────────────── */
+.wp-block-button__link {
+  transition: background-color var(--crades-transition), color var(--crades-transition), transform var(--crades-transition);
+}
+.wp-block-button__link:hover {
+  transform: translateY(-1px);
 }
 
-.crades-publication-card:hover {
-    border-color: var(--crades-ice);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
-    transform: translateY(-2px);
+/* ── Tables ─────────────────────────────── */
+.wp-block-table table {
+  border-collapse: collapse;
+  width: 100%;
+}
+.wp-block-table td,
+.wp-block-table th {
+  border: 1px solid #e5e7eb;
+  padding: 0.75rem 1rem;
+  font-size: 0.875rem;
+}
+.wp-block-table th {
+  background: var(--crades-frost);
+  font-weight: 600;
+  color: var(--crades-navy);
+  text-align: left;
+}
+.wp-block-table tbody tr:hover {
+  background: #f8fafc;
 }
 
-.crades-pub-meta {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    margin-bottom: 0.5rem;
+/* ── Responsive ─────────────────────────── */
+@media (max-width: 768px) {
+  .crades-stats-strip {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .crades-indicator-value {
+    font-size: 1.5rem;
+  }
 }
-
-.crades-pub-type {
-    font-size: 0.6875rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    color: var(--crades-primary);
-    background: var(--crades-frost);
-    padding: 2px 8px;
-    border-radius: 4px;
-}
-
-.crades-pub-year {
-    font-size: 0.6875rem;
-    color: #9ca3af;
-}
-
-.crades-pub-title {
-    font-size: 0.9375rem;
-    font-weight: 600;
-    color: var(--crades-navy);
-    margin: 0 0 0.5rem 0;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-}
-
-.crades-pub-excerpt {
-    font-size: 0.75rem;
-    color: #64748b;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    flex: 1;
-}
-
-.crades-pub-footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 0.75rem;
-    padding-top: 0.75rem;
-    border-top: 1px solid #f3f4f6;
-}
-
-.crades-pub-sector {
-    font-size: 0.6875rem;
-    color: var(--crades-sky);
-}
-
-.crades-pub-read {
-    font-size: 0.75rem;
-    font-weight: 600;
-    color: var(--crades-primary);
-}
-
-/* =====================================================
-   SHORTCODE: News Grid
-   ===================================================== */
-.crades-news-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.5rem;
-}
-
-.crades-news-card {
-    display: block;
-    background: #fff;
-    border: 1px solid #e5e7eb;
-    border-radius: 8px;
-    padding: 1.25rem;
-    text-decoration: none;
-    color: inherit;
-    transition: all var(--crades-transition);
-}
-
-.crades-news-card:hover {
-    border-color: var(--crades-ice);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
-    transform: translateY(-2px);
-}
-
-.crades-news-date {
-    font-size: 0.6875rem;
-    color: #9ca3af;
-}
-
-.crades-news-title {
-    font-size: 0.9375rem;
-    font-weight: 600;
-    color: var(--crades-navy);
-    margin: 0.25rem 0 0.5rem;
-}
-
-.crades-news-excerpt {
-    font-size: 0.75rem;
-    color: #64748b;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-}
-
-/* =====================================================
-   CHARTS
-   ===================================================== */
-canvas[id^="chart-"] {
-    width: 100% !important;
-    max-height: 180px;
-}
-
-/* =====================================================
-   FOOTER
-   ===================================================== */
-footer .wp-block-navigation a:hover {
-    color: var(--crades-primary) !important;
-}
-
-/* =====================================================
-   RESPONSIVE
-   ===================================================== */
-@media (max-width: 781px) {
-    .crades-indicators-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .crades-publications-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .crades-news-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
 @media (max-width: 480px) {
-    .crades-indicators-grid {
-        grid-template-columns: 1fr;
-    }
+  .crades-stats-strip {
+    grid-template-columns: 1fr;
+  }
 }
 
-/* =====================================================
-   ELEMENTOR OVERRIDES (when Elementor active)
-   ===================================================== */
-body.elementor-page .wp-block-group,
-body.elementor-page .wp-block-columns {
-    /* Let Elementor manage layout */
-}
-
-.elementor-widget-shortcode .crades-indicators-grid,
-.elementor-widget-shortcode .crades-publications-grid,
-.elementor-widget-shortcode .crades-news-grid {
-    /* Ensure proper grid inside Elementor shortcode widget */
-    width: 100%;
-}
-
-/* =====================================================
-   PRINT STYLES
-   ===================================================== */
+/* ── Print ──────────────────────────────── */
 @media print {
-    .wp-block-navigation,
-    .wp-block-button,
-    .crades-mincom-logo {
-        display: none !important;
-    }
-
-    body {
-        font-size: 12pt;
-        color: #000;
-    }
+  .wp-block-navigation,
+  .crades-ministry-bar,
+  .wp-block-search {
+    display: none !important;
+  }
 }

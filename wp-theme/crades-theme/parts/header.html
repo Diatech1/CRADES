@@ -1,27 +1,28 @@
 <!-- wp:template-part {"slug":"ministry-bar","area":"header"} /-->
 
-<!-- wp:group {"style":{"border":{"bottom":{"color":"#f3f4f6","width":"1px"},"top":{},"right":{},"left":{}},"position":{"type":"sticky","top":"0px"}},"backgroundColor":"white","layout":{"type":"constrained"}} -->
-<div class="wp-block-group has-white-background-color has-background" style="border-bottom-color:#f3f4f6;border-bottom-width:1px">
-    <!-- wp:group {"style":{"spacing":{"padding":{"top":"12px","bottom":"12px"}}},"layout":{"type":"flex","justifyContent":"space-between","flexWrap":"wrap"}} -->
-    <div class="wp-block-group" style="padding-top:12px;padding-bottom:12px">
+<!-- wp:group {"style":{"spacing":{"padding":{"top":"0","bottom":"0"}},"border":{"bottom":{"color":"#e5e7eb","width":"1px"}}},"backgroundColor":"white","layout":{"type":"constrained"}} -->
+<div class="wp-block-group has-white-background-color has-background" style="padding-top:0;padding-bottom:0;border-bottom-color:#e5e7eb;border-bottom-width:1px">
+  <!-- wp:group {"layout":{"type":"flex","justifyContent":"space-between","flexWrap":"wrap"}} -->
+  <div class="wp-block-group">
+    <!-- wp:image {"width":"64px","height":"auto","sizeSlug":"full","linkDestination":"custom"} -->
+    <figure class="wp-block-image size-full is-resized">
+      <a href="/"><img src="/wp-content/themes/crades-theme/assets/img/logo-crades.png" alt="CRADES" style="width:64px;height:auto"/></a>
+    </figure>
+    <!-- /wp:image -->
 
-        <!-- wp:group {"layout":{"type":"flex","flexWrap":"nowrap"}} -->
-        <div class="wp-block-group">
-            <!-- wp:site-logo {"width":96,"shouldSyncIcon":false} /-->
-        </div>
-        <!-- /wp:group -->
+    <!-- wp:navigation {"overlayMenu":"mobile","style":{"typography":{"fontSize":"13px","fontWeight":"500"},"spacing":{"blockGap":"1.5rem"}},"textColor":"gray"} -->
+      <!-- wp:navigation-link {"label":"Accueil","url":"/","kind":"custom"} /-->
+      <!-- wp:navigation-link {"label":"À propos","url":"/a-propos/","kind":"custom"} /-->
+      <!-- wp:navigation-link {"label":"Publications","url":"/publications/","kind":"custom"} /-->
+      <!-- wp:navigation-link {"label":"Tableaux de bord","url":"/tableaux-de-bord/","kind":"custom"} /-->
+      <!-- wp:navigation-link {"label":"Données","url":"/donnees/","kind":"custom"} /-->
+      <!-- wp:navigation-link {"label":"Commerce extérieur","url":"/commerce-exterieur/","kind":"custom"} /-->
+      <!-- wp:navigation-link {"label":"Actualités","url":"/actualites/","kind":"custom"} /-->
+      <!-- wp:navigation-link {"label":"Contact","url":"/contact/","kind":"custom"} /-->
+    <!-- /wp:navigation -->
 
-        <!-- wp:navigation {"overlayMenu":"mobile","style":{"typography":{"fontSize":"13px","fontWeight":"500"},"spacing":{"blockGap":"24px"}},"textColor":"dark-gray"} -->
-            <!-- wp:navigation-link {"label":"Accueil","url":"/","kind":"custom","isTopLevelLink":true} /-->
-            <!-- wp:navigation-link {"label":"À propos","url":"/a-propos/","kind":"custom","isTopLevelLink":true} /-->
-            <!-- wp:navigation-link {"label":"Publications","url":"/publications/","kind":"custom","isTopLevelLink":true} /-->
-            <!-- wp:navigation-link {"label":"Tableaux de bord","url":"/tableaux-de-bord/","kind":"custom","isTopLevelLink":true} /-->
-            <!-- wp:navigation-link {"label":"Données","url":"/donnees/","kind":"custom","isTopLevelLink":true} /-->
-            <!-- wp:navigation-link {"label":"Actualités","url":"/actualites/","kind":"custom","isTopLevelLink":true} /-->
-            <!-- wp:navigation-link {"label":"Contact","url":"/contact/","kind":"custom","isTopLevelLink":true} /-->
-        <!-- /wp:navigation -->
-
-    </div>
-    <!-- /wp:group -->
+    <!-- wp:search {"label":"Rechercher","showLabel":false,"placeholder":"Rechercher...","buttonText":"","buttonUseIcon":true,"style":{"border":{"radius":"50px"}}} /-->
+  </div>
+  <!-- /wp:group -->
 </div>
 <!-- /wp:group -->

@@ -1,70 +1,73 @@
-<!-- wp:group {"backgroundColor":"light-gray","style":{"border":{"top":{"color":"#e5e7eb","width":"1px"}},"spacing":{"padding":{"top":"var:preset|spacing|70","bottom":"var:preset|spacing|60"}}},"layout":{"type":"constrained"}} -->
-<div class="wp-block-group has-light-gray-background-color has-background" style="border-top-color:#e5e7eb;border-top-width:1px;padding-top:var(--wp--preset--spacing--70);padding-bottom:var(--wp--preset--spacing--60)">
+<!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|70","bottom":"var:preset|spacing|50"}},"border":{"top":{"color":"#e5e7eb","width":"1px"}}},"backgroundColor":"white","layout":{"type":"constrained"}} -->
+<div class="wp-block-group has-white-background-color has-background" style="padding-top:var(--wp--preset--spacing--70);padding-bottom:var(--wp--preset--spacing--50);border-top-color:#e5e7eb;border-top-width:1px">
 
-    <!-- wp:columns {"style":{"spacing":{"blockGap":{"left":"var:preset|spacing|60"}}}} -->
-    <div class="wp-block-columns">
+  <!-- wp:columns {"style":{"spacing":{"blockGap":{"left":"var:preset|spacing|60"}}}} -->
+  <div class="wp-block-columns">
 
-        <!-- wp:column {"width":"40%"} -->
-        <div class="wp-block-column" style="flex-basis:40%">
-            <!-- wp:site-logo {"width":80} /-->
-            <!-- wp:paragraph {"style":{"typography":{"fontSize":"12px"},"spacing":{"margin":{"top":"12px"}}},"textColor":"gray"} -->
-            <p class="has-gray-color has-text-color" style="margin-top:12px;font-size:12px">Centre de Recherche, d'Analyse des Echanges et Statistiques. Institution rattachée au Ministère de l'Industrie et du Commerce du Sénégal.</p>
-            <!-- /wp:paragraph -->
-        </div>
-        <!-- /wp:column -->
-
-        <!-- wp:column {"width":"20%"} -->
-        <div class="wp-block-column" style="flex-basis:20%">
-            <!-- wp:heading {"level":4,"style":{"typography":{"fontSize":"12px","fontWeight":"700","textTransform":"uppercase","letterSpacing":"0.05em"}},"textColor":"dark-gray"} -->
-            <h4 class="has-dark-gray-color has-text-color" style="font-size:12px;font-weight:700;letter-spacing:0.05em;text-transform:uppercase">Navigation</h4>
-            <!-- /wp:heading -->
-            <!-- wp:navigation {"overlayMenu":"never","layout":{"type":"flex","orientation":"vertical"},"style":{"typography":{"fontSize":"12px"},"spacing":{"blockGap":"8px"}},"textColor":"gray"} -->
-                <!-- wp:navigation-link {"label":"Accueil","url":"/","kind":"custom"} /-->
-                <!-- wp:navigation-link {"label":"À propos","url":"/a-propos/","kind":"custom"} /-->
-                <!-- wp:navigation-link {"label":"Publications","url":"/publications/","kind":"custom"} /-->
-                <!-- wp:navigation-link {"label":"Tableaux de bord","url":"/tableaux-de-bord/","kind":"custom"} /-->
-            <!-- /wp:navigation -->
-        </div>
-        <!-- /wp:column -->
-
-        <!-- wp:column {"width":"20%"} -->
-        <div class="wp-block-column" style="flex-basis:20%">
-            <!-- wp:heading {"level":4,"style":{"typography":{"fontSize":"12px","fontWeight":"700","textTransform":"uppercase","letterSpacing":"0.05em"}},"textColor":"dark-gray"} -->
-            <h4 class="has-dark-gray-color has-text-color" style="font-size:12px;font-weight:700;letter-spacing:0.05em;text-transform:uppercase">Ressources</h4>
-            <!-- /wp:heading -->
-            <!-- wp:navigation {"overlayMenu":"never","layout":{"type":"flex","orientation":"vertical"},"style":{"typography":{"fontSize":"12px"},"spacing":{"blockGap":"8px"}},"textColor":"gray"} -->
-                <!-- wp:navigation-link {"label":"Données ouvertes","url":"/donnees/","kind":"custom"} /-->
-                <!-- wp:navigation-link {"label":"API","url":"/api/","kind":"custom"} /-->
-                <!-- wp:navigation-link {"label":"Contact","url":"/contact/","kind":"custom"} /-->
-                <!-- wp:navigation-link {"label":"Plan du site","url":"/sitemap/","kind":"custom"} /-->
-            <!-- /wp:navigation -->
-        </div>
-        <!-- /wp:column -->
-
-        <!-- wp:column {"width":"20%"} -->
-        <div class="wp-block-column" style="flex-basis:20%">
-            <!-- wp:heading {"level":4,"style":{"typography":{"fontSize":"12px","fontWeight":"700","textTransform":"uppercase","letterSpacing":"0.05em"}},"textColor":"dark-gray"} -->
-            <h4 class="has-dark-gray-color has-text-color" style="font-size:12px;font-weight:700;letter-spacing:0.05em;text-transform:uppercase">Contact</h4>
-            <!-- /wp:heading -->
-            <!-- wp:paragraph {"style":{"typography":{"fontSize":"12px"}},"textColor":"gray"} -->
-            <p class="has-gray-color has-text-color" style="font-size:12px"><i class="fas fa-map-marker-alt"></i> Rue Aimé Césaire, Plateau<br>Dakar, Sénégal</p>
-            <!-- /wp:paragraph -->
-            <!-- wp:paragraph {"style":{"typography":{"fontSize":"12px"}},"textColor":"gray"} -->
-            <p class="has-gray-color has-text-color" style="font-size:12px"><i class="fas fa-phone"></i> +221 33 889 12 34<br><i class="fas fa-envelope"></i> contact@crades.gouv.sn</p>
-            <!-- /wp:paragraph -->
-        </div>
-        <!-- /wp:column -->
-
+    <!-- wp:column {"width":"30%"} -->
+    <div class="wp-block-column" style="flex-basis:30%">
+      <!-- wp:image {"width":"80px","sizeSlug":"full"} -->
+      <figure class="wp-block-image size-full is-resized">
+        <img src="/wp-content/themes/crades-theme/assets/img/logo-crades.png" alt="CRADES" style="width:80px"/>
+      </figure>
+      <!-- /wp:image -->
+      <!-- wp:paragraph {"style":{"typography":{"fontSize":"12px"}},"textColor":"gray"} -->
+      <p class="has-gray-color has-text-color" style="font-size:12px">Centre de Recherche, d'Analyse des Échanges et Statistiques — Ministère de l'Industrie et du Commerce du Sénégal.</p>
+      <!-- /wp:paragraph -->
     </div>
-    <!-- /wp:columns -->
+    <!-- /wp:column -->
 
-    <!-- wp:separator {"style":{"spacing":{"margin":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|40"}}},"backgroundColor":"ice"} -->
-    <hr class="wp-block-separator has-text-color has-ice-color has-alpha-channel-opacity has-ice-background-color has-background" style="margin-top:var(--wp--preset--spacing--50);margin-bottom:var(--wp--preset--spacing--40)"/>
-    <!-- /wp:separator -->
+    <!-- wp:column {"width":"20%"} -->
+    <div class="wp-block-column" style="flex-basis:20%">
+      <!-- wp:heading {"level":4,"style":{"typography":{"fontSize":"11px","textTransform":"uppercase","letterSpacing":"1px","fontWeight":"600"}},"textColor":"dark-gray"} -->
+      <h4 class="has-dark-gray-color has-text-color" style="font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase">Navigation</h4>
+      <!-- /wp:heading -->
+      <!-- wp:navigation {"overlayMenu":"never","layout":{"type":"flex","orientation":"vertical"},"style":{"typography":{"fontSize":"12px"},"spacing":{"blockGap":"0.5rem"}},"textColor":"gray"} -->
+        <!-- wp:navigation-link {"label":"À propos","url":"/a-propos/","kind":"custom"} /-->
+        <!-- wp:navigation-link {"label":"Publications","url":"/publications/","kind":"custom"} /-->
+        <!-- wp:navigation-link {"label":"Données","url":"/donnees/","kind":"custom"} /-->
+        <!-- wp:navigation-link {"label":"Actualités","url":"/actualites/","kind":"custom"} /-->
+      <!-- /wp:navigation -->
+    </div>
+    <!-- /wp:column -->
 
-    <!-- wp:paragraph {"align":"center","style":{"typography":{"fontSize":"11px"}},"textColor":"gray"} -->
-    <p class="has-text-align-center has-gray-color has-text-color" style="font-size:11px">© 2026 CRADES — Tous droits réservés</p>
-    <!-- /wp:paragraph -->
+    <!-- wp:column {"width":"20%"} -->
+    <div class="wp-block-column" style="flex-basis:20%">
+      <!-- wp:heading {"level":4,"style":{"typography":{"fontSize":"11px","textTransform":"uppercase","letterSpacing":"1px","fontWeight":"600"}},"textColor":"dark-gray"} -->
+      <h4 class="has-dark-gray-color has-text-color" style="font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase">Ressources</h4>
+      <!-- /wp:heading -->
+      <!-- wp:navigation {"overlayMenu":"never","layout":{"type":"flex","orientation":"vertical"},"style":{"typography":{"fontSize":"12px"},"spacing":{"blockGap":"0.5rem"}},"textColor":"gray"} -->
+        <!-- wp:navigation-link {"label":"API","url":"/api/indicators","kind":"custom"} /-->
+        <!-- wp:navigation-link {"label":"Commerce extérieur","url":"/commerce-exterieur/","kind":"custom"} /-->
+        <!-- wp:navigation-link {"label":"Plan du site","url":"/sitemap.xml","kind":"custom"} /-->
+        <!-- wp:navigation-link {"label":"Contact","url":"/contact/","kind":"custom"} /-->
+      <!-- /wp:navigation -->
+    </div>
+    <!-- /wp:column -->
 
+    <!-- wp:column {"width":"25%"} -->
+    <div class="wp-block-column" style="flex-basis:25%">
+      <!-- wp:heading {"level":4,"style":{"typography":{"fontSize":"11px","textTransform":"uppercase","letterSpacing":"1px","fontWeight":"600"}},"textColor":"dark-gray"} -->
+      <h4 class="has-dark-gray-color has-text-color" style="font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase">Contact</h4>
+      <!-- /wp:heading -->
+      <!-- wp:paragraph {"style":{"typography":{"fontSize":"12px"}},"textColor":"gray"} -->
+      <p class="has-gray-color has-text-color" style="font-size:12px">Rue Aimé Césaire, Plateau<br>Dakar, Sénégal<br>+221 33 889 12 34<br>contact@crades.gouv.sn</p>
+      <!-- /wp:paragraph -->
+    </div>
+    <!-- /wp:column -->
+
+  </div>
+  <!-- /wp:columns -->
+</div>
+<!-- /wp:group -->
+
+<!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|30","bottom":"var:preset|spacing|30"}},"border":{"top":{"color":"#f1f5f9","width":"1px"}}},"backgroundColor":"white","layout":{"type":"flex","justifyContent":"space-between"}} -->
+<div class="wp-block-group has-white-background-color has-background" style="padding-top:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--30);border-top-color:#f1f5f9;border-top-width:1px">
+  <!-- wp:paragraph {"style":{"typography":{"fontSize":"11px"}},"textColor":"gray"} -->
+  <p class="has-gray-color has-text-color" style="font-size:11px">&copy; 2026 CRADES — Tous droits réservés</p>
+  <!-- /wp:paragraph -->
+  <!-- wp:paragraph {"style":{"typography":{"fontSize":"11px"}},"textColor":"gray"} -->
+  <p class="has-gray-color has-text-color" style="font-size:11px">République du Sénégal</p>
+  <!-- /wp:paragraph -->
 </div>
 <!-- /wp:group -->

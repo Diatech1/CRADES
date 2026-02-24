@@ -1,49 +1,14 @@
 <!-- wp:template-part {"slug":"header","area":"header"} /-->
-
-<!-- wp:group {"tagName":"main","layout":{"type":"constrained"}} -->
-<main class="wp-block-group">
-
-    <!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|60","bottom":"var:preset|spacing|60"}}},"layout":{"type":"constrained","contentSize":"780px"}} -->
-    <div class="wp-block-group" style="padding-top:var(--wp--preset--spacing--60);padding-bottom:var(--wp--preset--spacing--60)">
-
-        <!-- wp:post-title {"textAlign":"center","level":1,"style":{"typography":{"fontWeight":"700"}},"textColor":"navy"} /-->
-
-        <!-- wp:group {"layout":{"type":"flex","justifyContent":"center"},"style":{"spacing":{"margin":{"top":"var:preset|spacing|20","bottom":"var:preset|spacing|50"}}}} -->
-        <div class="wp-block-group" style="margin-top:var(--wp--preset--spacing--20);margin-bottom:var(--wp--preset--spacing--50)">
-            <!-- wp:post-date {"style":{"typography":{"fontSize":"12px"}},"textColor":"gray"} /-->
-            <!-- wp:post-terms {"term":"category","style":{"typography":{"fontSize":"12px"}},"textColor":"primary"} /-->
-        </div>
-        <!-- /wp:group -->
-
-        <!-- wp:post-featured-image {"style":{"border":{"radius":"12px"}},"aspectRatio":"16/9"} /-->
-
-        <!-- wp:post-content {"layout":{"type":"constrained","contentSize":"720px"}} /-->
-
-        <!-- wp:separator {"style":{"spacing":{"margin":{"top":"var:preset|spacing|60","bottom":"var:preset|spacing|50"}}},"backgroundColor":"ice"} -->
-        <hr class="wp-block-separator has-text-color has-ice-color has-alpha-channel-opacity has-ice-background-color has-background" style="margin-top:var(--wp--preset--spacing--60);margin-bottom:var(--wp--preset--spacing--50)"/>
-        <!-- /wp:separator -->
-
-        <!-- wp:heading {"level":3,"style":{"typography":{"fontSize":"18px","fontWeight":"700"}},"textColor":"navy"} -->
-        <h3 class="wp-block-heading has-navy-color has-text-color" style="font-size:18px;font-weight:700">Articles récents</h3>
-        <!-- /wp:heading -->
-
-        <!-- wp:query {"queryId":10,"query":{"perPage":3,"pages":0,"offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":false}} -->
-        <div class="wp-block-query">
-            <!-- wp:post-template {"layout":{"type":"grid","columnCount":3}} -->
-                <!-- wp:group {"style":{"border":{"radius":"8px","width":"1px","color":"#e5e7eb"},"spacing":{"padding":{"top":"var:preset|spacing|30","bottom":"var:preset|spacing|30","left":"var:preset|spacing|30","right":"var:preset|spacing|30"}}},"backgroundColor":"white","layout":{"type":"constrained"}} -->
-                <div class="wp-block-group has-border-color has-white-background-color has-background" style="border-color:#e5e7eb;border-width:1px;border-radius:8px;padding:var(--wp--preset--spacing--30)">
-                    <!-- wp:post-date {"style":{"typography":{"fontSize":"11px"}},"textColor":"gray"} /-->
-                    <!-- wp:post-title {"isLink":true,"level":4,"style":{"typography":{"fontSize":"14px","fontWeight":"600"}},"textColor":"navy"} /-->
-                </div>
-                <!-- /wp:group -->
-            <!-- /wp:post-template -->
-        </div>
-        <!-- /wp:query -->
-
-    </div>
-    <!-- /wp:group -->
-
+<!-- wp:group {"tagName":"main","style":{"spacing":{"padding":{"top":"var:preset|spacing|60","bottom":"var:preset|spacing|70"}}},"layout":{"type":"constrained"}} -->
+<main class="wp-block-group" style="padding-top:var(--wp--preset--spacing--60);padding-bottom:var(--wp--preset--spacing--70)">
+  <!-- wp:group {"style":{"spacing":{"blockGap":"0.5rem","margin":{"bottom":"var:preset|spacing|50"}}},"layout":{"type":"constrained"}} -->
+  <div class="wp-block-group" style="margin-bottom:var(--wp--preset--spacing--50)">
+    <!-- wp:post-title {"level":1} /-->
+    <!-- wp:post-date {"format":"j F Y","style":{"typography":{"fontSize":"13px"}},"textColor":"gray"} /-->
+  </div>
+  <!-- /wp:group -->
+  <!-- wp:post-featured-image {"style":{"border":{"radius":"8px"}},"align":"wide"} /-->
+  <!-- wp:post-content {"layout":{"type":"constrained"}} /-->
 </main>
 <!-- /wp:group -->
-
 <!-- wp:template-part {"slug":"footer","area":"footer"} /-->

@@ -1,184 +1,108 @@
 /**
- * CRADES Theme - Main JavaScript
- * Chart.js dashboard initialization and utilities
- *
- * @package CRADES
- * @version 1.0.0
+ * CRADES Theme — Main JavaScript
+ * Frontend interactivity for the CRADES WordPress theme
+ * @version 2.0.0
  */
-
 (function () {
-    'use strict';
+  'use strict';
 
-    /* =====================================================
-       CONFIGURATION
-       ===================================================== */
-    var colors = (window.cradesData && window.cradesData.colors) || {
-        primary: '#044bad',
-        navy: '#032d6b',
-        sky: '#3a7fd4',
-        gold: '#b8943e'
-    };
+  /* ── Mobile menu toggle ─────────────────── */
+  function initMobileMenu() {
+    const menuBtn = document.querySelector('.crades-mobile-menu-btn');
+    const mobileMenu = document.querySelector('.crades-mobile-menu');
+    if (!menuBtn || !mobileMenu) return;
 
-    var months = ['Jan', 'Fév', 'Mar', 'Avr', 'Mai', 'Jun', 'Jul', 'Aoû', 'Sep', 'Oct', 'Nov', 'Déc'];
+    menuBtn.addEventListener('click', function () {
+      mobileMenu.classList.toggle('is-open');
+      menuBtn.setAttribute('aria-expanded',
+        mobileMenu.classList.contains('is-open') ? 'true' : 'false'
+      );
+    });
+  }
 
-    /* =====================================================
-       CHART DEFAULTS
-       ===================================================== */
-    function getChartDefaults(color) {
-        return {
-            type: 'line',
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: {
-                    legend: { display: false },
-                    tooltip: {
-                        backgroundColor: '#032d6b',
-                        titleFont: { family: 'Montserrat', size: 11 },
-                        bodyFont: { family: 'Montserrat', size: 11 },
-                        padding: 8,
-                        cornerRadius: 6
-                    }
-                },
-                scales: {
-                    x: {
-                        grid: { display: false },
-                        ticks: {
-                            font: { family: 'Montserrat', size: 9 },
-                            color: '#9ca3af'
-                        }
-                    },
-                    y: {
-                        grid: { color: '#f3f4f6' },
-                        ticks: {
-                            font: { family: 'Montserrat', size: 9 },
-                            color: '#9ca3af'
-                        }
-                    }
-                },
-                interaction: {
-                    intersect: false,
-                    mode: 'index'
-                }
-            }
-        };
-    }
+  /* ── Scroll-to-top button ───────────────── */
+  function initScrollToTop() {
+    const btn = document.createElement('button');
+    btn.className = 'crades-scroll-top';
+    btn.innerHTML = '<i class="fas fa-chevron-up"></i>';
+    btn.setAttribute('aria-label', 'Retour en haut');
+    btn.style.cssText = `
+      position:fixed;bottom:2rem;right:2rem;width:44px;height:44px;
+      border-radius:50%;background:#044bad;color:#fff;border:none;
+      cursor:pointer;opacity:0;visibility:hidden;transition:all 0.3s ease;
+      display:flex;align-items:center;justify-content:center;
+      box-shadow:0 4px 12px rgba(4,75,173,0.3);z-index:999;font-size:16px;
+    `;
+    document.body.appendChild(btn);
 
-    function makeDataset(label, data, color) {
-        return {
-            label: label,
-            data: data,
-            borderColor: color,
-            backgroundColor: color + '15',
-            borderWidth: 2,
-            pointRadius: 0,
-            pointHoverRadius: 4,
-            pointHoverBackgroundColor: color,
-            fill: true,
-            tension: 0.35
-        };
-    }
-
-    /* =====================================================
-       CHART DATA (placeholder — replace with real WP REST data)
-       ===================================================== */
-    var charts = [
-        {
-            id: 'chart-production',
-            label: 'Production industrielle',
-            data: [98, 102, 105, 108, 112, 115, 118, 121, 119, 123, 125, 127],
-            color: colors.primary
-        },
-        {
-            id: 'chart-commerce',
-            label: 'Balance commerciale',
-            data: [-85, -78, -92, -88, -95, -80, -75, -89, -82, -90, -88, -89],
-            color: colors.gold
-        },
-        {
-            id: 'chart-pme',
-            label: 'Créations PME',
-            data: [320, 380, 410, 350, 420, 460, 480, 510, 490, 530, 550, 580],
-            color: colors.sky
-        },
-        {
-            id: 'chart-prix',
-            label: 'Indice des prix',
-            data: [100, 101.2, 102.5, 103.1, 103.8, 104.2, 105.1, 105.8, 106.2, 106.9, 107.5, 108.1],
-            color: colors.navy
-        }
-    ];
-
-    /* =====================================================
-       INITIALIZE CHARTS
-       ===================================================== */
-    function initCharts() {
-        if (typeof Chart === 'undefined') return;
-
-        charts.forEach(function (cfg) {
-            var canvas = document.getElementById(cfg.id);
-            if (!canvas) return;
-
-            var ctx = canvas.getContext('2d');
-            var defaults = getChartDefaults(cfg.color);
-
-            new Chart(ctx, {
-                type: defaults.type,
-                data: {
-                    labels: months,
-                    datasets: [makeDataset(cfg.label, cfg.data, cfg.color)]
-                },
-                options: defaults.options
-            });
-        });
-    }
-
-    /* =====================================================
-       SMOOTH SCROLL FOR ANCHOR LINKS
-       ===================================================== */
-    function initSmoothScroll() {
-        document.querySelectorAll('a[href^="#"]').forEach(function (link) {
-            link.addEventListener('click', function (e) {
-                var target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    e.preventDefault();
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-            });
-        });
-    }
-
-    /* =====================================================
-       HEADER SHADOW ON SCROLL
-       ===================================================== */
-    function initHeaderShadow() {
-        var header = document.querySelector('.wp-block-group[style*="sticky"]');
-        if (!header) return;
-
-        window.addEventListener('scroll', function () {
-            if (window.scrollY > 10) {
-                header.style.boxShadow = '0 2px 8px rgba(0,0,0,0.06)';
-            } else {
-                header.style.boxShadow = 'none';
-            }
-        }, { passive: true });
-    }
-
-    /* =====================================================
-       DOM READY
-       ===================================================== */
-    function onReady(fn) {
-        if (document.readyState !== 'loading') {
-            fn();
-        } else {
-            document.addEventListener('DOMContentLoaded', fn);
-        }
-    }
-
-    onReady(function () {
-        initCharts();
-        initSmoothScroll();
-        initHeaderShadow();
+    window.addEventListener('scroll', function () {
+      if (window.scrollY > 400) {
+        btn.style.opacity = '1';
+        btn.style.visibility = 'visible';
+      } else {
+        btn.style.opacity = '0';
+        btn.style.visibility = 'hidden';
+      }
     });
 
+    btn.addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+
+  /* ── Fade-up animation on scroll ────────── */
+  function initFadeUp() {
+    const els = document.querySelectorAll('.crades-fade-up');
+    if (!els.length || !('IntersectionObserver' in window)) return;
+
+    const observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.style.animationPlayState = 'running';
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    els.forEach(function (el) {
+      el.style.animationPlayState = 'paused';
+      observer.observe(el);
+    });
+  }
+
+  /* ── Smooth anchor links ────────────────── */
+  function initSmoothAnchors() {
+    document.querySelectorAll('a[href^="#"]').forEach(function (link) {
+      link.addEventListener('click', function (e) {
+        var target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  }
+
+  /* ── Header shrink on scroll ────────────── */
+  function initHeaderShrink() {
+    var header = document.querySelector('.wp-block-template-part');
+    if (!header) return;
+
+    window.addEventListener('scroll', function () {
+      if (window.scrollY > 60) {
+        header.classList.add('crades-header-scrolled');
+      } else {
+        header.classList.remove('crades-header-scrolled');
+      }
+    });
+  }
+
+  /* ── Init all ───────────────────────────── */
+  document.addEventListener('DOMContentLoaded', function () {
+    initMobileMenu();
+    initScrollToTop();
+    initFadeUp();
+    initSmoothAnchors();
+    initHeaderShrink();
+  });
 })();

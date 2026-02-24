@@ -2,36 +2,34 @@
 /**
  * Title: Hero CRADES
  * Slug: crades/hero
- * Categories: crades, crades-sections
- * Description: Section hero avec titre du centre, description et boutons d'action
- * Keywords: hero, accueil, banner
+ * Categories: crades-hero
+ * Keywords: hero, accueil, crades
  */
 ?>
-<!-- wp:group {"align":"full","backgroundColor":"frost","style":{"spacing":{"padding":{"top":"var:preset|spacing|70","bottom":"var:preset|spacing|80"}}},"layout":{"type":"constrained"}} -->
-<div class="wp-block-group alignfull has-frost-background-color has-background" style="padding-top:var(--wp--preset--spacing--70);padding-bottom:var(--wp--preset--spacing--80)">
-
-    <!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|40"}},"layout":{"type":"constrained","contentSize":"720px"}} -->
+<!-- wp:cover {"dimRatio":0,"minHeight":420,"style":{"spacing":{"padding":{"top":"var:preset|spacing|70","bottom":"var:preset|spacing|80"}}},"backgroundColor":"frost","layout":{"type":"constrained"}} -->
+<div class="wp-block-cover" style="padding-top:var(--wp--preset--spacing--70);padding-bottom:var(--wp--preset--spacing--80);min-height:420px">
+  <span aria-hidden="true" class="wp-block-cover__background has-frost-background-color has-background-dim-0 has-background-dim"></span>
+  <div class="wp-block-cover__inner-container">
+    <!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|40"}},"layout":{"type":"constrained","contentSize":"600px","justifyContent":"left"}} -->
     <div class="wp-block-group">
-        <!-- wp:heading {"textAlign":"center","level":1,"style":{"typography":{"fontWeight":"700"}},"textColor":"navy"} -->
-        <h1 class="wp-block-heading has-text-align-center has-navy-color has-text-color" style="font-weight:700">Centre de Recherche, d'Analyse et Statistiques</h1>
-        <!-- /wp:heading -->
-
-        <!-- wp:paragraph {"align":"center","style":{"typography":{"fontSize":"15px"}},"textColor":"gray"} -->
-        <p class="has-text-align-center has-gray-color has-text-color" style="font-size:15px">Institution de référence pour la production, l'analyse et la diffusion de données économiques dans les domaines de l'industrie et du commerce au Sénégal.</p>
-        <!-- /wp:paragraph -->
-
-        <!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"},"style":{"spacing":{"margin":{"top":"var:preset|spacing|40"}}}} -->
-        <div class="wp-block-buttons" style="margin-top:var(--wp--preset--spacing--40)">
-            <!-- wp:button {"backgroundColor":"primary","style":{"border":{"radius":"8px"},"typography":{"fontSize":"14px"}}} -->
-            <div class="wp-block-button has-custom-font-size" style="font-size:14px"><a class="wp-block-button__link has-primary-background-color has-background wp-element-button" href="/publications/" style="border-radius:8px">Publications</a></div>
-            <!-- /wp:button -->
-            <!-- wp:button {"backgroundColor":"navy","style":{"border":{"radius":"8px"},"typography":{"fontSize":"14px"}}} -->
-            <div class="wp-block-button has-custom-font-size" style="font-size:14px"><a class="wp-block-button__link has-navy-background-color has-background wp-element-button" href="/donnees/" style="border-radius:8px">Données ouvertes</a></div>
-            <!-- /wp:button -->
-        </div>
-        <!-- /wp:buttons -->
+      <!-- wp:heading {"level":1,"textColor":"navy"} -->
+      <h1 class="has-navy-color has-text-color">Centre de Recherche, d'Analyse et Statistiques</h1>
+      <!-- /wp:heading -->
+      <!-- wp:paragraph {"style":{"typography":{"fontSize":"14px"}},"textColor":"gray"} -->
+      <p class="has-gray-color has-text-color" style="font-size:14px">Le CRADES produit et diffuse les statistiques, études et analyses stratégiques sur l'industrie et le commerce du Sénégal.</p>
+      <!-- /wp:paragraph -->
+      <!-- wp:buttons -->
+      <div class="wp-block-buttons">
+        <!-- wp:button {"backgroundColor":"primary"} -->
+        <div class="wp-block-button"><a class="wp-block-button__link has-primary-background-color has-background" href="/publications/">Publications</a></div>
+        <!-- /wp:button -->
+        <!-- wp:button {"className":"is-style-outline","textColor":"navy"} -->
+        <div class="wp-block-button is-style-outline"><a class="wp-block-button__link has-navy-color has-text-color" href="/donnees/">Données ouvertes</a></div>
+        <!-- /wp:button -->
+      </div>
+      <!-- /wp:buttons -->
     </div>
     <!-- /wp:group -->
-
+  </div>
 </div>
-<!-- /wp:group -->
+<!-- /wp:cover -->

@@ -1,31 +1,33 @@
 <?php
 /**
- * Title: Appel à l'action données ouvertes
+ * Title: CTA Donnees ouvertes
  * Slug: crades/cta-data
- * Categories: crades, crades-sections
- * Description: Section CTA pour accéder aux données ouvertes et à l'API
- * Keywords: cta, data, api, open-data
+ * Categories: crades-sections
+ * Keywords: cta, donnees, api
+ * Block Types: core/group
  */
 ?>
-<!-- wp:group {"align":"full","backgroundColor":"white","style":{"spacing":{"padding":{"top":"var:preset|spacing|70","bottom":"var:preset|spacing|70"}}},"layout":{"type":"constrained","contentSize":"600px"}} -->
-<div class="wp-block-group alignfull has-white-background-color has-background" style="padding-top:var(--wp--preset--spacing--70);padding-bottom:var(--wp--preset--spacing--70)">
-    <!-- wp:heading {"textAlign":"center","level":2,"style":{"typography":{"fontSize":"22px","fontWeight":"700"}},"textColor":"navy"} -->
-    <h2 class="wp-block-heading has-text-align-center has-navy-color has-text-color" style="font-size:22px;font-weight:700">Accédez aux données ouvertes</h2>
-    <!-- /wp:heading -->
+<!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|70","bottom":"var:preset|spacing|70"}}},"gradient":"primary-to-navy","textColor":"white","layout":{"type":"constrained"}} -->
+<div class="wp-block-group has-white-color has-text-color has-primary-to-navy-gradient-background has-background" style="padding-top:var(--wp--preset--spacing--70);padding-bottom:var(--wp--preset--spacing--70)">
 
-    <!-- wp:paragraph {"align":"center","style":{"typography":{"fontSize":"14px"}},"textColor":"gray"} -->
-    <p class="has-text-align-center has-gray-color has-text-color" style="font-size:14px">Téléchargez les jeux de données du CRADES ou intégrez les indicateurs via notre API publique.</p>
-    <!-- /wp:paragraph -->
+  <!-- wp:heading {"textAlign":"center","level":2,"style":{"typography":{"fontWeight":"700"}},"textColor":"white"} -->
+  <h2 class="has-text-align-center has-white-color has-text-color" style="font-weight:700">Explorez nos donnees ouvertes</h2>
+  <!-- /wp:heading -->
 
-    <!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"},"style":{"spacing":{"margin":{"top":"var:preset|spacing|40"}}}} -->
-    <div class="wp-block-buttons" style="margin-top:var(--wp--preset--spacing--40)">
-        <!-- wp:button {"backgroundColor":"primary","style":{"border":{"radius":"8px"},"typography":{"fontSize":"14px"}}} -->
-        <div class="wp-block-button has-custom-font-size" style="font-size:14px"><a class="wp-block-button__link has-primary-background-color has-background wp-element-button" href="/donnees/" style="border-radius:8px">Explorer les données</a></div>
-        <!-- /wp:button -->
-        <!-- wp:button {"className":"is-style-outline","style":{"border":{"radius":"8px"},"typography":{"fontSize":"14px"}},"textColor":"primary"} -->
-        <div class="wp-block-button is-style-outline has-custom-font-size" style="font-size:14px"><a class="wp-block-button__link has-primary-color has-text-color wp-element-button" href="/api/" style="border-radius:8px">API</a></div>
-        <!-- /wp:button -->
-    </div>
-    <!-- /wp:buttons -->
+  <!-- wp:paragraph {"align":"center","style":{"typography":{"fontSize":"14px"},"spacing":{"margin":{"bottom":"var:preset|spacing|50"}}},"textColor":"ice"} -->
+  <p class="has-text-align-center has-ice-color has-text-color" style="font-size:14px;margin-bottom:var(--wp--preset--spacing--50)">Acces libre aux jeux de donnees, indicateurs et a l'API publique du CRADES pour la transparence et l'innovation.</p>
+  <!-- /wp:paragraph -->
+
+  <!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"},"style":{"spacing":{"blockGap":"var:preset|spacing|30"}}} -->
+  <div class="wp-block-buttons">
+    <!-- wp:button {"backgroundColor":"gold","textColor":"white","style":{"border":{"radius":"8px"},"typography":{"fontWeight":"600"}}} -->
+    <div class="wp-block-button"><a class="wp-block-button__link has-gold-background-color has-white-color has-text-color has-background" href="/donnees/" style="border-radius:8px;font-weight:600">Donnees ouvertes</a></div>
+    <!-- /wp:button -->
+    <!-- wp:button {"className":"is-style-outline","style":{"border":{"radius":"8px","color":"#ffffff","width":"2px"},"typography":{"fontWeight":"600"}},"textColor":"white"} -->
+    <div class="wp-block-button is-style-outline"><a class="wp-block-button__link has-white-color has-text-color" href="/api/indicators" style="border-radius:8px;border-color:#ffffff;border-width:2px;font-weight:600">API publique</a></div>
+    <!-- /wp:button -->
+  </div>
+  <!-- /wp:buttons -->
+
 </div>
 <!-- /wp:group -->

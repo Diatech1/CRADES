@@ -1,50 +1,71 @@
 /**
- * CRADES Theme - Editor Styles
+ * CRADES Theme — Editor Styles
  * Applied inside the Gutenberg block editor
- *
- * @package CRADES
- * @version 1.0.0
+ * @version 2.0.0
  */
 
-/* Editor-specific: match front-end look */
+/* Editor body */
 .editor-styles-wrapper {
-    font-family: 'Montserrat', system-ui, -apple-system, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    color: #374151;
+  font-family: "Montserrat", system-ui, -apple-system, sans-serif;
+  color: #374151;
+  line-height: 1.6;
 }
 
+/* Headings in editor */
 .editor-styles-wrapper h1,
 .editor-styles-wrapper h2,
 .editor-styles-wrapper h3,
 .editor-styles-wrapper h4 {
-    font-family: 'Montserrat', system-ui, -apple-system, sans-serif;
-    color: #032d6b;
-    font-weight: 700;
+  color: #032d6b;
+  font-weight: 700;
+  line-height: 1.2;
 }
 
+/* Links */
 .editor-styles-wrapper a {
-    color: #044bad;
+  color: #044bad;
+}
+.editor-styles-wrapper a:hover {
+  color: #032d6b;
 }
 
-.editor-styles-wrapper ::selection {
-    background: #044bad;
-    color: #fff;
-}
-
-/* Button preview in editor */
+/* Buttons */
 .editor-styles-wrapper .wp-block-button__link {
-    font-weight: 600;
-    border-radius: 8px;
+  font-family: "Montserrat", system-ui, sans-serif;
+  font-weight: 600;
+  border-radius: 0.5rem;
 }
 
-/* Card borders in editor */
-.editor-styles-wrapper .wp-block-group[style*="border-color"] {
-    border-radius: 8px;
+/* Tables */
+.editor-styles-wrapper table td,
+.editor-styles-wrapper table th {
+  border-color: #e5e7eb;
+  padding: 0.75rem 1rem;
+}
+.editor-styles-wrapper table th {
+  background: #eef4fb;
+  color: #032d6b;
+  font-weight: 600;
 }
 
-/* Ensure correct font sizes in editor */
-.editor-styles-wrapper .has-x-small-font-size { font-size: 0.6875rem; }
-.editor-styles-wrapper .has-small-font-size { font-size: 0.8125rem; }
-.editor-styles-wrapper .has-medium-font-size { font-size: 1rem; }
-.editor-styles-wrapper .has-large-font-size { font-size: 1.25rem; }
-.editor-styles-wrapper .has-x-large-font-size { font-size: 1.75rem; }
+/* Quote */
+.editor-styles-wrapper .wp-block-quote {
+  border-left: 4px solid #044bad;
+  padding-left: 1rem;
+  color: #64748b;
+}
+
+/* Code */
+.editor-styles-wrapper code {
+  background: #f1f5f9;
+  padding: 0.15em 0.4em;
+  border-radius: 4px;
+  font-size: 0.875em;
+}
+
+/* Captions */
+.editor-styles-wrapper figcaption {
+  font-size: 0.8125rem;
+  color: #64748b;
+  text-align: center;
+}
