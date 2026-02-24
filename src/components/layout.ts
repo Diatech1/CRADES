@@ -100,6 +100,7 @@ export function layout(content: string, options: { title?: string; description?:
         <a href="/publications${lang === 'en' ? '?lang=en' : ''}" class="hover:text-brand-blue transition-colors">${t('Publications', 'Publications', lang)}</a>
         <a href="/${lang === 'en' ? 'dashboards' : 'tableaux-de-bord'}" class="hover:text-brand-blue transition-colors">${t('Tableaux de bord', 'Dashboards', lang)}</a>
         <a href="/${lang === 'en' ? 'data' : 'donnees'}" class="hover:text-brand-blue transition-colors">${t('Données', 'Data', lang)}</a>
+        <a href="/commerce-exterieur" class="hover:text-brand-blue transition-colors">${t('Commerce extérieur', 'Foreign Trade', lang)}</a>
         <a href="/${lang === 'en' ? 'news?lang=en' : 'actualites'}" class="hover:text-brand-blue transition-colors">${t('Actualités', 'News', lang)}</a>
         <a href="/contact${lang === 'en' ? '?lang=en' : ''}" class="hover:text-brand-blue transition-colors">Contact</a>
       </nav>
@@ -138,6 +139,7 @@ export function layout(content: string, options: { title?: string; description?:
     <a href="/publications${lang === 'en' ? '?lang=en' : ''}" class="block px-4 py-3 rounded-lg text-gray-600 hover:bg-gray-50 font-medium text-sm">${t('Publications', 'Publications', lang)}</a>
     <a href="/${lang === 'en' ? 'dashboards' : 'tableaux-de-bord'}" class="block px-4 py-3 rounded-lg text-gray-600 hover:bg-gray-50 font-medium text-sm">${t('Tableaux de bord', 'Dashboards', lang)}</a>
     <a href="/${lang === 'en' ? 'data' : 'donnees'}" class="block px-4 py-3 rounded-lg text-gray-600 hover:bg-gray-50 font-medium text-sm">${t('Données', 'Data', lang)}</a>
+    <a href="/commerce-exterieur" class="block px-4 py-3 rounded-lg text-gray-600 hover:bg-gray-50 font-medium text-sm">${t('Commerce extérieur', 'Foreign Trade', lang)}</a>
     <a href="/${lang === 'en' ? 'news?lang=en' : 'actualites'}" class="block px-4 py-3 rounded-lg text-gray-600 hover:bg-gray-50 font-medium text-sm">${t('Actualités', 'News', lang)}</a>
     <a href="/contact${lang === 'en' ? '?lang=en' : ''}" class="block px-4 py-3 rounded-lg text-gray-600 hover:bg-gray-50 font-medium text-sm">Contact</a>
     <div class="pt-3 border-t border-gray-100 mt-3 flex gap-3 px-4 text-sm">

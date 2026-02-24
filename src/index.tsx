@@ -9,6 +9,7 @@ import { dataPage } from './pages/data'
 import { actualitesPage } from './pages/actualites'
 import { actualiteDetailPage } from './pages/actualite-detail'
 import { contactPage } from './pages/contact'
+import { commerceExterieurPage } from './pages/commerce-exterieur'
 import { adminRedirectPage } from './pages/admin'
 import { apiRoutes } from './api/routes'
 import { schemaOrg } from './utils/seo'
@@ -51,6 +52,10 @@ app.get('/tableaux-de-bord', async (c) => {
 
 app.get('/donnees', async (c) => {
   return c.html(await dataPage())
+})
+
+app.get('/commerce-exterieur', async (c) => {
+  return c.html(await commerceExterieurPage())
 })
 
 app.get('/actualites', async (c) => {

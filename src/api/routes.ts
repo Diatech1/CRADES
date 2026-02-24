@@ -6,6 +6,10 @@ import {
   stripHtml, formatDate, getFeaturedImage, getTerms, getWpUrl,
   WPPost
 } from '../utils/wp-api'
+import {
+  getTradeOverview, getTradeTimeSeries, getTradeBySector,
+  getTopPartners, getLatestAvailableYear, getTradeDashboardData
+} from '../utils/wits-api'
 
 const api = new Hono()
 
@@ -260,6 +264,86 @@ api.get('/wp-info', (c) => {
     cms: 'WordPress REST API',
     cache_ttl: '60s',
   })
+})
+
+// ===============================
+// TRADE DATA API (WITS / WORLD BANK)
+// ===============================
+
+/** GET /api/trade/overview — current year trade overview */
+api.get('/trade/overview', async (c) => {
+  try {
+    const year = parseInt(c.req.query('year') || '') || await getLatestAvailableYear()
+    const overview = await getTradeOverview(year)
+    if (!overview) return c.json({ error: 'No data available' }, 404)
+    return c.json({
+      ...overview,
+      totalExports_millions: Math.round(overview.totalExports / 1000),
+      totalImports_millions: Math.round(overview.totalImports / 1000),
+      tradeBalance_millions: Math.round(overview.tradeBalance / 1000),
+      unit: 'US$ thousands (raw) / US$ millions (formatted)',
+      source: 'WITS - World Bank',
+    })
+  } catch (e: any) {
+    return c.json({ error: e.message }, 500)
+  }
+})
+
+/** GET /api/trade/timeseries — trade evolution over years */
+api.get('/trade/timeseries', async (c) => {
+  try {
+    const start = parseInt(c.req.query('start') || '2013')
+    const end = parseInt(c.req.query('end') || '') || await getLatestAvailableYear()
+    const ts = await getTradeTimeSeries(start, end)
+    return c.json({ ...ts, unit: 'US$ millions', source: 'WITS - World Bank' })
+  } catch (e: any) {
+    return c.json({ error: e.message }, 500)
+  }
+})
+
+/** GET /api/trade/sectors — trade by product sector */
+api.get('/trade/sectors', async (c) => {
+  try {
+    const year = parseInt(c.req.query('year') || '') || await getLatestAvailableYear()
+    const sectors = await getTradeBySector(year)
+    return c.json({ year, sectors, unit: 'US$ millions', source: 'WITS - World Bank' })
+  } catch (e: any) {
+    return c.json({ error: e.message }, 500)
+  }
+})
+
+/** GET /api/trade/partners/exports — top export destinations */
+api.get('/trade/partners/exports', async (c) => {
+  try {
+    const year = parseInt(c.req.query('year') || '') || await getLatestAvailableYear()
+    const limit = parseInt(c.req.query('limit') || '10')
+    const partners = await getTopPartners(year, 'XPRT-TRD-VL', limit)
+    return c.json({ year, partners, unit: 'US$ millions', source: 'WITS - World Bank' })
+  } catch (e: any) {
+    return c.json({ error: e.message }, 500)
+  }
+})
+
+/** GET /api/trade/partners/imports — top import origins */
+api.get('/trade/partners/imports', async (c) => {
+  try {
+    const year = parseInt(c.req.query('year') || '') || await getLatestAvailableYear()
+    const limit = parseInt(c.req.query('limit') || '10')
+    const partners = await getTopPartners(year, 'MPRT-TRD-VL', limit)
+    return c.json({ year, partners, unit: 'US$ millions', source: 'WITS - World Bank' })
+  } catch (e: any) {
+    return c.json({ error: e.message }, 500)
+  }
+})
+
+/** GET /api/trade/dashboard — complete dashboard data */
+api.get('/trade/dashboard', async (c) => {
+  try {
+    const data = await getTradeDashboardData()
+    return c.json(data)
+  } catch (e: any) {
+    return c.json({ error: e.message }, 500)
+  }
 })
 
 export { api as apiRoutes }

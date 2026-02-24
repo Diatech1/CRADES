@@ -20,16 +20,31 @@ async function wpFetch<T>(endpoint: string, params: Record<string, string> = {})
     return cached.data as T
   }
 
-  const res = await fetch(url, {
-    headers: { 'Accept': 'application/json' },
-  })
-  if (!res.ok) {
-    console.error(`WP API error: ${res.status} ${url}`)
-    return (Array.isArray([]) ? [] : {}) as T
+  try {
+    const res = await fetch(url, {
+      headers: { 'Accept': 'application/json' },
+      redirect: 'follow',
+    })
+
+    if (!res.ok) {
+      console.error(`WP API error: ${res.status} ${url}`)
+      return [] as unknown as T
+    }
+
+    // Verify content-type is JSON before parsing
+    const ct = res.headers.get('content-type') || ''
+    if (!ct.includes('json')) {
+      console.error(`WP API returned non-JSON (${ct}) for ${url}`)
+      return [] as unknown as T
+    }
+
+    const data = await res.json() as T
+    cache.set(url, { data, expires: Date.now() + CACHE_TTL })
+    return data
+  } catch (e) {
+    console.error(`WP API fetch failed: ${e} for ${url}`)
+    return [] as unknown as T
   }
-  const data = await res.json() as T
-  cache.set(url, { data, expires: Date.now() + CACHE_TTL })
-  return data
 }
 
 // ---- Types ----
