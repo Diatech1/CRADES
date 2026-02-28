@@ -3,15 +3,15 @@ Theme Name: CRADES
 Theme URI: https://crades.gouv.sn
 Author: CRADES
 Author URI: https://crades.gouv.sn
-Description: Theme WordPress classique pour le Centre de Recherche, d'Analyse des Echanges et Statistiques (CRADES) - Ministere de l'Industrie et du Commerce du Senegal. Design institutionnel bleu/or avec Montserrat et Tailwind CSS.
-Version: 3.0.0
-Requires at least: 6.0
+Description: Theme WordPress hybride (FSE + Classique) pour le Centre de Recherche, d'Analyse des Echanges et Statistiques (CRADES). Supporte l'editeur de blocs (Gutenberg/Site Editor) et les templates classiques PHP. Design institutionnel bleu/or avec Montserrat et Tailwind CSS.
+Version: 4.0.0
+Requires at least: 6.4
 Tested up to: 6.7
 Requires PHP: 7.4
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: crades
-Tags: custom-logo, custom-colors, editor-style, featured-images, theme-options
+Tags: full-site-editing, block-patterns, block-styles, custom-colors, custom-logo, editor-style, featured-images, wide-blocks
 */
 
-/* Theme styles are handled by Tailwind CSS CDN and assets/css/custom.css */
+/* Theme styles are handled by Tailwind CSS CDN, theme.json, and assets/css/custom.css */

@@ -1,0 +1,74 @@
+<!-- wp:template-part {"slug":"header","area":"header"} /-->
+
+<!-- wp:group {"tagName":"main","className":"min-h-screen","layout":{"type":"default"}} -->
+<main class="wp-block-group min-h-screen">
+
+<!-- wp:group {"className":"bg-brand-navy py-16 lg:py-20","layout":{"type":"constrained","contentSize":"1140px"}} -->
+<div class="wp-block-group bg-brand-navy py-16 lg:py-20">
+<!-- wp:group {"className":"px-4 sm:px-6"} -->
+<div class="wp-block-group px-4 sm:px-6">
+<!-- wp:paragraph {"className":"text-xs text-gray-400 mb-4"} -->
+<p class="text-xs text-gray-400 mb-4"><a href="/" class="hover:text-white">Accueil</a> <span class="mx-2 text-gray-600">/</span> <span class="text-gray-300">Publications</span></p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"level":1,"className":"font-display text-2xl lg:text-3xl text-white"} -->
+<h1 class="wp-block-heading font-display text-2xl lg:text-3xl text-white">Publications</h1>
+<!-- /wp:heading -->
+<!-- wp:paragraph {"className":"text-gray-400 mt-2 text-sm"} -->
+<p class="text-gray-400 mt-2 text-sm">Etudes, rapports et analyses du CRADES.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+
+<!-- wp:group {"className":"py-10","layout":{"type":"constrained","contentSize":"1140px"}} -->
+<div class="wp-block-group py-10">
+<!-- wp:group {"className":"px-4 sm:px-6"} -->
+<div class="wp-block-group px-4 sm:px-6">
+
+<!-- wp:query {"queryId":20,"query":{"perPage":50,"pages":0,"offset":0,"postType":"publication","order":"desc","orderBy":"date"}} -->
+<div class="wp-block-query">
+<!-- wp:post-template {"className":"divide-y divide-gray-100"} -->
+
+<!-- wp:group {"className":"flex items-start gap-4 py-5","layout":{"type":"flex","verticalAlignment":"top"}} -->
+<div class="wp-block-group flex items-start gap-4 py-5">
+<!-- wp:group {"className":"flex-1 min-w-0","layout":{"type":"default"}} -->
+<div class="wp-block-group flex-1 min-w-0">
+<!-- wp:group {"className":"flex items-center gap-2 mb-1","layout":{"type":"flex"}} -->
+<div class="wp-block-group flex items-center gap-2 mb-1">
+<!-- wp:paragraph {"className":"text-[11px] font-medium text-brand-gold uppercase tracking-wide"} -->
+<p class="text-[11px] font-medium text-brand-gold uppercase tracking-wide">Publication</p>
+<!-- /wp:paragraph -->
+<!-- wp:post-date {"className":"text-[11px] text-gray-400","format":"Y"} /-->
+</div>
+<!-- /wp:group -->
+<!-- wp:post-title {"level":3,"isLink":true,"className":"text-sm font-medium text-gray-800 hover:text-brand-blue transition-colors"} /-->
+<!-- wp:post-excerpt {"moreText":"","showMoreOnNewLine":false,"excerptLength":20,"className":"text-xs text-gray-400 mt-1 line-clamp-1"} /-->
+</div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+
+<!-- /wp:post-template -->
+
+<!-- wp:query-no-results -->
+<!-- wp:group {"className":"text-center py-16"} -->
+<div class="wp-block-group text-center py-16">
+<!-- wp:paragraph {"className":"text-sm text-gray-400"} -->
+<p class="text-sm text-gray-400">Aucune publication pour le moment.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+<!-- /wp:query-no-results -->
+</div>
+<!-- /wp:query -->
+
+</div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+
+</main>
+<!-- /wp:group -->
+
+<!-- wp:template-part {"slug":"footer","area":"footer"} /-->

@@ -1,0 +1,62 @@
+<!-- wp:template-part {"slug":"header","area":"header"} /-->
+
+<!-- wp:group {"tagName":"main","className":"min-h-screen","layout":{"type":"default"}} -->
+<main class="wp-block-group min-h-screen">
+
+<!-- wp:group {"className":"bg-brand-navy py-16 lg:py-20","layout":{"type":"constrained","contentSize":"1140px"}} -->
+<div class="wp-block-group bg-brand-navy py-16 lg:py-20">
+<!-- wp:group {"className":"px-4 sm:px-6"} -->
+<div class="wp-block-group px-4 sm:px-6">
+<!-- wp:paragraph {"className":"text-xs text-gray-400 mb-4"} -->
+<p class="text-xs text-gray-400 mb-4"><a href="/" class="hover:text-white">Accueil</a> <span class="mx-2 text-gray-600">/</span> <span class="text-gray-300">Tableaux de bord</span></p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"level":1,"className":"font-display text-2xl lg:text-3xl text-white"} -->
+<h1 class="wp-block-heading font-display text-2xl lg:text-3xl text-white">Tableaux de bord</h1>
+<!-- /wp:heading -->
+<!-- wp:paragraph {"className":"text-gray-400 mt-2 text-sm"} -->
+<p class="text-gray-400 mt-2 text-sm">Indicateurs cles et graphiques de suivi economique.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+
+<!-- wp:group {"className":"py-10","layout":{"type":"constrained","contentSize":"1140px"}} -->
+<div class="wp-block-group py-10">
+<!-- wp:group {"className":"px-4 sm:px-6"} -->
+<div class="wp-block-group px-4 sm:px-6">
+
+<!-- wp:query {"queryId":21,"query":{"perPage":20,"pages":0,"offset":0,"postType":"dashboard","order":"asc","orderBy":"date"}} -->
+<div class="wp-block-query">
+<!-- wp:post-template {"className":"grid lg:grid-cols-2 gap-6"} -->
+
+<!-- wp:group {"className":"border border-gray-100 rounded-lg p-5","layout":{"type":"default"}} -->
+<div class="wp-block-group border border-gray-100 rounded-lg p-5">
+<!-- wp:post-title {"level":3,"isLink":true,"className":"text-sm font-medium text-gray-800 mb-4 hover:text-brand-blue"} /-->
+<!-- wp:post-excerpt {"moreText":"","showMoreOnNewLine":false,"excerptLength":30,"className":"text-xs text-gray-500"} /-->
+</div>
+<!-- /wp:group -->
+
+<!-- /wp:post-template -->
+
+<!-- wp:query-no-results -->
+<!-- wp:group {"className":"text-center py-16"} -->
+<div class="wp-block-group text-center py-16">
+<!-- wp:paragraph {"className":"text-sm text-gray-400"} -->
+<p class="text-sm text-gray-400">Aucun tableau de bord disponible.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+<!-- /wp:query-no-results -->
+</div>
+<!-- /wp:query -->
+
+</div>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+
+</main>
+<!-- /wp:group -->
+
+<!-- wp:template-part {"slug":"footer","area":"footer"} /-->

@@ -1,7 +1,7 @@
 /**
  * CRADES Theme — Editor Styles
  * Applied inside the Gutenberg block editor
- * @version 2.0.0
+ * @version 4.0.0
  */
 
 /* Editor body */
@@ -9,6 +9,7 @@
   font-family: "Montserrat", system-ui, -apple-system, sans-serif;
   color: #374151;
   line-height: 1.6;
+  background: #ffffff;
 }
 
 /* Headings in editor */
@@ -19,6 +20,7 @@
   color: #032d6b;
   font-weight: 700;
   line-height: 1.2;
+  font-family: "Montserrat", system-ui, sans-serif;
 }
 
 /* Links */
@@ -34,6 +36,12 @@
   font-family: "Montserrat", system-ui, sans-serif;
   font-weight: 600;
   border-radius: 0.5rem;
+  background-color: #044bad;
+  color: #ffffff;
+  transition: background-color 0.25s ease;
+}
+.editor-styles-wrapper .wp-block-button__link:hover {
+  background-color: #032d6b;
 }
 
 /* Tables */
@@ -68,4 +76,36 @@
   font-size: 0.8125rem;
   color: #64748b;
   text-align: center;
+}
+
+/* ── Brand color utility classes for the editor ── */
+.editor-styles-wrapper .bg-brand-navy { background-color: #032d6b; }
+.editor-styles-wrapper .bg-brand-blue { background-color: #044bad; }
+.editor-styles-wrapper .bg-brand-frost { background-color: #eef4fb; }
+.editor-styles-wrapper .bg-brand-ice { background-color: #c7ddf5; }
+.editor-styles-wrapper .text-brand-navy { color: #032d6b; }
+.editor-styles-wrapper .text-brand-blue { color: #044bad; }
+.editor-styles-wrapper .text-brand-gold { color: #b8943e; }
+.editor-styles-wrapper .text-brand-sky { color: #3a7fd4; }
+
+/* ── Patterns display in editor ── */
+.editor-styles-wrapper .wp-block-group {
+  box-sizing: border-box;
+}
+
+/* Navigation block in editor */
+.editor-styles-wrapper .wp-block-navigation a {
+  color: #6b7280;
+  font-size: 13px;
+  font-weight: 500;
+}
+.editor-styles-wrapper .wp-block-navigation a:hover {
+  color: #044bad;
+}
+
+/* Query loop cards in editor */
+.editor-styles-wrapper .wp-block-post-template .wp-block-group {
+  border: 1px solid #f3f4f6;
+  border-radius: 0.75rem;
+  padding: 1.25rem;
 }
