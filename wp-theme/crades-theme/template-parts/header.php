@@ -22,7 +22,7 @@ $logo_mincom = crades_img( 'logo-mincom.png' );
     "@context": "https://schema.org",
     "@type": "GovernmentOrganization",
     "name": "CRADES",
-    "alternateName": "Centre de Recherche, d'Analyse et Statistiques",
+    "alternateName": "Centre de Recherche, d'Analyse des Échanges et Statistiques",
     "url": "https://crades.gouv.sn",
     "logo": "https://crades.gouv.sn/static/img/logo-crades.png",
     "address": {
@@ -53,20 +53,23 @@ $logo_mincom = crades_img( 'logo-mincom.png' );
       </a>
 
       <!-- Desktop Nav -->
-      <nav class="hidden lg:flex items-center gap-6 text-[13px] font-medium text-gray-500">
-        <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="hover:text-brand-blue transition-colors">Accueil</a>
-        <a href="<?php echo esc_url( home_url( '/a-propos/' ) ); ?>" class="hover:text-brand-blue transition-colors">À propos</a>
-        <a href="<?php echo esc_url( home_url( '/publications/' ) ); ?>" class="hover:text-brand-blue transition-colors">Publications</a>
+      <nav class="hidden lg:flex items-center gap-5 xl:gap-6 text-[13px] font-medium text-gray-500">
+        <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="hover:text-brand-blue transition-colors whitespace-nowrap">Accueil</a>
+        <a href="<?php echo esc_url( home_url( '/a-propos/' ) ); ?>" class="hover:text-brand-blue transition-colors whitespace-nowrap">À propos</a>
+        <a href="<?php echo esc_url( home_url( '/publications/' ) ); ?>" class="hover:text-brand-blue transition-colors whitespace-nowrap">Publications</a>
         <div class="relative group">
-          <a href="<?php echo esc_url( home_url( '/tableaux-de-bord/' ) ); ?>" class="hover:text-brand-blue transition-colors flex items-center gap-1">Tableaux de bord <i class="fas fa-chevron-down text-[8px] text-gray-400 group-hover:text-brand-blue transition-colors"></i></a>
-          <div class="absolute top-full left-0 pt-2 hidden group-hover:block">
+          <button class="hover:text-brand-blue transition-colors flex items-center gap-1 whitespace-nowrap" onclick="this.parentElement.querySelector('.dropdown-menu').classList.toggle('hidden')">
+            <a href="<?php echo esc_url( home_url( '/tableaux-de-bord/' ) ); ?>" class="hover:text-brand-blue">Tableaux de bord</a>
+            <i class="fas fa-chevron-down text-[8px] text-gray-400 group-hover:text-brand-blue transition-colors"></i>
+          </button>
+          <div class="dropdown-menu absolute top-full left-0 pt-2 hidden group-hover:block">
             <div class="bg-white border border-gray-100 rounded-lg shadow-lg py-2 min-w-[200px]">
               <a href="<?php echo esc_url( home_url( '/commerce-exterieur/' ) ); ?>" class="block px-4 py-2 text-[13px] text-gray-500 hover:text-brand-blue hover:bg-gray-50 transition-colors">Commerce extérieur</a>
             </div>
           </div>
         </div>
-        <a href="<?php echo esc_url( home_url( '/actualites/' ) ); ?>" class="hover:text-brand-blue transition-colors">Actualités</a>
-        <a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>" class="hover:text-brand-blue transition-colors">Contact</a>
+        <a href="<?php echo esc_url( home_url( '/actualites/' ) ); ?>" class="hover:text-brand-blue transition-colors whitespace-nowrap">Actualités</a>
+        <a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>" class="hover:text-brand-blue transition-colors whitespace-nowrap">Contact</a>
       </nav>
 
       <!-- Right -->

@@ -14,7 +14,7 @@ $logo_crades = crades_img( 'logo-crades.png' );
         <div class="flex items-center gap-2 mb-3">
           <img src="<?php echo esc_url( $logo_crades ); ?>" alt="CRADES" class="h-20 w-auto">
         </div>
-        <p class="text-xs text-gray-400 leading-relaxed">Centre de Recherche, d'Analyse et Statistiques</p>
+        <p class="text-xs text-gray-400 leading-relaxed">Centre de Recherche, d'Analyse des Échanges et Statistiques</p>
       </div>
       <div>
         <h4 class="text-xs font-semibold text-gray-800 uppercase tracking-wider mb-3">Navigation</h4>

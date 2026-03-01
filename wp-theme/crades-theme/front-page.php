@@ -45,8 +45,8 @@ $news = get_posts([
 <section class="relative overflow-hidden bg-brand-frost">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 py-16 lg:py-20">
     <div class="max-w-xl">
-      <h1 class="font-display font-bold text-3xl sm:text-4xl lg:text-5xl text-brand-navy leading-tight">
-        Centre de Recherche, d'Analyse et Statistiques
+      <h1 class="font-display font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-brand-navy leading-tight">
+        Centre de Recherche, d'Analyse des Échanges et Statistiques
       </h1>
       <p class="text-gray-600 mt-5 text-sm leading-relaxed">
         Le CRADES produit et diffuse les statistiques, études et analyses stratégiques sur l'industrie et le commerce du Sénégal.

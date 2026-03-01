@@ -5,7 +5,7 @@ export function layout(content: string, options: { title?: string; description?:
   const lang = options.lang || 'fr'
   const title = options.title 
     ? `${options.title} | CRADES` 
-    : 'CRADES - Centre de Recherche, d\'Analyse et Statistiques'
+    : 'CRADES - Centre de Recherche, d\'Analyse des Échanges et Statistiques'
   const description = options.description || 
     'Institution rattachée au Ministère de l\'Industrie et du Commerce du Sénégal.'
   const path = options.path || '/'
@@ -63,7 +63,7 @@ export function layout(content: string, options: { title?: string; description?:
     "@context": "https://schema.org",
     "@type": "GovernmentOrganization",
     "name": "CRADES",
-    "alternateName": "Centre de Recherche, d'Analyse et Statistiques",
+    "alternateName": "Centre de Recherche, d'Analyse des Échanges et Statistiques",
     "url": "https://crades.gouv.sn",
     "logo": "https://crades.gouv.sn/static/img/logo-crades.png",
     "address": {
@@ -94,20 +94,23 @@ export function layout(content: string, options: { title?: string; description?:
       </a>
 
       <!-- Desktop Nav -->
-      <nav class="hidden lg:flex items-center gap-6 text-[13px] font-medium text-gray-500">
-        <a href="/${lang === 'en' ? '?lang=en' : ''}" class="hover:text-brand-blue transition-colors">${t('Accueil', 'Home', lang)}</a>
-        <a href="/${lang === 'en' ? 'about' : 'a-propos'}" class="hover:text-brand-blue transition-colors">${t('À propos', 'About', lang)}</a>
-        <a href="/publications${lang === 'en' ? '?lang=en' : ''}" class="hover:text-brand-blue transition-colors">${t('Publications', 'Publications', lang)}</a>
+      <nav class="hidden lg:flex items-center gap-5 xl:gap-6 text-[13px] font-medium text-gray-500">
+        <a href="/${lang === 'en' ? '?lang=en' : ''}" class="hover:text-brand-blue transition-colors whitespace-nowrap">${t('Accueil', 'Home', lang)}</a>
+        <a href="/${lang === 'en' ? 'about' : 'a-propos'}" class="hover:text-brand-blue transition-colors whitespace-nowrap">${t('À propos', 'About', lang)}</a>
+        <a href="/publications${lang === 'en' ? '?lang=en' : ''}" class="hover:text-brand-blue transition-colors whitespace-nowrap">${t('Publications', 'Publications', lang)}</a>
         <div class="relative group">
-          <a href="/${lang === 'en' ? 'dashboards' : 'tableaux-de-bord'}" class="hover:text-brand-blue transition-colors flex items-center gap-1">${t('Tableaux de bord', 'Dashboards', lang)} <i class="fas fa-chevron-down text-[8px] text-gray-400 group-hover:text-brand-blue transition-colors"></i></a>
-          <div class="absolute top-full left-0 pt-2 hidden group-hover:block">
+          <button class="hover:text-brand-blue transition-colors flex items-center gap-1 whitespace-nowrap" onclick="this.parentElement.querySelector('.dropdown-menu').classList.toggle('hidden')">
+            <a href="/${lang === 'en' ? 'dashboards' : 'tableaux-de-bord'}" class="hover:text-brand-blue">${t('Tableaux de bord', 'Dashboards', lang)}</a>
+            <i class="fas fa-chevron-down text-[8px] text-gray-400 group-hover:text-brand-blue transition-colors"></i>
+          </button>
+          <div class="dropdown-menu absolute top-full left-0 pt-2 hidden group-hover:block">
             <div class="bg-white border border-gray-100 rounded-lg shadow-lg py-2 min-w-[200px]">
               <a href="/commerce-exterieur" class="block px-4 py-2 text-[13px] text-gray-500 hover:text-brand-blue hover:bg-gray-50 transition-colors">${t('Commerce extérieur', 'Foreign Trade', lang)}</a>
             </div>
           </div>
         </div>
-        <a href="/${lang === 'en' ? 'news?lang=en' : 'actualites'}" class="hover:text-brand-blue transition-colors">${t('Actualités', 'News', lang)}</a>
-        <a href="/contact${lang === 'en' ? '?lang=en' : ''}" class="hover:text-brand-blue transition-colors">Contact</a>
+        <a href="/${lang === 'en' ? 'news?lang=en' : 'actualites'}" class="hover:text-brand-blue transition-colors whitespace-nowrap">${t('Actualités', 'News', lang)}</a>
+        <a href="/contact${lang === 'en' ? '?lang=en' : ''}" class="hover:text-brand-blue transition-colors whitespace-nowrap">Contact</a>
       </nav>
 
       <!-- Right -->
@@ -209,7 +212,7 @@ ${content}
         <div class="flex items-center gap-2 mb-3">
           <img src="/static/img/logo-crades.png" alt="CRADES" class="h-20 w-auto">
         </div>
-        <p class="text-xs text-gray-400 leading-relaxed">${t('Centre de Recherche, d\'Analyse et Statistiques', 'Research, Analysis and Statistics Centre', lang)}</p>
+        <p class="text-xs text-gray-400 leading-relaxed">${t('Centre de Recherche, d\'Analyse des Échanges et Statistiques', 'Research, Trade Analysis and Statistics Centre', lang)}</p>
       </div>
       <div>
         <h4 class="text-xs font-semibold text-gray-800 uppercase tracking-wider mb-3">${t('Navigation', 'Navigation', lang)}</h4>
