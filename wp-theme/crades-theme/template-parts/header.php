@@ -57,9 +57,14 @@ $logo_mincom = crades_img( 'logo-mincom.png' );
         <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="hover:text-brand-blue transition-colors">Accueil</a>
         <a href="<?php echo esc_url( home_url( '/a-propos/' ) ); ?>" class="hover:text-brand-blue transition-colors">À propos</a>
         <a href="<?php echo esc_url( home_url( '/publications/' ) ); ?>" class="hover:text-brand-blue transition-colors">Publications</a>
-        <a href="<?php echo esc_url( home_url( '/tableaux-de-bord/' ) ); ?>" class="hover:text-brand-blue transition-colors">Tableaux de bord</a>
-        <a href="<?php echo esc_url( home_url( '/donnees/' ) ); ?>" class="hover:text-brand-blue transition-colors">Données</a>
-        <a href="<?php echo esc_url( home_url( '/commerce-exterieur/' ) ); ?>" class="hover:text-brand-blue transition-colors">Commerce extérieur</a>
+        <div class="relative group">
+          <a href="<?php echo esc_url( home_url( '/tableaux-de-bord/' ) ); ?>" class="hover:text-brand-blue transition-colors flex items-center gap-1">Tableaux de bord <i class="fas fa-chevron-down text-[8px] text-gray-400 group-hover:text-brand-blue transition-colors"></i></a>
+          <div class="absolute top-full left-0 pt-2 hidden group-hover:block">
+            <div class="bg-white border border-gray-100 rounded-lg shadow-lg py-2 min-w-[200px]">
+              <a href="<?php echo esc_url( home_url( '/commerce-exterieur/' ) ); ?>" class="block px-4 py-2 text-[13px] text-gray-500 hover:text-brand-blue hover:bg-gray-50 transition-colors">Commerce extérieur</a>
+            </div>
+          </div>
+        </div>
         <a href="<?php echo esc_url( home_url( '/actualites/' ) ); ?>" class="hover:text-brand-blue transition-colors">Actualités</a>
         <a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>" class="hover:text-brand-blue transition-colors">Contact</a>
       </nav>
@@ -97,8 +102,7 @@ $logo_mincom = crades_img( 'logo-mincom.png' );
     <a href="<?php echo esc_url( home_url( '/a-propos/' ) ); ?>" class="block px-4 py-3 rounded-lg text-gray-600 hover:bg-gray-50 font-medium text-sm">À propos</a>
     <a href="<?php echo esc_url( home_url( '/publications/' ) ); ?>" class="block px-4 py-3 rounded-lg text-gray-600 hover:bg-gray-50 font-medium text-sm">Publications</a>
     <a href="<?php echo esc_url( home_url( '/tableaux-de-bord/' ) ); ?>" class="block px-4 py-3 rounded-lg text-gray-600 hover:bg-gray-50 font-medium text-sm">Tableaux de bord</a>
-    <a href="<?php echo esc_url( home_url( '/donnees/' ) ); ?>" class="block px-4 py-3 rounded-lg text-gray-600 hover:bg-gray-50 font-medium text-sm">Données</a>
-    <a href="<?php echo esc_url( home_url( '/commerce-exterieur/' ) ); ?>" class="block px-4 py-3 rounded-lg text-gray-600 hover:bg-gray-50 font-medium text-sm">Commerce extérieur</a>
+    <a href="<?php echo esc_url( home_url( '/commerce-exterieur/' ) ); ?>" class="block pl-8 pr-4 py-2 rounded-lg text-gray-400 hover:bg-gray-50 font-medium text-sm"><i class="fas fa-chevron-right text-[8px] mr-2"></i>Commerce extérieur</a>
     <a href="<?php echo esc_url( home_url( '/actualites/' ) ); ?>" class="block px-4 py-3 rounded-lg text-gray-600 hover:bg-gray-50 font-medium text-sm">Actualités</a>
     <a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>" class="block px-4 py-3 rounded-lg text-gray-600 hover:bg-gray-50 font-medium text-sm">Contact</a>
     <div class="pt-3 border-t border-gray-100 mt-3 flex gap-3 px-4 text-sm">

@@ -21,7 +21,7 @@ $logo_crades = crades_img( 'logo-crades.png' );
         <ul class="space-y-2 text-xs text-gray-400">
           <li><a href="<?php echo esc_url( home_url( '/a-propos/' ) ); ?>" class="hover:text-gray-600">À propos</a></li>
           <li><a href="<?php echo esc_url( home_url( '/publications/' ) ); ?>" class="hover:text-gray-600">Publications</a></li>
-          <li><a href="<?php echo esc_url( home_url( '/donnees/' ) ); ?>" class="hover:text-gray-600">Données</a></li>
+          <li><a href="<?php echo esc_url( home_url( '/tableaux-de-bord/' ) ); ?>" class="hover:text-gray-600">Tableaux de bord</a></li>
           <li><a href="<?php echo esc_url( home_url( '/actualites/' ) ); ?>" class="hover:text-gray-600">Actualités</a></li>
         </ul>
       </div>
@@ -29,7 +29,7 @@ $logo_crades = crades_img( 'logo-crades.png' );
         <h4 class="text-xs font-semibold text-gray-800 uppercase tracking-wider mb-3">Ressources</h4>
         <ul class="space-y-2 text-xs text-gray-400">
           <li><a href="<?php echo esc_url( rest_url( 'wp/v2/indicateur' ) ); ?>" class="hover:text-gray-600">API</a></li>
-          <li><a href="<?php echo esc_url( home_url( '/commerce-exterieur/' ) ); ?>" class="hover:text-gray-600">Commerce extérieur</a></li>
+          <li><a href="<?php echo esc_url( home_url( '/donnees/' ) ); ?>" class="hover:text-gray-600">Données</a></li>
           <li><a href="<?php echo esc_url( home_url( '/sitemap.xml' ) ); ?>" class="hover:text-gray-600">Plan du site</a></li>
           <li><a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>" class="hover:text-gray-600">Contact</a></li>
         </ul>

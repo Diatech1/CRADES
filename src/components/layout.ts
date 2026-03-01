@@ -98,9 +98,14 @@ export function layout(content: string, options: { title?: string; description?:
         <a href="/${lang === 'en' ? '?lang=en' : ''}" class="hover:text-brand-blue transition-colors">${t('Accueil', 'Home', lang)}</a>
         <a href="/${lang === 'en' ? 'about' : 'a-propos'}" class="hover:text-brand-blue transition-colors">${t('À propos', 'About', lang)}</a>
         <a href="/publications${lang === 'en' ? '?lang=en' : ''}" class="hover:text-brand-blue transition-colors">${t('Publications', 'Publications', lang)}</a>
-        <a href="/${lang === 'en' ? 'dashboards' : 'tableaux-de-bord'}" class="hover:text-brand-blue transition-colors">${t('Tableaux de bord', 'Dashboards', lang)}</a>
-        <a href="/${lang === 'en' ? 'data' : 'donnees'}" class="hover:text-brand-blue transition-colors">${t('Données', 'Data', lang)}</a>
-        <a href="/commerce-exterieur" class="hover:text-brand-blue transition-colors">${t('Commerce extérieur', 'Foreign Trade', lang)}</a>
+        <div class="relative group">
+          <a href="/${lang === 'en' ? 'dashboards' : 'tableaux-de-bord'}" class="hover:text-brand-blue transition-colors flex items-center gap-1">${t('Tableaux de bord', 'Dashboards', lang)} <i class="fas fa-chevron-down text-[8px] text-gray-400 group-hover:text-brand-blue transition-colors"></i></a>
+          <div class="absolute top-full left-0 pt-2 hidden group-hover:block">
+            <div class="bg-white border border-gray-100 rounded-lg shadow-lg py-2 min-w-[200px]">
+              <a href="/commerce-exterieur" class="block px-4 py-2 text-[13px] text-gray-500 hover:text-brand-blue hover:bg-gray-50 transition-colors">${t('Commerce extérieur', 'Foreign Trade', lang)}</a>
+            </div>
+          </div>
+        </div>
         <a href="/${lang === 'en' ? 'news?lang=en' : 'actualites'}" class="hover:text-brand-blue transition-colors">${t('Actualités', 'News', lang)}</a>
         <a href="/contact${lang === 'en' ? '?lang=en' : ''}" class="hover:text-brand-blue transition-colors">Contact</a>
       </nav>
@@ -138,8 +143,7 @@ export function layout(content: string, options: { title?: string; description?:
     <a href="/${lang === 'en' ? 'about' : 'a-propos'}" class="block px-4 py-3 rounded-lg text-gray-600 hover:bg-gray-50 font-medium text-sm">${t('À propos', 'About', lang)}</a>
     <a href="/publications${lang === 'en' ? '?lang=en' : ''}" class="block px-4 py-3 rounded-lg text-gray-600 hover:bg-gray-50 font-medium text-sm">${t('Publications', 'Publications', lang)}</a>
     <a href="/${lang === 'en' ? 'dashboards' : 'tableaux-de-bord'}" class="block px-4 py-3 rounded-lg text-gray-600 hover:bg-gray-50 font-medium text-sm">${t('Tableaux de bord', 'Dashboards', lang)}</a>
-    <a href="/${lang === 'en' ? 'data' : 'donnees'}" class="block px-4 py-3 rounded-lg text-gray-600 hover:bg-gray-50 font-medium text-sm">${t('Données', 'Data', lang)}</a>
-    <a href="/commerce-exterieur" class="block px-4 py-3 rounded-lg text-gray-600 hover:bg-gray-50 font-medium text-sm">${t('Commerce extérieur', 'Foreign Trade', lang)}</a>
+    <a href="/commerce-exterieur" class="block pl-8 pr-4 py-2 rounded-lg text-gray-400 hover:bg-gray-50 font-medium text-sm"><i class="fas fa-chevron-right text-[8px] mr-2"></i>${t('Commerce extérieur', 'Foreign Trade', lang)}</a>
     <a href="/${lang === 'en' ? 'news?lang=en' : 'actualites'}" class="block px-4 py-3 rounded-lg text-gray-600 hover:bg-gray-50 font-medium text-sm">${t('Actualités', 'News', lang)}</a>
     <a href="/contact${lang === 'en' ? '?lang=en' : ''}" class="block px-4 py-3 rounded-lg text-gray-600 hover:bg-gray-50 font-medium text-sm">Contact</a>
     <div class="pt-3 border-t border-gray-100 mt-3 flex gap-3 px-4 text-sm">
@@ -212,7 +216,7 @@ ${content}
         <ul class="space-y-2 text-xs text-gray-400">
           <li><a href="/${lang === 'en' ? 'about' : 'a-propos'}" class="hover:text-gray-600">${t('À propos', 'About', lang)}</a></li>
           <li><a href="/publications${lang === 'en' ? '?lang=en' : ''}" class="hover:text-gray-600">${t('Publications', 'Publications', lang)}</a></li>
-          <li><a href="/${lang === 'en' ? 'data' : 'donnees'}" class="hover:text-gray-600">${t('Données', 'Data', lang)}</a></li>
+          <li><a href="/${lang === 'en' ? 'dashboards' : 'tableaux-de-bord'}" class="hover:text-gray-600">${t('Tableaux de bord', 'Dashboards', lang)}</a></li>
           <li><a href="/${lang === 'en' ? 'news?lang=en' : 'actualites'}" class="hover:text-gray-600">${t('Actualités', 'News', lang)}</a></li>
         </ul>
       </div>
@@ -220,6 +224,7 @@ ${content}
         <h4 class="text-xs font-semibold text-gray-800 uppercase tracking-wider mb-3">${t('Ressources', 'Resources', lang)}</h4>
         <ul class="space-y-2 text-xs text-gray-400">
           <li><a href="/api/indicators" class="hover:text-gray-600">API</a></li>
+          <li><a href="/${lang === 'en' ? 'data' : 'donnees'}" class="hover:text-gray-600">${t('Données', 'Data', lang)}</a></li>
           <li><a href="/sitemap.xml" class="hover:text-gray-600">${t('Plan du site', 'Sitemap', lang)}</a></li>
           <li><a href="/contact${lang === 'en' ? '?lang=en' : ''}" class="hover:text-gray-600">Contact</a></li>
         </ul>
