@@ -65,6 +65,7 @@ $logo_mincom = crades_img( 'logo-mincom.png' );
           <div class="dropdown-menu absolute top-full left-0 pt-2 hidden group-hover:block">
             <div class="bg-white border border-gray-100 rounded-lg shadow-lg py-2 min-w-[200px]">
               <a href="<?php echo esc_url( home_url( '/commerce-exterieur/' ) ); ?>" class="block px-4 py-2 text-[13px] text-gray-500 hover:text-brand-blue hover:bg-gray-50 transition-colors">Commerce extérieur</a>
+              <a href="<?php echo esc_url( home_url( '/tableaux-de-bord-2/' ) ); ?>" class="block px-4 py-2 text-[13px] text-gray-500 hover:text-brand-blue hover:bg-gray-50 transition-colors">Statistiques économiques</a>
             </div>
           </div>
         </div>
@@ -106,6 +107,7 @@ $logo_mincom = crades_img( 'logo-mincom.png' );
     <a href="<?php echo esc_url( home_url( '/publications/' ) ); ?>" class="block px-4 py-3 rounded-lg text-gray-600 hover:bg-gray-50 font-medium text-sm">Publications</a>
     <a href="<?php echo esc_url( home_url( '/tableaux-de-bord/' ) ); ?>" class="block px-4 py-3 rounded-lg text-gray-600 hover:bg-gray-50 font-medium text-sm">Tableaux de bord</a>
     <a href="<?php echo esc_url( home_url( '/commerce-exterieur/' ) ); ?>" class="block pl-8 pr-4 py-2 rounded-lg text-gray-400 hover:bg-gray-50 font-medium text-sm"><i class="fas fa-chevron-right text-[8px] mr-2"></i>Commerce extérieur</a>
+    <a href="<?php echo esc_url( home_url( '/tableaux-de-bord-2/' ) ); ?>" class="block pl-8 pr-4 py-2 rounded-lg text-gray-400 hover:bg-gray-50 font-medium text-sm"><i class="fas fa-chevron-right text-[8px] mr-2"></i>Statistiques économiques</a>
     <a href="<?php echo esc_url( home_url( '/actualites/' ) ); ?>" class="block px-4 py-3 rounded-lg text-gray-600 hover:bg-gray-50 font-medium text-sm">Actualités</a>
     <a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>" class="block px-4 py-3 rounded-lg text-gray-600 hover:bg-gray-50 font-medium text-sm">Contact</a>
     <div class="pt-3 border-t border-gray-100 mt-3 flex gap-3 px-4 text-sm">

@@ -106,6 +106,7 @@ function crades_template_routing( $template ) {
             'donnees'            => 'page-data.php',
             'actualites'         => 'page-actualites.php',
             'a-propos'           => 'page-about.php',
+            'tableaux-de-bord-2' => 'page-dashboards-2.php',
         ];
 
         if ( isset( $slug_map[ $slug ] ) ) {
@@ -282,6 +283,7 @@ function crades_create_pages() {
         'donnees'            => 'Donnees',
         'actualites'         => 'Actualites',
         'a-propos'           => 'A propos',
+        'tableaux-de-bord-2' => 'Statistiques economiques',
     ];
 
     foreach ( $pages as $slug => $title ) {

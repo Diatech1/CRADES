@@ -10,6 +10,7 @@ import { actualitesPage } from './pages/actualites'
 import { actualiteDetailPage } from './pages/actualite-detail'
 import { contactPage } from './pages/contact'
 import { commerceExterieurPage } from './pages/commerce-exterieur'
+import { dashboards2Page } from './pages/dashboards-2'
 import { adminRedirectPage } from './pages/admin'
 import { apiRoutes } from './api/routes'
 import { schemaOrg } from './utils/seo'
@@ -56,6 +57,10 @@ app.get('/donnees', async (c) => {
 
 app.get('/commerce-exterieur', async (c) => {
   return c.html(await commerceExterieurPage())
+})
+
+app.get('/tableaux-de-bord-2', (c) => {
+  return c.html(dashboards2Page())
 })
 
 app.get('/actualites', async (c) => {
